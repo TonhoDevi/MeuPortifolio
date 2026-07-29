@@ -4,210 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Antonio Henrique — Full Stack & Game Developer</title>
+<meta name="description" content="Portfólio de Antonio Henrique — Full Stack Developer e Game Developer. Java, Spring Boot, Godot, Unity e projetos de backend e jogos.">
+<meta name="author" content="Antonio Henrique">
+<meta property="og:title" content="Antonio Henrique | Full Stack & Game Developer">
+<meta property="og:description" content="Programador autodidata, professor e dev júnior — backend Java/Spring Boot e desenvolvimento de jogos em Godot e Unity.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2312101C'/%3E%3Ctext x='50' y='68' font-size='55' text-anchor='middle' fill='%23FF3D8A'%3E%3C/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#12101C;
-    --surface:#1D1A2E;
-    --surface-2:#252140;
-    --text:#F3F1FA;
-    --muted:#9A93B5;
-    --pink:#FF3D8A;
-    --cyan:#35E8E0;
-    --amber:#FFC93C;
-    --violet:#8C6DFF;
-    --font-display:'Silkscreen', monospace;
-    --font-body:'Sora', sans-serif;
-    --font-mono:'JetBrains Mono', monospace;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
-  }
-
-  *{ box-sizing:border-box; margin:0; padding:0; }
-
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--font-body);
-    line-height:1.6;
-    background-image:
-      radial-gradient(circle at 15% 10%, rgba(255,61,138,0.08), transparent 35%),
-      radial-gradient(circle at 85% 0%, rgba(53,232,224,0.08), transparent 35%);
-  }
-
-  a{ color:inherit; text-decoration:none; }
-  :focus-visible{ outline:3px solid var(--amber); outline-offset:3px; }
-
-  .wrap{ max-width:1040px; margin:0 auto; padding:0 24px; }
-
-  /* NAV */
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:20px 0;
-  }
-  .logo{
-    font-family:var(--font-mono); font-weight:700; letter-spacing:1px;
-    font-size:0.95rem; color:var(--cyan);
-  }
-  .nav-links{ display:flex; gap:28px; font-size:0.9rem; color:var(--muted); }
-  .nav-links a:hover{ color:var(--text); }
-
-  /* HERO */
-  .hero{ padding:64px 0 48px; }
-  .eyebrow{
-    font-family:var(--font-mono); font-size:0.8rem; color:var(--pink);
-    letter-spacing:2px; text-transform:uppercase; margin-bottom:16px;
-    display:inline-block; border:1px solid rgba(255,61,138,0.4);
-    padding:4px 12px; border-radius:20px;
-  }
-  h1{
-    font-family:var(--font-display);
-    font-size:clamp(2.2rem, 6vw, 3.6rem);
-    line-height:1.15;
-    margin-bottom:16px;
-    color:var(--text);
-  }
-  h1 .accent{ color:var(--amber); }
-  .subtitle{ font-size:1.1rem; color:var(--muted); max-width:560px; margin-bottom:32px; }
-
-  .cta-row{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px; }
-  .btn{
-    font-family:var(--font-mono); font-size:0.85rem; font-weight:700;
-    padding:12px 24px; border-radius:8px; border:2px solid transparent;
-    display:inline-flex; align-items:center; gap:8px; transition:transform .15s ease;
-  }
-  .btn:hover{ transform:translateY(-2px); }
-  .btn-primary{ background:var(--pink); color:#1a0a12; }
-  .btn-secondary{ border-color:var(--cyan); color:var(--cyan); }
-
-  /* HUD STAT BARS */
-  .hud{
-    background:var(--surface);
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:14px;
-    padding:28px;
-  }
-  .hud-title{
-    font-family:var(--font-mono); font-size:0.75rem; color:var(--muted);
-    letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;
-  }
-  .stat{ margin-bottom:16px; }
-  .stat:last-child{ margin-bottom:0; }
-  .stat-label{
-    display:flex; justify-content:space-between; font-family:var(--font-mono);
-    font-size:0.8rem; margin-bottom:6px; color:var(--text);
-  }
-  .stat-label span:last-child{ color:var(--muted); }
-  .bar-track{
-    height:10px; background:var(--surface-2); border-radius:6px; overflow:hidden;
-  }
-  .bar-fill{
-    height:100%; border-radius:6px;
-    width:0%;
-    animation:fill 1.4s ease-out forwards;
-  }
-  @keyframes fill{ to{ width:var(--target); } }
-  .bar-fill.pink{ background:linear-gradient(90deg, var(--pink), #ff8ab8); }
-  .bar-fill.cyan{ background:linear-gradient(90deg, var(--cyan), #7bf6f0); }
-  .bar-fill.amber{ background:linear-gradient(90deg, var(--amber), #ffe08a); }
-  .bar-fill.violet{ background:linear-gradient(90deg, var(--violet), #b6a4ff); }
-
-  /* SECTIONS */
-  section{ padding:56px 0; }
-  .section-head{ margin-bottom:32px; }
-  .section-tag{
-    font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan);
-    letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; display:block;
-  }
-  h2{ font-family:var(--font-display); font-size:1.8rem; }
-
-  .about-text{ color:var(--muted); max-width:640px; font-size:1rem; }
-  .about-text strong{ color:var(--text); }
-
-  /* PROJECT CARDS */
-  .grid{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-    gap:20px;
-  }
-  .card{
-    background:var(--surface);
-    border:1px solid rgba(255,255,255,0.06);
-    border-radius:14px;
-    padding:24px;
-    display:flex; flex-direction:column;
-    transition:border-color .2s ease, transform .2s ease;
-  }
-  .card:hover{ border-color:var(--pink); transform:translateY(-4px); }
-  .card-type{
-    font-family:var(--font-mono); font-size:0.7rem; letter-spacing:1px;
-    text-transform:uppercase; padding:3px 10px; border-radius:20px;
-    display:inline-block; margin-bottom:14px; width:fit-content;
-  }
-  .card-type.game{ background:rgba(255,61,138,0.15); color:var(--pink); }
-  .card-type.api{ background:rgba(53,232,224,0.15); color:var(--cyan); }
-  .card h3{ font-family:var(--font-body); font-weight:700; font-size:1.15rem; margin-bottom:8px; }
-  .card p{ color:var(--muted); font-size:0.9rem; margin-bottom:16px; flex-grow:1; }
-  .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
-  .tag{
-    font-family:var(--font-mono); font-size:0.7rem; color:var(--muted);
-    border:1px solid rgba(255,255,255,0.1); padding:3px 9px; border-radius:6px;
-  }
-  .card-links{ display:flex; gap:16px; font-family:var(--font-mono); font-size:0.8rem; }
-  .card-links a{ color:var(--amber); }
-  .card-links a:hover{ text-decoration:underline; }
-
-  .edit-note{
-    font-family:var(--font-mono); font-size:0.7rem; color:var(--violet);
-    margin-top:6px; opacity:0.8;
-  }
-
-  /* CONTACT */
-  footer{ padding:56px 0 40px; border-top:1px solid rgba(255,255,255,0.06); margin-top:32px; }
-  .contact-row{ display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between; }
-  .contact-links{ display:flex; gap:20px; font-family:var(--font-mono); font-size:0.85rem; }
-  .contact-links a{ color:var(--muted); }
-  .contact-links a:hover{ color:var(--cyan); }
-  .footnote{ color:var(--muted); font-size:0.8rem; font-family:var(--font-mono); }
-
-  @media (max-width:640px){
-    .nav-links{ display:none; }
-    .cta-row{ flex-direction:column; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<div class="particles" aria-hidden="true" id="particles"></div>
+
+<nav class="mainnav" id="mainnav">
+  <div class="logo">&lt;/ TonhoDevi &gt;</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#sobre">Sobre</a>
+    <a href="#inventario">Skills</a>
+    <a href="#trajetoria">Trajetória</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#sobre">Sobre</a>
+  <a href="#inventario">Skills</a>
+  <a href="#trajetoria">Trajetória</a>
+  <a href="#projetos">Projetos</a>
+  <a href="#contato">Contato</a>
+</div>
+
 <div class="wrap">
-  <nav>
-    <div class="logo">&lt;/ TonhoDevi &gt;</div>
-    <div class="nav-links">
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <span class="eyebrow">Player One</span>
-    <h1>Eu sou <span class="accent">Antonio Henrique</span>,<br>Full Stack & Game Developer.</h1>
-    <p class="subtitle">
+    <span class="eyebrow reveal">Player One</span>
+    <h1 class="reveal">Eu sou <span class="accent">Antonio Henrique</span>,<br>Full Stack & Game Developer.</h1>
+    <p class="subtitle reveal">
       Programador autodidata há 4 anos — comecei com GDScript na Godot e hoje
       transito entre backend Java/Spring Boot e desenvolvimento de jogos.
       Atualmente sou professor de programação e dev júnior na Fuctura Tecnologia,
       onde ensino Java e Python e contribuo em projetos reais de backend e AR.
     </p>
-    <div class="cta-row">
+    <div class="cta-row reveal">
       <a class="btn btn-primary" href="#projetos">Ver projetos</a>
       <a class="btn btn-secondary" href="mailto:antoniohenriquebn@hotmail.com">Falar comigo</a>
     </div>
 
-    <div class="hud">
-      <span class="hud-title">Status do personagem</span>
+    <div class="hud reveal">
+      <span class="hud-title"><span>Status do personagem</span> <span class="xp">LVL 4 · 4 anos de XP</span></span>
       <div class="stat">
         <div class="stat-label"><span>Java & Spring Boot</span><span>LVL 90</span></div>
         <div class="bar-track"><div class="bar-fill cyan" style="--target:90%"></div></div>
@@ -229,11 +78,11 @@
 
   <!-- SOBRE -->
   <section id="sobre">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="section-tag">// sobre</span>
       <h2>Quem escreve o código</h2>
     </div>
-    <p class="about-text">
+    <p class="about-text reveal">
       Sou autodidata: comecei a programar há 4 anos aprendendo <strong>GDScript</strong>
       na Godot, e desde então sigo em paralelo como programador convencional e como
       game developer. Sou pleno em <strong>Java</strong> e <strong>GDScript</strong>,
@@ -244,18 +93,88 @@
       formado no curso Full Stack Java da Fuctura e concluí a Academia Godot — e
       meu maior sonho é seguir carreira como game developer.
     </p>
+    <div class="achievements reveal-stagger">
+      <div class="achievement"><div class="achievement-num">4+</div><div class="achievement-label">Anos de código</div></div>
+      <div class="achievement"><div class="achievement-num">90+</div><div class="achievement-label">Alunos formados</div></div>
+      <div class="achievement"><div class="achievement-num">6</div><div class="achievement-label">Turmas conduzidas</div></div>
+      <div class="achievement"><div class="achievement-num">10k+</div><div class="achievement-label">Downloads (Bíblia 3D)</div></div>
+    </div>
+  </section>
+
+  <!-- INVENTORY / TECH -->
+  <section id="inventario">
+    <div class="section-head reveal">
+      <span class="section-tag">// inventário</span>
+      <h2>Itens equipados</h2>
+    </div>
+    <div class="inventory-grid reveal-stagger">
+      <div class="item-slot"><span class="rarity-dot rarity-legendary"></span>Java<span class="tooltip">Java — Pleno</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-legendary"></span>GDScript<span class="tooltip">GDScript — Pleno</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-epic"></span>Spring<span class="tooltip">Spring Boot</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-epic"></span>Godot<span class="tooltip">Godot Engine</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-rare"></span>C#<span class="tooltip">C# — bom domínio</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-rare"></span>Unity<span class="tooltip">Unity Engine</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-rare"></span>JS<span class="tooltip">JavaScript</span></div>
+      <div class="item-slot"><span class="rarity-dot rarity-rare"></span>Python<span class="tooltip">Python — bom domínio</span></div>
+      <div class="item-slot">C<span class="tooltip">C — bom domínio</span></div>
+      <div class="item-slot">Kotlin<span class="tooltip">Kotlin — bom domínio</span></div>
+      <div class="item-slot">SQL<span class="tooltip">PostgreSQL</span></div>
+      <div class="item-slot">JPA<span class="tooltip">JPA / Hibernate</span></div>
+      <div class="item-slot">HTML</div>
+      <div class="item-slot">CSS</div>
+      <div class="item-slot">Git</div>
+      <div class="item-slot">Vercel</div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA / QUEST LOG -->
+  <section id="trajetoria">
+    <div class="section-head reveal">
+      <span class="section-tag">// quest log</span>
+      <h2>Trajetória</h2>
+    </div>
+    <div class="quest-log">
+      <div class="quest done reveal">
+        <span class="quest-status">Concluída</span>
+        <h3>Academia Godot</h3>
+        <p class="quest-meta">Formação em Godot Engine</p>
+        <p>Trilha completa de GDScript e desenvolvimento de jogos 2D na Godot, base do meu primeiro amor por game dev.</p>
+      </div>
+      <div class="quest done reveal">
+        <span class="quest-status">Concluída</span>
+        <h3>Full Stack Java — Fuctura Tecnologia</h3>
+        <p class="quest-meta">Formação profissionalizante</p>
+        <p>Curso completo de desenvolvimento Full Stack com Java, abrindo caminho para a atuação como dev júnior.</p>
+      </div>
+      <div class="quest active reveal">
+        <span class="quest-status">Em andamento</span>
+        <h3>Engenharia de Software — Estácio</h3>
+        <p class="quest-meta">Graduação em curso</p>
+        <p>Aprofundando fundamentos de engenharia de software, arquitetura e boas práticas de desenvolvimento.</p>
+      </div>
+      <div class="quest active reveal">
+        <span class="quest-status">Atual</span>
+        <h3>Professor & Dev Júnior — Fuctura Tecnologia</h3>
+        <p class="quest-meta">2024 — Atualmente</p>
+        <p>Ensino Java, Backend, Banco de Dados e Spring Boot para turmas de formação, além de atuar como dev júnior em
+        projetos reais de backend e Realidade Aumentada — já são 6 turmas e mais de 90 alunos formados.</p>
+      </div>
+    </div>
   </section>
 
   <!-- PROJETOS -->
   <section id="projetos">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="section-tag">// projetos</span>
       <h2>Save files</h2>
     </div>
-    <div class="grid">
+    <div class="grid reveal-stagger">
 
       <div class="card">
-        <span class="card-type api">FULL STACK</span>
+        <div class="card-top">
+          <span class="card-type api">FULL STACK</span>
+          <span class="quest-mode">Solo</span>
+        </div>
         <h3>Templo de Tatânea</h3>
         <p>Plataforma web de RPG (D&D 5e) com criação de fichas de personagem,
         compêndios homebrew e salvamento de dados. Front-end completo integrado
@@ -273,7 +192,10 @@
       </div>
 
       <div class="card">
-        <span class="card-type game">JOGO · AR</span>
+        <div class="card-top">
+          <span class="card-type game">JOGO · AR</span>
+          <span class="quest-mode">Equipe</span>
+        </div>
         <h3>Revista Bíblia 3D</h3>
         <p>Jogo educativo em Realidade Aumentada para Android, carro-chefe da
         Fuctura Tecnologia. Publicado na Google Play, com mais de 10 mil downloads
@@ -290,7 +212,10 @@
       </div>
 
       <div class="card">
-        <span class="card-type game">JOGO</span>
+        <div class="card-top">
+          <span class="card-type game">JOGO</span>
+          <span class="quest-mode">Solo</span>
+        </div>
         <h3>Tales of the Dungeon Inquisitors</h3>
         <p>Metroidvania 2D completo desenvolvido sozinho em Godot: dois
         personagens jogáveis com combate e magia, exploração interconectada,
@@ -305,7 +230,10 @@
       </div>
 
       <div class="card">
-        <span class="card-type api">BACKEND</span>
+        <div class="card-top">
+          <span class="card-type api">BACKEND</span>
+          <span class="quest-mode">Solo</span>
+        </div>
         <h3>Sistema de Gerenciamento de Biblioteca</h3>
         <p>Projeto Java em arquitetura de camadas: CRUD de livros e categorias,
         validações, services e DAOs, com persistência via JPA/Hibernate e
@@ -321,7 +249,10 @@
       </div>
 
       <div class="card">
-        <span class="card-type api">BACKEND</span>
+        <div class="card-top">
+          <span class="card-type api">BACKEND</span>
+          <span class="quest-mode">Equipe</span>
+        </div>
         <h3>Agendamento de Turnos — BOPE</h3>
         <p>Projeto profissional em produção na Fuctura Tecnologia. Desenvolvimento
         de funcionalidades de backend em Spring Boot, integração com PostgreSQL
@@ -337,7 +268,10 @@
       </div>
 
       <div class="card">
-        <span class="card-type api">APP</span>
+        <div class="card-top">
+          <span class="card-type api">APP</span>
+          <span class="quest-mode">Solo</span>
+        </div>
         <h3>Calculadora de Planos de Corte</h3>
         <p>Aplicação web para cálculo otimizado de planos de corte de vigas
         metálicas, unindo lógica de engenharia estrutural a uma interface
@@ -355,20 +289,56 @@
   </section>
 
   <!-- CONTATO -->
-  <footer id="contato">
-    <div class="contact-row">
-      <div>
-        <h2 style="font-size:1.3rem; margin-bottom:6px;">Bora conversar?</h2>
-        <p class="footnote">antoniohenriquebn@hotmail.com · Recife, PE</p>
+  <section id="contato">
+    <div class="section-head reveal">
+      <span class="section-tag">// contato</span>
+      <h2>Bora conversar?</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" placeholder="Seu nome" required autocomplete="name">
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+          <span class="error-msg"></span>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="4" placeholder="Sua mensagem..." required minlength="10"></textarea>
+          <span class="error-msg"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <span class="btn-text">Enviar mensagem</span>
+        </button>
+      </form>
+      <div class="contact-side">
+        <p>Estou disponível para projetos, freelas e oportunidades como dev
+        backend ou game developer. Prefere falar direto? Escolha um canal:</p>
+        <div class="contact-links-list">
+          <a href="mailto:antoniohenriquebn@hotmail.com"><span class="ico">✉</span> antoniohenriquebn@hotmail.com</a>
+          <a href="https://github.com/TonhoDevi"><span class="ico">◇</span> github.com/TonhoDevi</a>
+          <a href="https://www.linkedin.com/in/antonio-henrique-bn"><span class="ico">▣</span> LinkedIn</a>
+          <a href="https://tonhodevi.itch.io"><span class="ico">►</span> itch.io</a>
+        </div>
       </div>
-      <div class="contact-links">
-        <a href="https://github.com/TonhoDevi">GitHub</a>
-        <a href="https://www.linkedin.com/in/antonio-henrique-bn">LinkedIn</a>
-        <a href="https://tonhodevi.itch.io">itch.io</a>
-      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footnote">antoniohenriquebn@hotmail.com · Recife, PE</p>
+      <p class="footnote">&copy; 2026 Antonio Henrique — Todos os direitos reservados.</p>
     </div>
   </footer>
 </div>
 
+<button id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+<script src="script.js"></script>
 </body>
 </html>
