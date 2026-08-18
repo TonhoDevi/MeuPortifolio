@@ -1,362 +1,441 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antonio Henrique — Backend Developer & Spring Ecosystem</title>
-  <meta name="description" content="Portfólio de Antonio Henrique Nascimento — Backend Developer especializado em Java, Spring Boot, Microserviços e Sistemas Distribuídos.">
-  <meta name="author" content="Antonio Henrique Nascimento">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antonio Henrique — Backend Developer & Spring Ecosystem</title>
+    <meta
+      name="description"
+      content="Portfólio de Antonio Henrique Nascimento — Backend Developer especializado em Java, Spring Boot, Microserviços e Sistemas Distribuídos."
+    />
+    <meta name="author" content="Antonio Henrique Nascimento" />
 
-  <nav class="mainnav" id="mainnav">
-    <div class="logo">&lt;TonhoDevi <span>/&gt;</span></div>
-    <div class="nav-links" id="navLinks">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <nav class="mainnav" id="mainnav">
+      <div class="logo">&lt;TonhoDevi <span>/&gt;</span></div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#stack">Stack</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
       <a href="#sobre">Sobre</a>
       <a href="#experiencia">Experiência</a>
       <a href="#stack">Stack</a>
       <a href="#projetos">Projetos</a>
       <a href="#contato">Contato</a>
     </div>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
-  </nav>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#sobre">Sobre</a>
-    <a href="#experiencia">Experiência</a>
-    <a href="#stack">Stack</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-  </div>
-
-  <div class="wrap">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="badge-status reveal">
-        <span class="status-dot"></span> Disponível para novas oportunidades
-      </div>
-      <h1 class="reveal">Antonio Henrique</h1>
-      <p class="role-title reveal">Backend Developer · Java & Spring Ecosystem · Microservices</p>
-      <p class="subtitle reveal">
-        Especialista no ecossistema Java/Spring, focado em arquitetura de microserviços, resiliência de sistemas e soluções escaláveis. Instrutor técnico e entusiasta do desenvolvimento orientado a alta performance.
-      </p>
-
-      <div class="cta-row reveal">
-        <a class="btn btn-primary" href="#projetos">Explorar Projetos</a>
-        <a class="btn btn-secondary" href="https://www.linkedin.com/in/antonio-henrique-batista-do-nascimento-4025ab37a" target="_blank">LinkedIn</a>
-        <a class="btn btn-outline" href="mailto:antoniohenriquebn@hotmail.com">Falar Comigo</a>
-      </div>
-
-      <div class="facts reveal-stagger">
-        <div class="fact">
-          <span class="fact-num">4+</span>
-          <span class="fact-label">ANOS PROGRAMANDO</span>
-        </div>
-        <div class="fact">
-          <span class="fact-num">200+</span>
-          <span class="fact-label">ALUNOS CAPACITADOS</span>
-        </div>
-        <div class="fact">
-          <span class="fact-num">6</span>
-          <span class="fact-label">TURMAS LECIONADAS</span>
-        </div>
-        <div class="fact">
-          <span class="fact-num">10K+</span>
-          <span class="fact-label">DOWNLOADS EM PRODUÇÃO</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre">
-      <div class="section-head reveal">
-        <span class="section-tag">// 01. TRAJETÓRIA</span>
-        <h2>Sobre mim</h2>
-      </div>
-      <div class="about-grid reveal">
-        <div class="about-text">
-          <p>
-            Engenheiro de Software em formação na Estácio e instrutor na <strong>Fuctura Tecnologia</strong>, onde atuo capacitando desenvolvedores em Java e Python. Possuo histórico comprovado na entrega de sistemas críticos em produção, incluindo o ecossistema de agendamento de turnos para o <strong>BOPE Recife</strong>.
-          </p>
-          <p>
-            Minha especialidade reside na criação de <strong>arquiteturas distribuídas em nuvem</strong>, utilizando Spring Cloud, mensageria (RabbitMQ/Kafka), mensuração de resiliência e boas práticas de persistência relacional.
-          </p>
-        </div>
-        <div class="about-card">
-          <div class="info-row">
-            <span class="info-label">Localização</span>
-            <span class="info-val">Recife, PE — Brasil</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Idiomas</span>
-            <span class="info-val">Português (Nativo) · Inglês (Avançado)</span>
-          </div>
-          <div class="info-row">
-            <span class="info-label">Atuação</span>
-            <span class="info-val">Remoto / Híbrido / Presencial</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIÊNCIA -->
-    <section id="experiencia">
-      <div class="section-head reveal">
-        <span class="section-tag">// 02. CARREIRA</span>
-        <h2>Experiência Profissional</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-header">
-            <h3 class="timeline-role">Professor de Programação & Dev Backend</h3>
-            <span class="timeline-date">Set 2025 – Presente</span>
-          </div>
-          <div class="timeline-meta">Fuctura Tecnologia · Recife, PE</div>
-          <ul>
-            <li>Lecionei para mais de <strong>200 alunos em 6 turmas</strong> com foco em Java, Python, estruturas de dados e desenvolvimento RESTful.</li>
-            <li>Desenvolvi os endpoints e regras de negócio da API REST em Spring Boot com PostgreSQL para a escala de turnos do <strong>BOPE Recife</strong>.</li>
-            <li>Atuo como <strong>Tech Lead</strong> no app educativo <em>Bíblia 3D</em> (Unity/C#), assumindo a liderança técnica do produto que hoje acumula mais de 10.000 downloads na Google Play.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="edu-box reveal">
-        <h3>Formação Acadêmica</h3>
-        <div class="edu-grid">
-          <div class="edu-card">
-            <h4>Engenharia de Software</h4>
-            <p>Estácio · 2025 – Cursando</p>
-          </div>
-          <div class="edu-card">
-            <h4>Dev Java Full Stack</h4>
-            <p>Fuctura Tecnologia · 2025</p>
-          </div>
-          <div class="edu-card">
-            <h4>Gestão Financeira (Tecnólogo)</h4>
-            <p>Unifateci · 2023 – 2025</p>
-          </div>
-        </div>
-      </div>
-    </section>
-<!-- STACK -->
-    <section id="stack">
-      <div class="section-head reveal">
-        <span class="section-tag">// 03. ECOSSISTEMA</span>
-        <h2>Tech Stack & Ferramentas</h2>
-      </div>
-
-      <div class="stack-categories reveal-stagger">
-        
-        <!-- Categoria 1 -->
-        <div class="stack-group">
-          <span class="stack-group-title">CORE & LINGUAGENS</span>
-          <div class="pill-container">
-            <span class="tech-pill highlight">Java</span>
-            <span class="tech-pill">Kotlin</span>
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">C#</span>
-            <span class="tech-pill">JavaScript</span>
-            <span class="tech-pill">Node.js</span>
-          </div>
+    <div class="wrap">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="badge-status reveal">
+          <span class="status-dot"></span>
+          Disponível para novas oportunidades
         </div>
 
-        <!-- Categoria 2 -->
-        <div class="stack-group">
-          <span class="stack-group-title">SISTEMAS DISTRIBUÍDOS & ECOSSISTEMA SPRING</span>
-          <div class="pill-container">
-            <span class="tech-pill highlight">Spring Boot</span>
-            <span class="tech-pill highlight">Spring Cloud</span>
-            <span class="tech-pill">Spring Security</span>
-            <span class="tech-pill">Spring Data JPA</span>
-            <span class="tech-pill">Netflix Eureka</span>
-            <span class="tech-pill">OpenFeign</span>
-            <span class="tech-pill">RabbitMQ</span>
-            <span class="tech-pill">Apache Kafka</span>
-            <span class="tech-pill">Resilience4j</span>
-          </div>
-        </div>
-
-        <!-- Categoria 3 -->
-        <div class="stack-group">
-          <span class="stack-group-title">BANCO DE DADOS, INFRA & PERSISTÊNCIA</span>
-          <div class="pill-container">
-            <span class="tech-pill">PostgreSQL</span>
-            <span class="tech-pill">Hibernate</span>
-            <span class="tech-pill">Flyway</span>
-            <span class="tech-pill">Docker</span>
-            <span class="tech-pill">Testcontainers</span>
-            <span class="tech-pill">Linux</span>
-            <span class="tech-pill">Git / GitHub</span>
-            <span class="tech-pill">Supabase</span>
-            <span class="tech-pill">Vercel</span>
-          </div>
-        </div>
-
-        <!-- Categoria 4 -->
-        <div class="stack-group">
-          <span class="stack-group-title">TESTES, OBSERVABILIDADE & DOCS</span>
-          <div class="pill-container">
-            <span class="tech-pill">JUnit 5</span>
-            <span class="tech-pill">Mockito</span>
-            <span class="tech-pill">Prometheus</span>
-            <span class="tech-pill">Grafana</span>
-            <span class="tech-pill">Spring Actuator</span>
-            <span class="tech-pill">Swagger / OpenAPI</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section id="projetos">
-      <div class="section-head reveal">
-        <span class="section-tag">// 04. PORTFÓLIO</span>
-        <h2>Projetos em Destaque</h2>
-      </div>
-
-      <div class="featured-project card-glow reveal">
-        <div class="project-tag">PROJETO PRINCIPAL · ARQUITETURA DE MICROSERVIÇOS</div>
-        <h3>Distribuidora Atacadista</h3>
-        <p>
-          Ecossistema B2B para gerenciamento de pedidos construído em arquitetura de microserviços com Spring Cloud. Conta com Discovery Server (Eureka), API Gateway, autenticação distribuída via JWT (`auth-service`), mensageria assíncrona, resiliência com Resilience4j e observabilidade centralizada.
+        <h1 class="reveal">Antonio Henrique</h1>
+        <p class="role-title reveal">Backend Developer · Java & Spring Ecosystem · Microservices</p>
+        <p class="subtitle reveal">
+          Especialista no ecossistema Java/Spring, focado em arquitetura de microserviços,
+          resiliência de sistemas e soluções escaláveis. Instrutor técnico e entusiasta do
+          desenvolvimento orientado a alta performance.
         </p>
-        <div class="tags">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Cloud</span>
-          <span class="tag">Eureka</span>
-          <span class="tag">RabbitMQ</span>
-          <span class="tag">Kafka</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Prometheus</span>
-        </div>
-        <div class="card-links">
-          <a class="btn-link" href="https://github.com/TonhoDevi/distribuidora-atacadista" target="_blank">Ver Repositório no GitHub →</a>
-        </div>
-      </div>
 
-      <div class="grid reveal-stagger">
-
-        <div class="card">
-          <span class="card-type">FULL STACK · GAMIFICAÇÃO</span>
-          <h3>CodeQuest</h3>
-          <p>Plataforma interativa para ensino de programação com trilhas, autograders e sistema de evolução com XP e conquistas.</p>
-          <div class="tags">
-            <span class="tag">Kotlin</span>
-            <span class="tag">Spring Boot</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Thymeleaf</span>
-          </div>
-          <div class="card-links">
-            <a href="https://github.com/TonhoDevi/codequest" target="_blank">GitHub</a>
-          </div>
+        <div class="cta-row reveal">
+          <a class="btn btn-primary" href="#projetos">Explorar Projetos</a>
+          <a
+            class="btn btn-secondary"
+            href="https://www.linkedin.com/in/antonio-henrique-batista-do-nascimento-4025ab37a"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a class="btn btn-outline" href="mailto:antoniohenriquebn@hotmail.com">Falar Comigo</a>
         </div>
 
-        <div class="card">
-          <span class="card-type">FULL STACK WEB</span>
-          <h3>Templo de Tatânea</h3>
-          <p>Suíte web completa para jogadores de RPG com gerador de fichas, compêndio dinâmico e banco de dados em nuvem.</p>
-          <div class="tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Vercel</span>
+        <div class="facts reveal-stagger">
+          <div class="fact">
+            <span class="fact-num">4+</span>
+            <span class="fact-label">ANOS PROGRAMANDO</span>
           </div>
-          <div class="card-links">
-            <a href="https://github.com/TonhoDevi/Tatanea-Temple" target="_blank">GitHub</a>
-            <a href="https://tatanea-temple.vercel.app/" target="_blank">Acessar App</a>
+          <div class="fact">
+            <span class="fact-num">200+</span>
+            <span class="fact-label">ALUNOS CAPACITADOS</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">6</span>
+            <span class="fact-label">TURMAS LECIONADAS</span>
+          </div>
+          <div class="fact">
+            <span class="fact-num">10K+</span>
+            <span class="fact-label">DOWNLOADS EM PRODUÇÃO</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE -->
+      <section id="sobre">
+        <div class="section-head reveal">
+          <span class="section-tag">// 01. TRAJETÓRIA</span>
+          <h2>Sobre mim</h2>
+        </div>
+
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <p>
+              Engenheiro de Software em formação na Estácio e instrutor na
+              <strong>Fuctura Tecnologia</strong>, onde atuo capacitando desenvolvedores em Java
+              e Python. Possuo histórico comprovado na entrega de sistemas críticos em produção,
+              incluindo o ecossistema de agendamento de turnos para o
+              <strong>BOPE Recife</strong>.
+            </p>
+            <p>
+              Minha especialidade reside na criação de
+              <strong>arquiteturas distribuídas em nuvem</strong>, utilizando Spring Cloud,
+              mensageria (RabbitMQ/Kafka), mensuração de resiliência e boas práticas de
+              persistência relacional.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="info-row">
+              <span class="info-label">Localização</span>
+              <span class="info-val">Recife, PE — Brasil</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Idiomas</span>
+              <span class="info-val">Português (Nativo) · Inglês (Avançado)</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Atuação</span>
+              <span class="info-val">Remoto / Híbrido / Presencial</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIÊNCIA -->
+      <section id="experiencia">
+        <div class="section-head reveal">
+          <span class="section-tag">// 02. CARREIRA</span>
+          <h2>Experiência Profissional</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-header">
+              <h3 class="timeline-role">Professor de Programação & Dev Backend</h3>
+              <span class="timeline-date">Set 2025 – Presente</span>
+            </div>
+
+            <div class="timeline-meta">Fuctura Tecnologia · Recife, PE</div>
+
+            <ul>
+              <li>
+                Lecionei para mais de <strong>200 alunos em 6 turmas</strong> com foco em Java,
+                Python, estruturas de dados e desenvolvimento RESTful.
+              </li>
+              <li>
+                Desenvolvi os endpoints e regras de negócio da API REST em Spring Boot com
+                PostgreSQL para a escala de turnos do <strong>BOPE Recife</strong>.
+              </li>
+              <li>
+                Atuo como <strong>Tech Lead</strong> no app educativo <em>Bíblia 3D</em>
+                (Unity/C#), assumindo a liderança técnica do produto que hoje acumula mais de
+                10.000 downloads na Google Play.
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div class="card">
-          <span class="card-type">SISTEMA EM PRODUÇÃO</span>
-          <h3>Escala de Turnos — BOPE</h3>
-          <p>API REST para gerenciamento de escalas operacionais do Batalhão de Operações Policiais Especiais de Recife.</p>
+        <div class="edu-box reveal">
+          <h3>Formação Acadêmica</h3>
+          <div class="edu-grid">
+            <div class="edu-card">
+              <h4>Engenharia de Software</h4>
+              <p>Estácio · 2025 – Cursando</p>
+            </div>
+            <div class="edu-card">
+              <h4>Dev Java Full Stack</h4>
+              <p>Fuctura Tecnologia · 2025</p>
+            </div>
+            <div class="edu-card">
+              <h4>Gestão Financeira (Tecnólogo)</h4>
+              <p>Unifateci · 2023 – 2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACK -->
+      <section id="stack">
+        <div class="section-head reveal">
+          <span class="section-tag">// 03. ECOSSISTEMA</span>
+          <h2>Tech Stack & Ferramentas</h2>
+        </div>
+
+        <div class="stack-categories reveal-stagger">
+          <!-- Categoria 1 -->
+          <div class="stack-group">
+            <span class="stack-group-title">CORE & LINGUAGENS</span>
+            <div class="pill-container">
+              <span class="tech-pill highlight">Java</span>
+              <span class="tech-pill">Kotlin</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">C#</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Node.js</span>
+            </div>
+          </div>
+
+          <!-- Categoria 2 -->
+          <div class="stack-group">
+            <span class="stack-group-title">SISTEMAS DISTRIBUÍDOS & ECOSSISTEMA SPRING</span>
+            <div class="pill-container">
+              <span class="tech-pill highlight">Spring Boot</span>
+              <span class="tech-pill highlight">Spring Cloud</span>
+              <span class="tech-pill">Spring Security</span>
+              <span class="tech-pill">Spring Data JPA</span>
+              <span class="tech-pill">Netflix Eureka</span>
+              <span class="tech-pill">OpenFeign</span>
+              <span class="tech-pill">RabbitMQ</span>
+              <span class="tech-pill">Apache Kafka</span>
+              <span class="tech-pill">Resilience4j</span>
+            </div>
+          </div>
+
+          <!-- Categoria 3 -->
+          <div class="stack-group">
+            <span class="stack-group-title">BANCO DE DADOS, INFRA & PERSISTÊNCIA</span>
+            <div class="pill-container">
+              <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">Hibernate</span>
+              <span class="tech-pill">Flyway</span>
+              <span class="tech-pill">Docker</span>
+              <span class="tech-pill">Testcontainers</span>
+              <span class="tech-pill">Linux</span>
+              <span class="tech-pill">Git / GitHub</span>
+              <span class="tech-pill">Supabase</span>
+              <span class="tech-pill">Vercel</span>
+            </div>
+          </div>
+
+          <!-- Categoria 4 -->
+          <div class="stack-group">
+            <span class="stack-group-title">TESTES, OBSERVABILIDADE & DOCS</span>
+            <div class="pill-container">
+              <span class="tech-pill">JUnit 5</span>
+              <span class="tech-pill">Mockito</span>
+              <span class="tech-pill">Prometheus</span>
+              <span class="tech-pill">Grafana</span>
+              <span class="tech-pill">Spring Actuator</span>
+              <span class="tech-pill">Swagger / OpenAPI</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJETOS -->
+      <section id="projetos">
+        <div class="section-head reveal">
+          <span class="section-tag">// 04. PORTFÓLIO</span>
+          <h2>Projetos em Destaque</h2>
+        </div>
+
+        <div class="featured-project card-glow reveal">
+          <div class="project-tag">PROJETO PRINCIPAL · ARQUITETURA DE MICROSERVIÇOS</div>
+          <h3>Distribuidora Atacadista</h3>
+          <p>
+            Ecossistema B2B para gerenciamento de pedidos construído em arquitetura de
+            microserviços com Spring Cloud. Conta com Discovery Server (Eureka), API Gateway,
+            autenticação distribuída via JWT (`auth-service`), mensageria assíncrona,
+            resiliência com Resilience4j e observabilidade centralizada.
+          </p>
           <div class="tags">
             <span class="tag">Java</span>
-            <span class="tag">Spring Boot</span>
+            <span class="tag">Spring Cloud</span>
+            <span class="tag">Eureka</span>
+            <span class="tag">RabbitMQ</span>
+            <span class="tag">Kafka</span>
             <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Prometheus</span>
           </div>
+
           <div class="card-links">
-            <span class="card-note">Privado (Institucional)</span>
+            <a
+              class="btn-link"
+              href="https://github.com/TonhoDevi/distribuidora-atacadista"
+              target="_blank"
+              >Ver Repositório no GitHub →</a
+            >
           </div>
         </div>
 
-        <div class="card">
-          <span class="card-type">PRODUTO PUBLICADO · 10K+ DOWNLOADS</span>
-          <h3>Bíblia 3D (Realidade Aumentada)</h3>
-          <p>App educativo em RA disponível na Google Play Store. Reestruturação completa de arquitetura e suporte técnico contínuo.</p>
-          <div class="tags">
-            <span class="tag">Unity</span>
-            <span class="tag">C#</span>
-            <span class="tag">AR</span>
-            <span class="tag">Android</span>
+        <div class="grid reveal-stagger">
+          <div class="card">
+            <span class="card-type">FULL STACK · GAMIFICAÇÃO</span>
+            <h3>CodeQuest</h3>
+            <p>
+              Plataforma interativa para ensino de programação com trilhas, autograders e
+              sistema de evolução com XP e conquistas.
+            </p>
+            <div class="tags">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Thymeleaf</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/TonhoDevi/codequest" target="_blank">GitHub</a>
+            </div>
           </div>
-          <div class="card-links">
-            <a href="https://play.google.com/store/apps/details?id=com.Fuctura.Biblia3D" target="_blank">Google Play Store</a>
+
+          <div class="card">
+            <span class="card-type">FULL STACK WEB</span>
+            <h3>Templo de Tatânea</h3>
+            <p>
+              Suíte web completa para jogadores de RPG com gerador de fichas, compêndio
+              dinâmico e banco de dados em nuvem.
+            </p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Supabase</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Vercel</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/TonhoDevi/Tatanea-Temple" target="_blank">GitHub</a>
+              <a href="https://tatanea-temple.vercel.app/" target="_blank">Acessar App</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type">SISTEMA EM PRODUÇÃO</span>
+            <h3>Escala de Turnos — BOPE</h3>
+            <p>
+              API REST para gerenciamento de escalas operacionais do Batalhão de Operações
+              Policiais Especiais de Recife.
+            </p>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <div class="card-links">
+              <span class="card-note">Privado (Institucional)</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type">PRODUTO PUBLICADO · 10K+ DOWNLOADS</span>
+            <h3>Bíblia 3D (Realidade Aumentada)</h3>
+            <p>
+              App educativo em RA disponível na Google Play Store. Reestruturação completa de
+              arquitetura e suporte técnico contínuo.
+            </p>
+            <div class="tags">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">AR</span>
+              <span class="tag">Android</span>
+            </div>
+            <div class="card-links">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.Fuctura.Biblia3D"
+                target="_blank"
+                >Google Play Store</a
+              >
+            </div>
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      <!-- CONTATO -->
+      <section id="contato">
+        <div class="section-head reveal">
+          <span class="section-tag">// 05. CONEXÃO</span>
+          <h2>Vamos trabalhar juntos?</h2>
+        </div>
 
-    <!-- CONTATO -->
-    <section id="contato">
-      <div class="section-head reveal">
-        <span class="section-tag">// 05. CONEXÃO</span>
-        <h2>Vamos trabalhar juntos?</h2>
-      </div>
-      <div class="contact-grid reveal">
-        <form class="contact-form" id="contactForm" novalidate>
-          <div class="form-group">
-            <label for="name">SEU NOME</label>
-            <input type="text" id="name" name="name" placeholder="Ex: Maria Silva" required>
-            <span class="error-msg"></span>
-          </div>
-          <div class="form-group">
-            <label for="email">SEU E-MAIL</label>
-            <input type="email" id="email" name="email" placeholder="seuemail@dominio.com" required>
-            <span class="error-msg"></span>
-          </div>
-          <div class="form-group">
-            <label for="message">MENSAGEM</label>
-            <textarea id="message" name="message" rows="4" placeholder="Descreva a proposta ou projeto..." required></textarea>
-            <span class="error-msg"></span>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-        </form>
+        <div class="contact-grid reveal">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">SEU NOME</label>
+              <input type="text" id="name" name="name" placeholder="Ex: Maria Silva" required />
+              <span class="error-msg"></span>
+            </div>
 
-        <div class="contact-side">
-          <h3>Canais de Acesso Direto</h3>
-          <p>Aberto para oportunidades CLT, PJ, projetos de consultoria ou aulas técnicas.</p>
-          <div class="contact-links-list">
-            <a href="mailto:antoniohenriquebn@hotmail.com"><span>✉</span> antoniohenriquebn@hotmail.com</a>
-            <a href="https://www.linkedin.com/in/antonio-henrique-batista-do-nascimento-4025ab37a" target="_blank"><span>🔗</span> LinkedIn Profile</a>
-            <a href="https://github.com/TonhoDevi" target="_blank"><span>💻</span> GitHub / TonhoDevi</a>
-            <a href="https://tonhodevi.itch.io" target="_blank"><span>🎮</span> itch.io / Jogos</a>
+            <div class="form-group">
+              <label for="email">SEU E-MAIL</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seuemail@dominio.com"
+                required
+              />
+              <span class="error-msg"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">MENSAGEM</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Descreva a proposta ou projeto..."
+                required
+              ></textarea>
+              <span class="error-msg"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+          </form>
+
+          <div class="contact-side">
+            <h3>Canais de Acesso Direto</h3>
+            <p>Aberto para oportunidades CLT, PJ, projetos de consultoria ou aulas técnicas.</p>
+
+            <div class="contact-links-list">
+              <a href="mailto:antoniohenriquebn@hotmail.com"><span>✉</span> antoniohenriquebn@hotmail.com</a>
+              <a
+                href="https://www.linkedin.com/in/antonio-henrique-batista-do-nascimento-4025ab37a"
+                target="_blank"
+                ><span>🔗</span> LinkedIn Profile</a
+              >
+              <a href="https://github.com/TonhoDevi" target="_blank"><span>💻</span> GitHub / TonhoDevi</a>
+              <a href="https://tonhodevi.itch.io" target="_blank"><span>🎮</span> itch.io / Jogos</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy; 2026 Antonio Henrique Nascimento. Recife, PE — Brasil.</p>
-    </footer>
+      <!-- FOOTER -->
+      <footer>
+        <p>&copy; 2026 Antonio Henrique Nascimento. Recife, PE — Brasil.</p>
+      </footer>
+    </div>
 
-  </div>
+    <button id="backToTop" aria-label="Voltar ao topo">↑</button>
 
-  <button id="backToTop" aria-label="Voltar ao topo">↑</button>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
