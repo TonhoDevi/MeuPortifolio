@@ -115,12 +115,69 @@ h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 24px; }
 .edu-card h4 { font-size: 0.95rem; font-weight: 600; }
 .edu-card p { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
-/* STACK */
-.stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-.stack-card { background: var(--surface); border: 1px solid var(--surface-border); padding: 20px; border-radius: 10px; transition: border-color 0.2s; }
-.stack-card:hover { border-color: var(--brand-primary); }
-.stack-card h4 { font-size: 1rem; color: var(--accent-blue); margin-bottom: 8px; }
-.stack-card p { font-size: 0.88rem; color: var(--text-muted); }
+/* ===== STACK REFORMULADO ===== */
+.stack-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stack-group {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.stack-group:hover {
+  border-color: rgba(109, 179, 63, 0.4);
+  transform: translateY(-2px);
+}
+
+.stack-group-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-pill {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background: var(--bg);
+  border: 1px solid var(--surface-border);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.tech-pill:hover {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  background: var(--surface-hover);
+  box-shadow: 0 4px 12px var(--brand-glow);
+  transform: translateY(-2px);
+}
+
+/* Destaque sutil para as tecnologias principais do seu foco (Java / Spring) */
+.tech-pill.highlight {
+  border-color: rgba(109, 179, 63, 0.3);
+  background: rgba(109, 179, 63, 0.05);
+  color: var(--brand-primary);
+}
 
 /* CARDS & PROJETO PRINCIPAL */
 .featured-project {
