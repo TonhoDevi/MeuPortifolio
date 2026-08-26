@@ -121,6 +121,27 @@ nav.mainnav {
   border-bottom: 1px solid var(--surface-border);
 }
 
+.hero-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-image {
+  flex-shrink: 0;
+  width: 300px;
+  max-width: 100%;
+  margin-top: 40px;
+}
+
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--surface-border);
+}
+
 .badge-status {
   display: inline-flex;
   align-items: center;
@@ -703,6 +724,19 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    order: -1; /* Puts image above text on mobile */
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
