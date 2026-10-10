@@ -21,19 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // BOTÃO VOLTAR AO TOPO
   // =============================================================
   const backToTop = document.getElementById('backToTop');
-  const progressBar = document.getElementById('scrollProgress');
 
-  window.addEventListener(
-    'scroll',
-    () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
-      progressBar.style.transform = `scaleX(${ratio})`;
-    },
-    { passive: true }
-  );
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+  });
 
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -54,37 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       navToggle.textContent = '☰';
-    });
-  });
-
-  // =============================================================
-  // LINK ATIVO NA NAVEGAÇÃO (SCROLLSPY)
-  // =============================================================
-  const navAnchors = document.querySelectorAll('.nav-links a, .mobile-menu a');
-  const sections = document.querySelectorAll('main section[id], section[id]');
-
-  const spy = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navAnchors.forEach((anchor) => {
-          anchor.classList.toggle('active', anchor.getAttribute('href') === `#${entry.target.id}`);
-        });
-      });
-    },
-    { rootMargin: '-45% 0px -50% 0px' }
-  );
-
-  sections.forEach((section) => spy.observe(section));
-
-  // =============================================================
-  // SPOTLIGHT NOS CARDS (brilho que segue o mouse)
-  // =============================================================
-  document.querySelectorAll('.card, .card-glow').forEach((card) => {
-    card.addEventListener('pointermove', (event) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
-      card.style.setProperty('--my', `${event.clientY - rect.top}px`);
     });
   });
 
