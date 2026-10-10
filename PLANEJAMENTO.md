@@ -9,6 +9,7 @@ Documento para você aplicar as mudanças **manualmente**. Cada seção traz: o 
 ## Índice
 
 0. [Estado do código](#0-estado-do-código)
+0.1. [Decisões da entrevista (B1–B6)](#01-decisões-da-entrevista-b1b6)
 1. [Resumo das divergências encontradas](#1-resumo-das-divergências-encontradas)
 2. [Hero](#2-hero)
 3. [Sobre mim](#3-sobre-mim)
@@ -37,6 +38,86 @@ Dois commits de teste (redesign visual e experiência) foram feitos e depois **r
 
 ---
 
+## 0.1. Decisões da entrevista (B1–B6)
+
+Fatos confirmados por você. Quando este bloco contradiz o resto do documento, **vale este bloco**.
+
+### Datas e situação atual
+
+| Fato | Valor |
+|---|---|
+| Avanade | Início em **3 de novembro de 2026**; Júnior direto; híbrido em Recife; Java full stack, principalmente Spring Boot |
+| Avanade, projeto | Ainda não começou; vai atuar em projeto do **setor financeiro**. **Não citar o nome do banco** (citar "setor financeiro" é permitido) |
+| Fuctura | Fev 2026 – **Set 2026** (você saiu; não é mais "Presente") |
+| F BD3 | Set 2025 – Ago 2026 |
+| Hoje (out/2026) | Sem vínculo ativo até 3/11. O selo "Disponível" do hero continua errado; usar uma frase sobre a Avanade (ver 2.1) |
+
+### O que NÃO vai entrar no portfólio
+
+- Nada sobre o ex-chefe nem sobre o motivo da saída da F BD3.
+- Nada de "10 mil downloads" repetido; aparece **no máximo uma vez**.
+- "Fui o melhor da instituição": removido (não é comprovável).
+- "Alunos contratados": removido (não é comprovável).
+- Nome do banco e nome de cliente da Avanade.
+- Nome "BOPE" nos textos novos: usar **"órgão de segurança pública"** (o nome já existente no site pode ser trocado).
+
+### Texto aprovado por experiência
+
+**Avanade** (início 03/11/2026): `Engenheiro de Software Júnior · Híbrido, Recife`. Foco em Java full stack, com ênfase em Spring Boot. Sem tópicos de entrega (ainda não começou). Se quiser um tópico, o único seguro é: *"Atuação prevista em projeto do setor financeiro."*
+
+**Fuctura** (Fev 2026 – Set 2026), Professor de Programação:
+- 6 turmas, mais de 200 alunos.
+- Conteúdo ministrado: Java (POO, coleções), Spring Boot, SQL, PostgreSQL, Hibernate, JDBC, JPA, Git, Gitflow e arquitetura.
+- Todo o material foi produzido por você: apostilas, questionários e fichas de exercícios.
+- Feedback positivo de alunos e coordenação (sem o "melhor da instituição").
+
+**F BD3 Ltda** (Set 2025 – Ago 2026), Desenvolvedor de Software / Tech Lead:
+- Responsável técnico em time de **4 desenvolvedores** no *Bíblia 3D*, definindo padrões de código e arquitetura.
+- Refatorou toda a base, que não funcionava mais por ser muito antiga, para uma versão mais atual e acessível da Unity.
+- Backend de um sistema de **órgão de segurança pública** (API REST em Java/Spring Boot + PostgreSQL), que substituiu a organização das escalas de ronda feita por WhatsApp. Usado por **50+ membros** e em produção.
+
+> Sugestão de organização: o sistema de segurança pública pode virar um **item próprio** ou ficar só como card de projeto. Escolha um dos dois para não repetir.
+
+### Projeto: Distribuidora Atacadista
+
+- Arquitetura: **em camadas** (não hexagonal). Não escrever "hexagonal" neste projeto.
+- Seu outro projeto atual (com Kafka) é o que usa **hexagonal**.
+- Descrição: projeto de estudo de microsserviços.
+- **Pontos técnicos aprovados** (use 4 ou 5 no card, o resto em página de estudo de caso):
+  1. Baixa de estoque atômica: `UPDATE ... WHERE stock_quantity >= :quantity`, sem estoque negativo em pedidos concorrentes e sem lock explícito.
+  2. Compensação de estoque quando o pedido falha, assumindo a limitação de não haver transação distribuída.
+  3. Máquina de estados do pedido (`CREATED → CONFIRMED → SHIPPED → DELIVERED`; `CANCELED`), com 409 em transição inválida.
+  4. Circuit Breaker + TimeLimiter (abre com 50% de falha em janela de 5 chamadas, 10 s aberto, timeout de 3 s).
+  5. Segurança: BCrypt, mensagem de login genérica contra *user enumeration*, admin por seed com senha em variável de ambiente, JWT validado no Gateway e segunda camada no `auth-service`.
+  6. Total e preço calculados no servidor, nunca aceitos do cliente.
+  7. Contextos separados: `User` (quem loga) e `Customer` (dado de negócio).
+  8. Sem FK entre bancos de serviços diferentes; integridade garantida na aplicação.
+- Evidências: você tem prints do Grafana. Para usar, salve em `assets/` (por exemplo `assets/grafana-distribuidora.png`) e referencie com `<img>`.
+
+### Projeto: Tatanea Temple
+
+- **~15 usuários ativos** (uso real, mais o seu círculo pessoal). Pode aparecer no card.
+- **História de engenharia (estudo de caso):**
+  - Problema: a consulta de fichas de personagem, que têm muitas tabelas relacionadas, exigia cerca de 12 idas ao banco por requisição.
+  - A primeira medição foi de **2 min 56 s** por consulta (conforme seu print; não 50 s).
+  - Correção: consultas com `INNER JOIN`, e banco movido do Brasil para **US West**, mesma região da API.
+  - Resultado: cerca de **4 s** por requisição.
+  - Você mediu com testes repetidos mantendo a API acordada, então não era o *cold start* do Render.
+  - Cache local no navegador: carrega uma vez e só atualiza se detectar diferença entre o local e o banco.
+- **Segurança:** limite de tamanho nos campos de texto, limite de peso de imagens, e cota máxima de objetos por conta, contra abuso e lotação do banco.
+- Outros: migração de banco via backup, melhoria da API, uso correto de JWT.
+- **Parte favorita:** a ficha de personagem (muitas regras de negócio, otimizada e visualmente cuidada).
+- **Aviso no card:** o backend dorme no Render; o primeiro acesso pode demorar cerca de 1 min.
+- **Ponto aberto:** como o cache descobre que mudou (data de atualização, versão, ETag)? Responder para eu descrever corretamente.
+
+### Pendências desta rodada
+
+- Qual frase usar no selo do hero (ver 2.1).
+- Mecanismo exato do cache do Tatanea.
+- Caminho dos prints do Grafana e do print dos 2 min 56 s.
+
+---
+
 ## 1. Resumo das divergências encontradas
 
 Comparação entre o portfólio e os READMEs reais dos dois repositórios.
@@ -61,12 +142,16 @@ Comparação entre o portfólio e os READMEs reais dos dois repositórios.
 ### 2.1 Selo de status
 
 - **Antes:** `Disponível para novas oportunidades`
-- **Depois:** `Engenheiro de Software Jr. · Avanade`
+- **Opções (você começa em 03/11/2026):**
+  - `Começo na Avanade em 03/11`
+  - `Engenheiro de Software Jr. · Avanade (nov/2026)`
+  - `Engenheiro de Software Jr. · Recife`
+- **Decidir:** a opção 1 é a mais honesta até o início real; depois do dia 3 pode virar a opção 2.
 
 ```html
 <div class="badge-status reveal">
   <span class="status-dot"></span>
-  Engenheiro de Software Jr. · Avanade
+  Começo na Avanade em 03/11
 </div>
 ```
 
@@ -106,7 +191,7 @@ Texto sugerido:
 
 Já reescrevi o primeiro parágrafo na branch. Texto final proposto para os dois parágrafos:
 
-> Engenheiro de Software Júnior na **Avanade** e graduando em Engenharia de Software pela Estácio. Também atuo como professor de programação na **Fuctura Tecnologia**, capacitando desenvolvedores em Java e Python.
+> Engenheiro de Software Júnior na **Avanade** (a partir de 03/11/2026) e graduando em Engenharia de Software pela Estácio. Atuei como professor de programação na **Fuctura Tecnologia**, capacitando desenvolvedores em Java e Python.
 >
 > Minha especialidade reside na criação de **arquiteturas distribuídas em nuvem**, utilizando Spring Cloud, mensageria (RabbitMQ/Kafka), mensuração de resiliência e boas práticas de persistência relacional.
 
@@ -124,22 +209,23 @@ Ordem: do mais recente para o mais antigo. Cada empresa/CNPJ é um item separado
 
 | # | Cargo | Empresa | Período |
 |---|---|---|---|
-| 1 | Engenheiro de Software Júnior | Avanade | 2026 – Presente |
-| 2 | Professor de Programação | Fuctura Tecnologia · Recife, PE | Fev 2026 – Presente |
+| 1 | Engenheiro de Software Júnior | Avanade · Híbrido, Recife | Nov 2026 (início em 03/11) |
+| 2 | Professor de Programação | Fuctura Tecnologia · Recife, PE | Fev 2026 – Set 2026 |
 | 3 | Desenvolvedor de Software | F BD3 Ltda · Recife, PE | Set 2025 – Ago 2026 |
 
 ### Item 1 — Avanade (pendente de informação)
 
-Faltam: mês de início, cidade/modalidade e o que você faz. **Não inventei tópicos.** Se for descrever, sugiro 1–2 tópicos curtos, só do que você pode divulgar (muitas consultorias restringem detalhes de cliente).
+Dados confirmados: início em 03/11/2026, híbrido em Recife, Java full stack com foco em Spring Boot, setor financeiro (sem citar o banco). **Não há tópicos de entrega ainda.** Se for descrever, sugiro 1–2 tópicos curtos, só do que você pode divulgar (muitas consultorias restringem detalhes de cliente).
 
 ### Item 2 — Fuctura
 
 - Conduzi **6 turmas de Java e Python (200+ alunos)**, criando conteúdo didático, exercícios práticos e acompanhando o desenvolvimento individual de cada aluno.
+- Conteúdos: POO, coleções, Spring Boot, SQL/PostgreSQL, Hibernate, JDBC, JPA, Git, Gitflow e arquitetura. Todo o material (apostilas, questionários e fichas de exercícios) foi produzido por mim.
 
 ### Item 3 — F BD3 Ltda
 
-- Responsável técnico pela base de código do *Bíblia 3D*, jogo educativo em Realidade Aumentada publicado na Google Play (**10K+ downloads, nota 4.2**). Defini padrões de código e arquitetura e orientei os demais desenvolvedores do time nas implementações.
-- Contribuí no projeto oficial do **BOPE**: funções de requisição da API REST, backend em Java/Spring Boot e integração com PostgreSQL para o fluxo principal de agendamento de turnos.
+- Responsável técnico, em time de 4 desenvolvedores, pela base de código do *Bíblia 3D*, jogo educativo em Realidade Aumentada publicado na Google Play. Defini padrões de código e arquitetura e refatorei a base inteira, que já não funcionava por ser muito antiga, para uma versão mais atual e acessível da Unity.
+- Contribuí no backend de um sistema de **órgão de segurança pública** (Java/Spring Boot e PostgreSQL), que substituiu a organização das escalas de ronda por WhatsApp. Em produção, com mais de 50 usuários.
 
 ### HTML de referência (um item da timeline)
 
@@ -152,7 +238,7 @@ Faltam: mês de início, cidade/modalidade e o que você faz. **Não inventei t�
   <div class="timeline-meta">F BD3 Ltda · Recife, PE</div>
   <ul>
     <li>Responsável técnico pela base de código do <em>Bíblia 3D</em>…</li>
-    <li>Contribuí no projeto oficial do <strong>BOPE</strong>…</li>
+    <li>Contribuí no backend de um sistema de <strong>órgão de segurança pública</strong>…</li>
   </ul>
 </div>
 ```
@@ -233,7 +319,7 @@ A pasta `assets/` já tem SVGs de Java, Spring, Kotlin, Python, C#, JavaScript, 
 - **Título:** `Distribuidora Atacadista (AtlasTT)`
 - **Descrição sugerida:**
 
-> Sistema de gestão para uma distribuidora atacadista construído como projeto de aprendizado de microsserviços: 7 serviços Spring Boot com Eureka e API Gateway, autenticação JWT com controle por papéis, pedidos com chamadas resilientes (OpenFeign + Resilience4j), notificações assíncronas via RabbitMQ e métricas com Prometheus/Grafana. Frontend em Angular e 55 testes unitários.
+> Projeto de estudo de microsserviços em arquitetura em camadas: 7 serviços Spring Boot com Eureka e API Gateway, autenticação JWT por papéis, baixa de estoque atômica com compensação, chamadas resilientes (OpenFeign + Resilience4j), notificações via RabbitMQ e métricas com Prometheus/Grafana. Frontend em Angular e 55 testes unitários.
 
 - **Tags (máximo ~9):** `Java 17` `Spring Cloud` `Gateway` `Eureka` `RabbitMQ` `PostgreSQL` `Angular` `Docker` `Prometheus`
 - **Removida:** `Kafka` (o projeto não usa).
@@ -264,13 +350,13 @@ Destaques do README que valem citar (escolha 2–3 para não poluir):
 - **Rótulo (`.card-type`):** `FULL STACK · JAVA + VUE`
 - **Descrição sugerida:**
 
-> Compêndio homebrew e sistema de fichas para D&D 5e, em cenário próprio. API REST em Spring Boot com autenticação JWT e frontend em Vue 3, com fichas por conta de usuário, rolador de dados com animação e compêndio de raças, classes, talentos e alquimia.
+> Compêndio homebrew e sistema de fichas para D&D 5e, em uso por cerca de 15 jogadores. API REST em Spring Boot com JWT e frontend em Vue 3. A consulta de fichas caiu de quase 3 minutos para cerca de 4 segundos com joins, banco na mesma região da API e cache local; campos, imagens e objetos por conta têm limites contra abuso.
 
 - **Tags:** `Java 21` `Spring Boot` `Vue 3` `PostgreSQL` `JWT` `Flyway`
 - **Links:** manter `GitHub` e `Acessar App`.
 - **Aviso:** o backend roda no free tier do Render e "dorme" após ~15 min; a primeira requisição leva 30–50 s. Vale uma nota curta no card (por exemplo, no `.card-note`: *"Primeiro acesso pode levar até 1 min"*), para o recrutador não achar que está quebrado.
 
-### 7.3 Escala de Turnos — BOPE
+### 7.3 Escala de Turnos (órgão de segurança pública)
 
 Sem mudança de conteúdo. Observação: agora o mesmo trabalho aparece na Experiência (F BD3) e neste card. Duas opções:
 - **Manter o card** e encurtar o tópico da experiência; ou
@@ -334,12 +420,12 @@ Ideias além do que já está na branch:
 
 | # | Pergunta | Onde impacta |
 |---|---|---|
-| 1 | Mês de início e o que faz na Avanade? | Experiência |
-| 2 | "4+ anos programando" continua correto? | Hero |
-| 3 | Manter "arquiteturas distribuídas em nuvem" ou tirar "em nuvem"? | Sobre |
+| 1 | ~~Mês de início e o que faz na Avanade?~~ Respondido: 03/11/2026, híbrido Recife, Java/Spring Boot | Experiência |
+| 2 | "4+ anos programando" continua correto? **(ainda em aberto)** | Hero |
+| 3 | Manter "arquiteturas distribuídas em nuvem" ou tirar "em nuvem"? **(sugerido tirar: a Distribuidora roda em Docker Compose local)** | Sobre |
 | 4 | O texto de contato muda por você já estar empregado? | Contato |
-| 5 | Manter ou remover o card do BOPE e do Bíblia 3D? | Projetos |
-| 6 | Qual é o projeto novo com Kafka (nome, repo, descrição)? | Projetos |
+| 5 | Manter ou remover o card do órgão de segurança pública e do Bíblia 3D? **(ainda em aberto)** | Projetos |
+| 6 | Qual é o projeto novo com Kafka (nome, repo, descrição)? **(B7, próximo bloco)** | Projetos |
 | 7 | Quais são os outros projetos que vai listar? | Projetos |
 | 8 | Quer ícones nas tecnologias? | Stack / design |
 | 9 | Tem certificações (Azure, Java…)? | Formação |
@@ -354,7 +440,7 @@ Ideias além do que já está na branch:
 - [ ] Stack: Angular, Vue, TypeScript, Pinia, Gateway, JWT, Render adicionados; Kafka mantido
 - [ ] Distribuidora: reposicionada como projeto de estudo, sem Kafka nas tags
 - [ ] Tatanea: tags e descrição corrigidas, aviso do Render
-- [ ] Bíblia 3D / BOPE: decisão sobre a repetição
+- [ ] Bíblia 3D / sistema de segurança pública: decisão sobre a repetição
 - [ ] Novos projetos adicionados (par de cards)
 - [ ] Contato revisado
 - [ ] Open Graph e favicon
