@@ -140,19 +140,24 @@ Mesma regra do 0.1: quando contradiz o resto do documento, **vale este bloco**.
 | Observabilidade | Actuator, Micrometer, OpenTelemetry, Grafana LGTM |
 | Qualidade | JUnit, Mockito, Testcontainers, GitHub Actions |
 | Segurança (Fase 7) | Spring Security, JWT, BCrypt |
-| Status | Fase 0 concluída, Fase 1 em andamento. Você pretende terminar a Fase 1 esta semana |
+| Status | Você termina o projeto amanhã. No portfólio fica **sem marcador de fase** e você atualiza daqui a ~2 meses |
+| Repositório | https://github.com/TonhoDevi/Bank-AtlasTT |
 
-**Regra de honestidade para o card:** só afirmar o que já existe no dia em que você publicar. Hoje, Kafka, MongoDB, Redis e observabilidade são **planejados** (Fases 2 a 5). Atualize a frase de status quando avançar de fase.
+**Decisão:** o card descreve o projeto **completo**, sem "em desenvolvimento" e sem fases.
 
-**Texto sugerido** (ajuste o status na hora de publicar):
+> Mini banco digital educacional, com dados fictícios, em Java 21 e Spring Boot 4. Arquitetura hexagonal com domínio desenvolvido em TDD. Cada transferência publica um evento no Kafka; o extrato é montado em MongoDB, com idempotência e cache em Redis, e o fluxo é rastreado ponta a ponta com OpenTelemetry e Grafana. Autenticação com JWT e testes com Testcontainers.
 
-> Mini banco digital educacional, com dados fictícios, em Java 21 e Spring Boot 4. Arquitetura hexagonal com domínio desenvolvido em TDD. Transferências publicam eventos no Kafka; o extrato é montado em MongoDB, com idempotência e cache em Redis e rastreamento ponta a ponta com OpenTelemetry e Grafana. Em desenvolvimento (Fase 1 de 8).
+- **Rótulo:** `PROJETO EDUCACIONAL · ARQUITETURA HEXAGONAL`
+- **Tags:** `Java 21` `Spring Boot` `Hexagonal` `PostgreSQL` `Kafka` `MongoDB` `Redis` `OpenTelemetry` `Testcontainers`
+- **Link:** https://github.com/TonhoDevi/Bank-AtlasTT
+- **Posição:** card normal ao lado da Distribuidora (que continua como destaque).
+- **Diferencial para citar:** domínio sem framework, testado sem Spring; portas e adaptadores.
 
-- **Rótulo:** `EM DESENVOLVIMENTO · ARQUITETURA HEXAGONAL`
-- **Tags:** `Java 21` `Spring Boot` `Hexagonal` `PostgreSQL` `Kafka` `MongoDB` `Redis` `OpenTelemetry` `Testcontainers` (se parecer demais, corte para 7)
-- **Link:** preciso da URL do repositório (ver pendências)
-- **Posição:** sugestão de manter a Distribuidora como destaque até o Bank-AtlasTT chegar na Fase 3 ou 4, e então trocar. Decisão sua.
-- **Diferencial para citar:** domínio sem framework, testado sem Spring, portas e adaptadores; fases documentadas com decisões ("o que foi decidido e por quê").
+**Conferência antes de publicar (importante):** recrutadores abrem o repositório. O README do Bank-AtlasTT hoje lista as Fases 1 a 8 como pendentes (⏳). Se o card disser que tudo existe e o README disser o contrário, o contraste prejudica você. Duas formas de evitar:
+1. Terminar de verdade as fases que o card cita, **ou**
+2. Manter no card só o que já estiver pronto no dia da publicação, e acrescentar o resto nas atualizações.
+
+Também atualize o README do repositório para bater com o card quando terminar (roadmap com ✅).
 
 ### Game dev fora do portfólio (B8)
 
@@ -165,28 +170,23 @@ Decisão: **remover qualquer associação com game dev**. Consequências no plan
 | Ícones em `assets/` | Não usar `Unity.svg` nem `Godot Engine.svg` |
 | História pessoal | Não usar a origem "queria ser gamedev" |
 | Texto do Bíblia 3D | Escrever **"aplicativo educativo em Realidade Aumentada"**, nunca "jogo". Seu currículo diz "jogo educativo"; vale alinhar |
-| Card do Bíblia 3D | **Recomendação: remover o card** e manter só a linha na Experiência (menos game dev, menos repetição). Falta sua confirmação |
+| Card do Bíblia 3D | **Mantido** (decisão sua). Texto: "aplicativo educativo em Realidade Aumentada". Tags sugeridas: `C#` `AR` `Android` (a tag `Unity` é opcional; ela remete a jogos). Tirar o "10K+ DOWNLOADS" do rótulo se o número já estiver no hero |
 | Tatanea Temple | **Pode ficar**: é ferramenta de apoio a RPG de mesa (fichas e compêndio), não desenvolvimento de jogos |
-| CodeQuest | Pergunta aberta: é "plataforma de ensino com gamificação" (não é game dev), mas usa Kotlin (nível básico). Manter ou tirar? |
+| CodeQuest | **Mantido** (decisão sua). Sugestão de rótulo: `FULL STACK · EDUCAÇÃO` no lugar de "GAMIFICAÇÃO" |
 
-### Níveis de domínio (B9)
+### Stack sem níveis de domínio (B9)
 
-Em vez de pills todas iguais, **separar por nível**. Proposta de legenda:
+**Decisão:** não informar nível. As pills ficam todas iguais, como hoje (só mantém o destaque que já existia nas tecnologias principais: Java, Spring Boot, Spring Cloud). Sua autoavaliação (para você, não para o site): forte em Spring Boot, JUnit e autenticação; confortável com mensageria e Eureka; estudando hexagonal, observabilidade e resiliência; Kotlin, Node e Python são projetos pequenos; C# foi o do app em RA.
 
-| Nível | Tecnologias |
-|---|---|
-| **Forte** (destaque verde/dourado) | Java, Spring Boot, JUnit 5, Autenticação (Spring Security, JWT, BCrypt) |
-| **Confortável** | Mensageria (RabbitMQ), Eureka / Spring Cloud, PostgreSQL, Docker, Git/GitHub, SQL, JPA/Hibernate, Flyway, Mockito, Gitflow |
-| **Estudando / em prática no projeto atual** | Arquitetura hexagonal, Kafka, observabilidade (OpenTelemetry, Grafana), resiliência (Resilience4j), MongoDB, Redis, Testcontainers |
-| **Básico** | Python, Kotlin, Node.js, JavaScript (projetos pequenos de estudo) |
-| **C#** | Uso real no app educativo em RA (mencionar junto da Experiência, não na Stack principal, se quiser reduzir a associação com games) |
+Consequências:
+- Angular, Vue e as demais continuam sem classificação.
+- Tecnologias que só aparecem em projetos pequenos (Kotlin, Node, Python) continuam na lista; apenas **evite** descrições que sugiram domínio profundo delas.
 
 Observações:
-- **Angular e Vue** não foram classificados por você. Preciso do nível (provavelmente "Confortável" ou "Básico").
 - **GitHub Actions**: entra como ferramenta (CI do Bank-AtlasTT; e já criou um bot que mantinha o Tatanea Temple acordado no Render). A história do bot é boa para o estudo de caso, como solução criativa ao *cold start* do plano gratuito.
 - **Cloud (Azure, AWS, GCP):** nenhuma. **Não listar.** Como a Avanade é parceira Microsoft, uma meta de estudo (por exemplo AZ-900) seria um bom próximo passo, mas é só ideia para você, não para o site.
 - **Ferramentas de IA (opcional):** Claude, Claude Code, Gemini e NotebookLM no dia a dia. As de uso casual (Meta, ChatGPT, DeepSeek) **não entram**. Se quiser, uma linha em Stack: "IA no fluxo de desenvolvimento: Claude Code, Gemini, NotebookLM".
-- Isso muda o "Sobre": a frase "arquiteturas distribuídas em nuvem" está acima do que você pratica. Texto sugerido: *"Meu foco está em backend com Java e Spring Boot: APIs REST, microsserviços, segurança, testes automatizados e arquitetura hexagonal."*
+- O "Sobre": a frase "arquiteturas distribuídas em nuvem" está acima do que você pratica. Texto sugerido: *"Meu foco está em backend com Java e Spring Boot: APIs REST, microsserviços, segurança, testes automatizados e arquitetura hexagonal."*
 
 ### Formação e outras experiências (B10)
 
@@ -196,17 +196,17 @@ Observações:
 | Engenharia de Software | Estácio, **3º módulo** | Pode escrever "Cursando · 3º módulo" |
 | Gestão Financeira (Tecnólogo) | Unifateci, 2023–2025 | **Destacar**: diferencial (finanças + software), combina com a vaga no setor financeiro |
 | **Gerente Financeiro** | **Bens Soluções Sustentáveis** (empresa júnior da UFPE, não remunerada), jun/2022 – jun/2023 | Adicionar. Rotular **"Experiência voluntária"** e deixar claro que foi empresa júnior |
-| Engenharia Mecatrônica | Federal, **não concluída** (cancelada) | **Opcional.** Sugestão: uma linha discreta em Formação, "Cursado, não concluído", ou só mencionar na história pessoal. Mostra base técnica, mas precisa ser honesta. Decisão sua |
+| Engenharia Mecatrônica | **UFPE**, cursada até o **5º período (de 8)**, não concluída | Adicionar um cartão discreto: `Engenharia Mecatrônica · UFPE · Cursado até o 5º período`. Honesto e mostra base técnica |
 
-Pendências desta parte: instituição exata e período da Mecatrônica (é a UFPE?).
+Opcional: anos de início e de saída da Mecatrônica, se quiser colocar o período.
 
 ### Posicionamento e tom (B11)
 
 - **Quero ser lembrado como:** Backend.
 - **Frase sua:** "Um profissional confiável e competente..." Sugestão: **mostrar em vez de afirmar**. "Pleno das minhas capacidades" soa pretensioso para um júnior. Versão de posicionamento: *"Desenvolvedor backend focado em código confiável, testado e bem arquitetado."*
-- **História pessoal sem game dev (proposta, para você aprovar):**
+- **História pessoal sem game dev (aprovada):**
 
-> Venho de áreas diferentes, entre elas gestão financeira e engenharia mecatrônica. Ao entrar na programação, gostei tanto que decidi seguir carreira, e encontrei no backend o lugar onde mais gosto de resolver problemas.
+> Venho de áreas diferentes, entre elas engenharia mecatrônica (UFPE) e gestão financeira. Ao entrar na programação, gostei tanto que decidi seguir carreira, e encontrei no backend o lugar onde mais gosto de resolver problemas.
 
 - **Objetivo de 2 anos:** tornar-se sênior e contribuir para o mercado nacional. Sugestão de texto curto no Sobre: *"Meu objetivo é evoluir até sênior e contribuir com o mercado de tecnologia brasileiro."*
 - **Tom:** **elegante e com ar sofisticado** (ver seção 9.1, nova direção visual).
@@ -216,22 +216,20 @@ Pendências desta parte: instituição exata e período da Mecatrônica (é a UF
 | Item | Decisão |
 |---|---|
 | E-mail | Manter **antoniohenriquebn@hotmail.com** (profissional) |
-| Site | Você informou `https://tatanea-temple.vercel.app/`. **Esse endereço é o app do Tatanea Temple**, e já está no card. Falta a URL **do portfólio** (ver pendências) |
+| Site (portfólio) | https://tonhodevi.github.io/MeuPortifolio/ (GitHub Pages). O endereço `tatanea-temple.vercel.app` é o **app do Tatanea**, que continua no card dele |
 | Botão de idioma PT/EN | **Sim.** Plano na seção 9.2 |
 | Modo escuro/claro | **Sim.** Plano na seção 9.2 |
 | Blog | Talvez. **Recomendação: não agora.** Alternativa leve: seção "Guias de estudo" com links para os guias que você já escreveu na Distribuidora (`docs/JWT.md`, `TESTES.md`, `HTTP-STATUS.md`, `POO.md`, `ANOTACOES.md`). Conteúdo pronto, sem manutenção de blog |
 
 ### Pendências novas
 
-1. URL do **portfólio** (onde está hospedado).
-2. URL do repositório do **Bank-AtlasTT**.
-3. Manter ou **remover o card do Bíblia 3D** (recomendado remover).
-4. Manter ou tirar o **CodeQuest**?
-5. Nível de **Angular** e **Vue**.
-6. **Mecatrônica:** qual federal e em que período? Entra no site ou só na história?
-7. Aprova a **história pessoal** sem game dev?
-8. Aprova trocar o **verde Spring** por uma paleta elegante (dourado champanhe)? Ver 9.1.
-9. Na seção de contato, o botão do itch.io sai. Quer substituir por algo (por exemplo, um link para o repositório do Bank-AtlasTT)?
+Respondidas nesta rodada: URL do portfólio e do repositório, cards do Bíblia 3D e do CodeQuest, Mecatrônica, história pessoal, paleta (aprovada) e stack sem níveis.
+
+Ainda em aberto (todas opcionais):
+1. Nível de Angular e Vue: **não precisa mais** (sem níveis).
+2. Substituir o link do itch.io por algo, ou só remover? (sugestão: só remover)
+3. Quer colocar o período (anos) da Mecatrônica?
+4. Tag `Unity` no card do Bíblia 3D: manter ou tirar?
 
 ---
 
@@ -307,6 +305,8 @@ Texto sugerido:
 > - Como **profissional** (F BD3 desde Set 2025), o tempo real é **cerca de 1 ano**; somando os 7 meses de estudo dá **cerca de 1 ano e 7 meses**. Chamar de "1,5 ano como profissional" mistura as duas contagens, e um entrevistador pode estranhar.
 > - Rótulos honestos, escolha um: `1,5 ANO PROGRAMANDO` (conta o estudo) ou `1+ ANO COMO PROFISSIONAL` (só o trabalho).
 > - Na Avanade esse número vai crescer sozinho; revise em 2027.
+
+> **Sugestão para o 4º número do hero:** como o Bíblia 3D continua com card (que cita os downloads), troque `10K+ DOWNLOADS EM PRODUÇÃO` por `50+ USUÁRIOS EM PRODUÇÃO` (sistema do órgão de segurança pública). Evita a repetição e não remete a jogos.
 
 > **Nota de repetição:** o 10K+ já aparece no hero e na experiência. Se quiser reduzir o Bíblia 3D, uma opção é trocar o 4º número por algo que seja só seu, por exemplo `7` microsserviços na Distribuidora ou `55` testes unitários. Decisão sua.
 
@@ -577,6 +577,17 @@ Ideias além do que já está na branch:
 2. **Contagem animada** dos números do hero (0 → valor) ao entrar na tela.
 3. **Modo claro/escuro** com botão no menu.
 4. **Open Graph / Twitter Card** no `<head>` (`og:title`, `og:description`, `og:image`) para o link ficar bonito ao ser compartilhado no LinkedIn.
+
+   ```html
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://tonhodevi.github.io/MeuPortifolio/" />
+   <meta property="og:title" content="Antonio Henrique — Backend Developer" />
+   <meta property="og:description" content="Backend com Java e Spring Boot: APIs REST, microsserviços, segurança e arquitetura hexagonal." />
+   <meta property="og:image" content="https://tonhodevi.github.io/MeuPortifolio/assets/perfil.jpeg" />
+   <meta name="twitter:card" content="summary_large_image" />
+   ```
+
+   > O `og:image` ideal tem 1200×630 px. A foto atual é vertical; vale criar uma imagem de capa própria.
 5. **Favicon** (hoje não há).
 6. **Seção "Em desenvolvimento"** (ver 7.5).
 7. **Foto**: usar `loading="lazy"` não se aplica (está no topo), mas vale gerar uma versão `.webp` menor que os 138 KB atuais.
@@ -677,8 +688,8 @@ Ideias além do que já está na branch:
 - [ ] Testar no celular (largura ~390 px)
 - [ ] Conferir links (GitHub, Play Store, Vercel, LinkedIn)
 - [ ] Remover itch.io, Unity e Godot (B8)
-- [ ] Card do Bank-AtlasTT com status honesto da fase
-- [ ] Stack separada por nível (Forte, Confortável, Estudando, Básico)
+- [ ] Card do Bank-AtlasTT completo (sem fases); README do repositório coerente com o card
+- [ ] Stack **sem** níveis (decidido)
 - [ ] Formação: Gestão Financeira em destaque e Bens Soluções Sustentáveis (voluntária)
 - [ ] Nova direção visual elegante (9.1)
 - [ ] Tema escuro/claro e idioma PT/EN (9.2), só depois de fechar o conteúdo em português
