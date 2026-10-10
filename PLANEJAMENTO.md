@@ -50,7 +50,7 @@ Fatos confirmados por você. Quando este bloco contradiz o resto do documento, *
 | Avanade, projeto | Ainda não começou; vai atuar em projeto do **setor financeiro**. **Não citar o nome do banco** (citar "setor financeiro" é permitido) |
 | Fuctura | Fev 2026 – **Set 2026** (você saiu; não é mais "Presente") |
 | F BD3 | Set 2025 – Ago 2026 |
-| Hoje (out/2026) | Sem vínculo ativo até 3/11. O selo "Disponível" do hero continua errado; usar uma frase sobre a Avanade (ver 2.1) |
+| Hoje (out/2026) | Sem vínculo ativo até 3/11. O selo "Disponível" do hero continua errado; usar uma frase **sem data** sobre a Avanade (ver 2.1) |
 
 ### O que NÃO vai entrar no portfólio
 
@@ -92,7 +92,7 @@ Fatos confirmados por você. Quando este bloco contradiz o resto do documento, *
   6. Total e preço calculados no servidor, nunca aceitos do cliente.
   7. Contextos separados: `User` (quem loga) e `Customer` (dado de negócio).
   8. Sem FK entre bancos de serviços diferentes; integridade garantida na aplicação.
-- Evidências: você tem prints do Grafana. Para usar, salve em `assets/` (por exemplo `assets/grafana-distribuidora.png`) e referencie com `<img>`.
+- **Prints do Grafana: decidido não usar** no portfólio (ficam só no seu arquivo pessoal).
 
 ### Projeto: Tatanea Temple
 
@@ -112,9 +112,9 @@ Fatos confirmados por você. Quando este bloco contradiz o resto do documento, *
 
 ### Pendências desta rodada
 
-- Qual frase usar no selo do hero (ver 2.1).
-- Mecanismo exato do cache do Tatanea.
-- Caminho dos prints do Grafana e do print dos 2 min 56 s.
+- Mecanismo exato do cache do Tatanea (explicação na conversa; falta a sua resposta).
+- Rótulo final do número do hero (`1,5 ANO PROGRAMANDO` ou `1+ ANO COMO PROFISSIONAL`).
+- ~~Prints do Grafana e do print dos 2 min 56 s~~: **não serão usados**.
 
 ---
 
@@ -142,16 +142,17 @@ Comparação entre o portfólio e os READMEs reais dos dois repositórios.
 ### 2.1 Selo de status
 
 - **Antes:** `Disponível para novas oportunidades`
-- **Opções (você começa em 03/11/2026):**
-  - `Começo na Avanade em 03/11`
-  - `Engenheiro de Software Jr. · Avanade (nov/2026)`
-  - `Engenheiro de Software Jr. · Recife`
-- **Decidir:** a opção 1 é a mais honesta até o início real; depois do dia 3 pode virar a opção 2.
+- **Decisão:** sem data no selo.
+- **Opções sem data:**
+  - `Engenheiro de Software Jr. · Avanade` (a partir de 03/11/2026, quando for verdade)
+  - `Chegando na Avanade` (para usar nas próximas semanas, até começar)
+  - `Engenheiro de Software Jr. · Recife` (neutra, vale antes e depois)
+- **Sugestão:** usar a terceira agora e trocar pela primeira no dia 3 de novembro.
 
 ```html
 <div class="badge-status reveal">
   <span class="status-dot"></span>
-  Começo na Avanade em 03/11
+  Engenheiro de Software Jr. · Recife
 </div>
 ```
 
@@ -178,10 +179,15 @@ Texto sugerido:
 
 | Número | Rótulo | Situação |
 |---|---|---|
-| `4+` | Anos programando | **Confirmar se continua correto** |
+| ~~`4+`~~ → `1,5` | ~~Anos programando~~ → Ano e meio de experiência | **Decidido:** trocar. Ver nota abaixo sobre o rótulo |
 | `200+` | Alunos capacitados | OK |
 | `6` | Turmas lecionadas | OK |
 | `10K+` | Downloads em produção | OK, mas é o Bíblia 3D: ver nota abaixo |
+
+> **Nota sobre o rótulo do número (decisão: 7 meses de estudo + 1 ano como programador):**
+> - Como **profissional** (F BD3 desde Set 2025), o tempo real é **cerca de 1 ano**; somando os 7 meses de estudo dá **cerca de 1 ano e 7 meses**. Chamar de "1,5 ano como profissional" mistura as duas contagens, e um entrevistador pode estranhar.
+> - Rótulos honestos, escolha um: `1,5 ANO PROGRAMANDO` (conta o estudo) ou `1+ ANO COMO PROFISSIONAL` (só o trabalho).
+> - Na Avanade esse número vai crescer sozinho; revise em 2027.
 
 > **Nota de repetição:** o 10K+ já aparece no hero e na experiência. Se quiser reduzir o Bíblia 3D, uma opção é trocar o 4º número por algo que seja só seu, por exemplo `7` microsserviços na Distribuidora ou `55` testes unitários. Decisão sua.
 
@@ -421,7 +427,7 @@ Ideias além do que já está na branch:
 | # | Pergunta | Onde impacta |
 |---|---|---|
 | 1 | ~~Mês de início e o que faz na Avanade?~~ Respondido: 03/11/2026, híbrido Recife, Java/Spring Boot | Experiência |
-| 2 | "4+ anos programando" continua correto? **(ainda em aberto)** | Hero |
+| 2 | ~~"4+ anos programando"~~ Respondido: trocar para ~1,5 ano (rótulo a decidir) | Hero |
 | 3 | Manter "arquiteturas distribuídas em nuvem" ou tirar "em nuvem"? **(sugerido tirar: a Distribuidora roda em Docker Compose local)** | Sobre |
 | 4 | O texto de contato muda por você já estar empregado? | Contato |
 | 5 | Manter ou remover o card do órgão de segurança pública e do Bíblia 3D? **(ainda em aberto)** | Projetos |
