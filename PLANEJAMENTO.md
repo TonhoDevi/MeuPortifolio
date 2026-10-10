@@ -2,13 +2,13 @@
 
 Documento para você aplicar as mudanças **manualmente**. Cada seção traz: o estado atual, o que mudar, o porquê e, quando útil, o trecho de HTML pronto para colar em `index.html`.
 
-> Nada neste documento foi aplicado no código, exceto o que está listado em [0. O que já foi feito na branch](#0-o-que-já-foi-feito-na-branch).
+> Nada neste documento foi aplicado no código. Veja [0. Estado do código](#0-estado-do-código).
 
 ---
 
 ## Índice
 
-0. [O que já foi feito na branch](#0-o-que-já-foi-feito-na-branch)
+0. [Estado do código](#0-estado-do-código)
 1. [Resumo das divergências encontradas](#1-resumo-das-divergências-encontradas)
 2. [Hero](#2-hero)
 3. [Sobre mim](#3-sobre-mim)
@@ -23,12 +23,13 @@ Documento para você aplicar as mudanças **manualmente**. Cada seção traz: o 
 
 ---
 
-## 0. O que já foi feito na branch
+## 0. Estado do código
 
-Na branch `claude/vibrant-johnson-r19ezj` já existem dois commits aplicados. Se preferir fazer tudo à mão, basta não mesclar a branch ou reverter esses commits.
+**Nenhuma mudança deste documento está aplicada.** O código (`index.html`, `styles.css`, `script.js`) está idêntico ao último commit original (`59ede02`).
 
-| Commit | Conteúdo |
-|---|---|
+Dois commits de teste (redesign visual e experiência) foram feitos e depois **revertidos** a pedido. Eles continuam no histórico da branch caso queira consultar como referência (`git show 898ecbf` e `git show 08a9831`), mas não estão ativos.
+
+---|---|
 | Redesign visual | Reescrita do `styles.css`, scrollspy no menu, barra de progresso de leitura, spotlight nos cards, grades 2×2 na Stack e nos Projetos, `prefers-reduced-motion`. Arquivos: `styles.css`, `script.js`, uma linha no `index.html` (`#scrollProgress`). |
 | Experiência | Seção Experiência reescrita (Avanade, Fuctura, F BD3), selo do hero trocado e primeiro parágrafo do "Sobre" reescrito. Arquivos: `index.html`, 4 linhas no `styles.css`. |
 
