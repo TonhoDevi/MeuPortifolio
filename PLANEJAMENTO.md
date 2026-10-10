@@ -1,268 +1,84 @@
-# Planejamento de melhorias — Portfólio
+# Planejamento do portfólio
 
-Documento para você aplicar as mudanças **manualmente**. Cada seção traz: o estado atual, o que mudar, o porquê e, quando útil, o trecho de HTML pronto para colar em `index.html`.
+Guia para você aplicar as mudanças **manualmente** em `index.html`, `styles.css` e `script.js`. Todas as decisões já estão fechadas aqui; onde falta uma informação sua, aparece como **[PENDENTE]**.
 
-> Nada neste documento foi aplicado no código. Veja [0. Estado do código](#0-estado-do-código).
+- **Site:** https://tonhodevi.github.io/MeuPortifolio/
+- **Estado do código:** nada deste documento foi aplicado. O código está igual ao commit original `59ede02`. Dois commits de teste (redesign e experiência) foram revertidos; ficam no histórico só como referência (`git show 898ecbf` e `git show 08a9831`).
 
 ---
 
 ## Índice
 
-0. [Estado do código](#0-estado-do-código)
-0.1. [Decisões da entrevista (B1–B6)](#01-decisões-da-entrevista-b1b6)
-0.2. [Decisões da entrevista (B7–B12)](#02-decisões-da-entrevista-b7b12)
-1. [Resumo das divergências encontradas](#1-resumo-das-divergências-encontradas)
-2. [Hero](#2-hero)
-3. [Sobre mim](#3-sobre-mim)
-4. [Experiência](#4-experiência)
-5. [Formação](#5-formação)
-6. [Stack](#6-stack)
-7. [Projetos](#7-projetos)
-8. [Contato](#8-contato)
-9. [Design (extras opcionais)](#9-design-extras-opcionais) · 9.1 [Direção visual elegante](#91-direção-visual-elegante-e-sofisticada-decidido-em-b11) · 9.2 [Tema e idioma](#92-modo-escuroclaro-e-troca-de-idioma-pten)
-10. [Perguntas em aberto](#10-perguntas-em-aberto)
-11. [Checklist final](#11-checklist-final)
+1. [Resumo do que muda](#1-resumo-do-que-muda)
+2. [Fatos confirmados e regras de conteúdo](#2-fatos-confirmados-e-regras-de-conteúdo)
+3. [Hero](#3-hero)
+4. [Sobre mim](#4-sobre-mim)
+5. [Experiência](#5-experiência)
+6. [Formação](#6-formação)
+7. [Stack](#7-stack)
+8. [Projetos](#8-projetos)
+9. [Contato](#9-contato)
+10. [Design: paleta, tema e idioma](#10-design-paleta-tema-e-idioma)
+11. [Extras opcionais](#11-extras-opcionais)
+12. [Material de apoio: estudos de caso](#12-material-de-apoio-estudos-de-caso)
+13. [Pendências](#13-pendências)
+14. [Ordem sugerida de execução e checklist](#14-ordem-sugerida-de-execução-e-checklist)
 
 ---
 
-## 0. Estado do código
+## 1. Resumo do que muda
 
-**Nenhuma mudança deste documento está aplicada.** O código (`index.html`, `styles.css`, `script.js`) está idêntico ao último commit original (`59ede02`).
-
-Dois commits de teste (redesign visual e experiência) foram feitos e depois **revertidos** a pedido. Eles continuam no histórico da branch caso queira consultar como referência (`git show 898ecbf` e `git show 08a9831`), mas não estão ativos.
-
----|---|
-| Redesign visual | Reescrita do `styles.css`, scrollspy no menu, barra de progresso de leitura, spotlight nos cards, grades 2×2 na Stack e nos Projetos, `prefers-reduced-motion`. Arquivos: `styles.css`, `script.js`, uma linha no `index.html` (`#scrollProgress`). |
-| Experiência | Seção Experiência reescrita (Avanade, Fuctura, F BD3), selo do hero trocado e primeiro parágrafo do "Sobre" reescrito. Arquivos: `index.html`, 4 linhas no `styles.css`. |
-
-**Ainda NÃO feito** (é o que este documento planeja): cards de projeto, stack, hero (números), contato, formação.
+| Seção | Mudança |
+|---|---|
+| Hero | Selo novo, subtítulo ajustado, números `1,5 ano` e `50+ usuários` |
+| Sobre | Reescrito: identidade, história sem game dev, foco e objetivo |
+| Experiência | 3 empregos separados por empresa + bloco da Avanade **escondido** + experiência voluntária |
+| Formação | Gestão Financeira em destaque; Mecatrônica (UFPE) adicionada |
+| Stack | Categorias atualizadas, **sem níveis**; Angular, Vue, TypeScript etc. entram; Unity e Godot saem |
+| Projetos | Distribuidora e Tatanea reescritos; Bank-AtlasTT entra; Bíblia 3D e CodeQuest mantidos; BOPE vira "órgão de segurança pública" |
+| Contato | Itch.io sai; emojis viram ícones; texto de abertura neutro |
+| Design | Paleta champanhe (escuro e claro), serifa nos títulos, botão de tema e de idioma |
 
 ---
 
-## 0.1. Decisões da entrevista (B1–B6)
+## 2. Fatos confirmados e regras de conteúdo
 
-Fatos confirmados por você. Quando este bloco contradiz o resto do documento, **vale este bloco**.
-
-### Datas e situação atual
+### Datas e situação
 
 | Fato | Valor |
 |---|---|
-| Avanade | Início em **3 de novembro de 2026**; Júnior direto; híbrido em Recife; Java full stack, principalmente Spring Boot |
-| Avanade, projeto | Ainda não começou; vai atuar em projeto do **setor financeiro**. **Não citar o nome do banco** (citar "setor financeiro" é permitido) |
-| Fuctura | Fev 2026 – **Set 2026** (você saiu; não é mais "Presente") |
-| F BD3 | Set 2025 – Ago 2026 |
-| Hoje (out/2026) | Sem vínculo ativo até 3/11. O selo "Disponível" do hero continua errado; usar uma frase **sem data** sobre a Avanade (ver 2.1) |
+| Avanade | Início em **3 de novembro de 2026**; Júnior direto; híbrido em Recife; Java full stack, principalmente Spring Boot; projeto do **setor financeiro** (sem citar o banco) |
+| Fuctura | Fev 2026 – Set 2026 (você saiu) |
+| F BD3 Ltda | Set 2025 – Ago 2026 |
+| Bens Soluções Sustentáveis | Jun 2022 – Jun 2023, gerente financeiro (voluntário, empresa júnior da UFPE) |
+| Hoje | Sem vínculo ativo até 3/11 |
+| Tempo de programação | 7 meses de estudo + cerca de 1 ano de trabalho = **1,5 ano** |
 
-### O que NÃO vai entrar no portfólio
+### O que NÃO entra no portfólio
 
-- Nada sobre o ex-chefe nem sobre o motivo da saída da F BD3.
-- Nada de "10 mil downloads" repetido; aparece **no máximo uma vez**.
-- "Fui o melhor da instituição": removido (não é comprovável).
-- "Alunos contratados": removido (não é comprovável).
-- Nome do banco e nome de cliente da Avanade.
-- Nome "BOPE" nos textos novos: usar **"órgão de segurança pública"** (o nome já existente no site pode ser trocado).
+- Ex-chefe ou motivo da saída da F BD3.
+- Nome do banco e de qualquer cliente da Avanade.
+- "Melhor da instituição" e "alunos contratados" (não são comprováveis).
+- **Qualquer associação com game dev:** itch.io, Unity, Godot, a origem "queria ser gamedev", a palavra "jogo" para o Bíblia 3D (usar "aplicativo educativo em Realidade Aumentada").
+- Níveis de domínio por tecnologia.
+- Prints do Grafana e do tempo de 2 min 56 s.
+- Certificações em nuvem (você não tem Azure, AWS nem GCP).
+- Nome "BOPE": usar sempre **"órgão de segurança pública"**.
+- Os "10K+ downloads" aparecem **uma única vez** (no card do Bíblia 3D).
 
-### Texto aprovado por experiência
+### Palavras e tom
 
-**Avanade** (início 03/11/2026): `Engenheiro de Software Júnior · Híbrido, Recife`. Foco em Java full stack, com ênfase em Spring Boot. Sem tópicos de entrega (ainda não começou). Se quiser um tópico, o único seguro é: *"Atuação prevista em projeto do setor financeiro."*
-
-**Fuctura** (Fev 2026 – Set 2026), Professor de Programação:
-- 6 turmas, mais de 200 alunos.
-- Conteúdo ministrado: Java (POO, coleções), Spring Boot, SQL, PostgreSQL, Hibernate, JDBC, JPA, Git, Gitflow e arquitetura.
-- Todo o material foi produzido por você: apostilas, questionários e fichas de exercícios.
-- Feedback positivo de alunos e coordenação (sem o "melhor da instituição").
-
-**F BD3 Ltda** (Set 2025 – Ago 2026), Desenvolvedor de Software / Tech Lead:
-- Responsável técnico em time de **4 desenvolvedores** no *Bíblia 3D*, definindo padrões de código e arquitetura.
-- Refatorou toda a base, que não funcionava mais por ser muito antiga, para uma versão mais atual e acessível da Unity.
-- Backend de um sistema de **órgão de segurança pública** (API REST em Java/Spring Boot + PostgreSQL), que substituiu a organização das escalas de ronda feita por WhatsApp. Usado por **50+ membros** e em produção.
-
-> Sugestão de organização: o sistema de segurança pública pode virar um **item próprio** ou ficar só como card de projeto. Escolha um dos dois para não repetir.
-
-### Projeto: Distribuidora Atacadista
-
-- Arquitetura: **em camadas** (não hexagonal). Não escrever "hexagonal" neste projeto.
-- Seu outro projeto atual (com Kafka) é o que usa **hexagonal**.
-- Descrição: projeto de estudo de microsserviços.
-- **Pontos técnicos aprovados** (use 4 ou 5 no card, o resto em página de estudo de caso):
-  1. Baixa de estoque atômica: `UPDATE ... WHERE stock_quantity >= :quantity`, sem estoque negativo em pedidos concorrentes e sem lock explícito.
-  2. Compensação de estoque quando o pedido falha, assumindo a limitação de não haver transação distribuída.
-  3. Máquina de estados do pedido (`CREATED → CONFIRMED → SHIPPED → DELIVERED`; `CANCELED`), com 409 em transição inválida.
-  4. Circuit Breaker + TimeLimiter (abre com 50% de falha em janela de 5 chamadas, 10 s aberto, timeout de 3 s).
-  5. Segurança: BCrypt, mensagem de login genérica contra *user enumeration*, admin por seed com senha em variável de ambiente, JWT validado no Gateway e segunda camada no `auth-service`.
-  6. Total e preço calculados no servidor, nunca aceitos do cliente.
-  7. Contextos separados: `User` (quem loga) e `Customer` (dado de negócio).
-  8. Sem FK entre bancos de serviços diferentes; integridade garantida na aplicação.
-- **Prints do Grafana: decidido não usar** no portfólio (ficam só no seu arquivo pessoal).
-
-### Projeto: Tatanea Temple
-
-- **~15 usuários ativos** (uso real, mais o seu círculo pessoal). Pode aparecer no card.
-- **História de engenharia (estudo de caso):**
-  - Problema: a consulta de fichas de personagem, que têm muitas tabelas relacionadas, exigia cerca de 12 idas ao banco por requisição.
-  - A primeira medição foi de **2 min 56 s** por consulta (conforme seu print; não 50 s).
-  - Correção: consultas com `INNER JOIN`, e banco movido do Brasil para **US West**, mesma região da API.
-  - Resultado: cerca de **4 s** por requisição.
-  - Você mediu com testes repetidos mantendo a API acordada, então não era o *cold start* do Render.
-  - **Cache no frontend (verificado no código):**
-    - **Pinia** guarda o compêndio (classes, raças, talentos, alquimia) em memória, com uma flag `carregado`: a API só é chamada na primeira vez. Detalhes ficam em cache por id, e existe `recarregar()` para limpar e buscar de novo. O cache vive só na aba; F5 limpa.
-    - **`<keep-alive>`** (máx. 6 telas) nas telas de personagem: ao voltar, o Vue mantém o componente e o estado, sem refazer a busca.
-    - **`localStorage`** guarda token e usuário (login sobrevive ao F5) e um rascunho da ficha como rede de segurança antes de a gravação chegar ao backend, que usa **versionamento otimista**.
-  - **Atenção:** o cache **não** compara com o banco para decidir se atualiza. Ele evita chamadas repetidas. Não escreva "sincroniza só quando há diferença".
-- **Segurança:** limite de tamanho nos campos de texto, limite de peso de imagens, e cota máxima de objetos por conta, contra abuso e lotação do banco.
-- Outros: migração de banco via backup, melhoria da API, uso correto de JWT.
-- **Parte favorita:** a ficha de personagem (muitas regras de negócio, otimizada e visualmente cuidada).
-- **Aviso no card:** o backend dorme no Render; o primeiro acesso pode demorar cerca de 1 min.
-- **Ponto verificado:** o cache do compêndio é em memória por flag, não por comparação com o banco (ver acima). Texto do card ajustado.
-- **Conferir:** o README do Tatanea diz que a ficha só salva ao clicar em "Salvar progresso", mas o código tem rascunho no `localStorage` (autosave local). Vale deixar o README consistente: "rascunho local automático; gravação no servidor sob demanda".
-
-### Pendências desta rodada
-
-- ~~Mecanismo do cache~~: resolvido (ver Tatanea).
-- ~~Rótulo do hero~~: **`1,5 ANO PROGRAMANDO`** (decidido).
-- Bloco da Avanade escondido: ver seção 4.1.
-- ~~Prints do Grafana e do print dos 2 min 56 s~~: **não serão usados**.
+- Mostrar em vez de afirmar. Evitar "especialista" e "pleno de minhas capacidades".
+- Tom: elegante, sóbrio, profissional.
+- Seu posicionamento: **Backend**. Frase-guia: *"Desenvolvedor backend focado em código confiável, testado e bem arquitetado."*
 
 ---
 
-## 0.2. Decisões da entrevista (B7–B12)
+## 3. Hero
 
-Mesma regra do 0.1: quando contradiz o resto do documento, **vale este bloco**.
+### 3.1 Selo de status (`.badge-status`)
 
-### Projeto novo: Bank-AtlasTT (B7)
-
-| Item | Valor |
-|---|---|
-| Natureza | Mini banco digital **educacional**, dados fictícios, sem dinheiro real, sem Pix |
-| Base | Java 21, Spring Boot 4.1.1, **arquitetura hexagonal**, TDD no domínio |
-| Dados | PostgreSQL 16 + Flyway; MongoDB (extrato); Redis (cache e idempotência) |
-| Mensageria | Kafka em modo KRaft; evento `TransferenciaRealizada` versionado |
-| Observabilidade | Actuator, Micrometer, OpenTelemetry, Grafana LGTM |
-| Qualidade | JUnit, Mockito, Testcontainers, GitHub Actions |
-| Segurança (Fase 7) | Spring Security, JWT, BCrypt |
-| Status | Você termina o projeto amanhã. No portfólio fica **sem marcador de fase** e você atualiza daqui a ~2 meses |
-| Repositório | https://github.com/TonhoDevi/Bank-AtlasTT |
-
-**Decisão:** o card descreve o projeto **completo**, sem "em desenvolvimento" e sem fases.
-
-> Mini banco digital educacional, com dados fictícios, em Java 21 e Spring Boot 4. Arquitetura hexagonal com domínio desenvolvido em TDD. Cada transferência publica um evento no Kafka; o extrato é montado em MongoDB, com idempotência e cache em Redis, e o fluxo é rastreado ponta a ponta com OpenTelemetry e Grafana. Autenticação com JWT e testes com Testcontainers.
-
-- **Rótulo:** `PROJETO EDUCACIONAL · ARQUITETURA HEXAGONAL`
-- **Tags:** `Java 21` `Spring Boot` `Hexagonal` `PostgreSQL` `Kafka` `MongoDB` `Redis` `OpenTelemetry` `Testcontainers`
-- **Link:** https://github.com/TonhoDevi/Bank-AtlasTT
-- **Posição:** card normal ao lado da Distribuidora (que continua como destaque).
-- **Diferencial para citar:** domínio sem framework, testado sem Spring; portas e adaptadores.
-
-**Conferência antes de publicar (importante):** recrutadores abrem o repositório. O README do Bank-AtlasTT hoje lista as Fases 1 a 8 como pendentes (⏳). Se o card disser que tudo existe e o README disser o contrário, o contraste prejudica você. Duas formas de evitar:
-1. Terminar de verdade as fases que o card cita, **ou**
-2. Manter no card só o que já estiver pronto no dia da publicação, e acrescentar o resto nas atualizações.
-
-Também atualize o README do repositório para bater com o card quando terminar (roadmap com ✅).
-
-### Game dev fora do portfólio (B8)
-
-Decisão: **remover qualquer associação com game dev**. Consequências no plano:
-
-| Onde | Ação |
-|---|---|
-| Contato | Remover o link do **itch.io** |
-| Stack | Não listar Unity nem Godot. **C#** pode ficar (ver B9), sem mencionar jogos |
-| Ícones em `assets/` | Não usar `Unity.svg` nem `Godot Engine.svg` |
-| História pessoal | Não usar a origem "queria ser gamedev" |
-| Texto do Bíblia 3D | Escrever **"aplicativo educativo em Realidade Aumentada"**, nunca "jogo". Seu currículo diz "jogo educativo"; vale alinhar |
-| Card do Bíblia 3D | **Mantido** (decisão sua). Texto: "aplicativo educativo em Realidade Aumentada". Tags sugeridas: `C#` `AR` `Android` (a tag `Unity` é opcional; ela remete a jogos). Tirar o "10K+ DOWNLOADS" do rótulo se o número já estiver no hero |
-| Tatanea Temple | **Pode ficar**: é ferramenta de apoio a RPG de mesa (fichas e compêndio), não desenvolvimento de jogos |
-| CodeQuest | **Mantido** (decisão sua). Sugestão de rótulo: `FULL STACK · EDUCAÇÃO` no lugar de "GAMIFICAÇÃO" |
-
-### Stack sem níveis de domínio (B9)
-
-**Decisão:** não informar nível. As pills ficam todas iguais, como hoje (só mantém o destaque que já existia nas tecnologias principais: Java, Spring Boot, Spring Cloud). Sua autoavaliação (para você, não para o site): forte em Spring Boot, JUnit e autenticação; confortável com mensageria e Eureka; estudando hexagonal, observabilidade e resiliência; Kotlin, Node e Python são projetos pequenos; C# foi o do app em RA.
-
-Consequências:
-- Angular, Vue e as demais continuam sem classificação.
-- Tecnologias que só aparecem em projetos pequenos (Kotlin, Node, Python) continuam na lista; apenas **evite** descrições que sugiram domínio profundo delas.
-
-Observações:
-- **GitHub Actions**: entra como ferramenta (CI do Bank-AtlasTT; e já criou um bot que mantinha o Tatanea Temple acordado no Render). A história do bot é boa para o estudo de caso, como solução criativa ao *cold start* do plano gratuito.
-- **Cloud (Azure, AWS, GCP):** nenhuma. **Não listar.** Como a Avanade é parceira Microsoft, uma meta de estudo (por exemplo AZ-900) seria um bom próximo passo, mas é só ideia para você, não para o site.
-- **Ferramentas de IA (opcional):** Claude, Claude Code, Gemini e NotebookLM no dia a dia. As de uso casual (Meta, ChatGPT, DeepSeek) **não entram**. Se quiser, uma linha em Stack: "IA no fluxo de desenvolvimento: Claude Code, Gemini, NotebookLM".
-- O "Sobre": a frase "arquiteturas distribuídas em nuvem" está acima do que você pratica. Texto sugerido: *"Meu foco está em backend com Java e Spring Boot: APIs REST, microsserviços, segurança, testes automatizados e arquitetura hexagonal."*
-
-### Formação e outras experiências (B10)
-
-| Item | Detalhe | Decisão |
-|---|---|---|
-| Certificado Java Full Stack | Fuctura | Já existe no cartão "Dev Java Full Stack"; pode escrever "Certificado" |
-| Engenharia de Software | Estácio, **3º módulo** | Pode escrever "Cursando · 3º módulo" |
-| Gestão Financeira (Tecnólogo) | Unifateci, 2023–2025 | **Destacar**: diferencial (finanças + software), combina com a vaga no setor financeiro |
-| **Gerente Financeiro** | **Bens Soluções Sustentáveis** (empresa júnior da UFPE, não remunerada), jun/2022 – jun/2023 | Adicionar. Rotular **"Experiência voluntária"** e deixar claro que foi empresa júnior |
-| Engenharia Mecatrônica | **UFPE**, cursada até o **5º período (de 8)**, não concluída | Adicionar um cartão discreto: `Engenharia Mecatrônica · UFPE · Cursado até o 5º período`. Honesto e mostra base técnica |
-
-Opcional: anos de início e de saída da Mecatrônica, se quiser colocar o período.
-
-### Posicionamento e tom (B11)
-
-- **Quero ser lembrado como:** Backend.
-- **Frase sua:** "Um profissional confiável e competente..." Sugestão: **mostrar em vez de afirmar**. "Pleno das minhas capacidades" soa pretensioso para um júnior. Versão de posicionamento: *"Desenvolvedor backend focado em código confiável, testado e bem arquitetado."*
-- **História pessoal sem game dev (aprovada):**
-
-> Venho de áreas diferentes, entre elas engenharia mecatrônica (UFPE) e gestão financeira. Ao entrar na programação, gostei tanto que decidi seguir carreira, e encontrei no backend o lugar onde mais gosto de resolver problemas.
-
-- **Objetivo de 2 anos:** tornar-se sênior e contribuir para o mercado nacional. Sugestão de texto curto no Sobre: *"Meu objetivo é evoluir até sênior e contribuir com o mercado de tecnologia brasileiro."*
-- **Tom:** **elegante e com ar sofisticado** (ver seção 9.1, nova direção visual).
-
-### Contato, site e recursos (B12)
-
-| Item | Decisão |
-|---|---|
-| E-mail | Manter **antoniohenriquebn@hotmail.com** (profissional) |
-| Site (portfólio) | https://tonhodevi.github.io/MeuPortifolio/ (GitHub Pages). O endereço `tatanea-temple.vercel.app` é o **app do Tatanea**, que continua no card dele |
-| Botão de idioma PT/EN | **Sim.** Plano na seção 9.2 |
-| Modo escuro/claro | **Sim.** Plano na seção 9.2 |
-| Blog | Talvez. **Recomendação: não agora.** Alternativa leve: seção "Guias de estudo" com links para os guias que você já escreveu na Distribuidora (`docs/JWT.md`, `TESTES.md`, `HTTP-STATUS.md`, `POO.md`, `ANOTACOES.md`). Conteúdo pronto, sem manutenção de blog |
-
-### Pendências novas
-
-Respondidas nesta rodada: URL do portfólio e do repositório, cards do Bíblia 3D e do CodeQuest, Mecatrônica, história pessoal, paleta (aprovada) e stack sem níveis.
-
-Ainda em aberto (todas opcionais):
-1. Nível de Angular e Vue: **não precisa mais** (sem níveis).
-2. Substituir o link do itch.io por algo, ou só remover? (sugestão: só remover)
-3. Quer colocar o período (anos) da Mecatrônica?
-4. Tag `Unity` no card do Bíblia 3D: manter ou tirar?
-
----
-
-## 1. Resumo das divergências encontradas
-
-Comparação entre o portfólio e os READMEs reais dos dois repositórios.
-
-| Item | Portfólio (antes) | Realidade (README) | Ação |
-|---|---|---|---|
-| Distribuidora: mensageria | RabbitMQ **e Kafka** | Só RabbitMQ | Tirar Kafka das tags do card (mantê-lo na Stack, ver item 6) |
-| Distribuidora: natureza | "Ecossistema B2B" | Projeto de aprendizado, não está em produção | Reposicionar o texto |
-| Distribuidora: frontend | Não citado | Angular 22 + Material | Citar |
-| Distribuidora: tecnologias | Incompleto | Gateway, Flyway, JWT/roles, Testcontainers, Grafana, Swagger, 55 testes | Completar |
-| Tatanea: tecnologias | JavaScript, Supabase, PostgreSQL, Vercel | Java 21, Spring Boot 4, Vue 3, Pinia, JWT, Flyway; deploy em Render + Vercel + Supabase | Corrigir tags e descrição |
-| Stack geral | Sem Angular, Vue, TypeScript, Render, Swagger | Aparecem nos projetos | Adicionar |
-| Stack geral | Kafka listado | Em uso em projeto novo, ainda em criação | **Manter** em "conhecidas" |
-| Hero | "Disponível para novas oportunidades" | Você agora está na Avanade | Trocar |
-| Experiência | 1 item misturado | 3 empresas/CNPJs diferentes | Separar |
-| Bíblia 3D | Repetido em hero, sobre, experiência e projetos | — | Reduzir |
-
----
-
-## 2. Hero
-
-### 2.1 Selo de status
-
-- **Antes:** `Disponível para novas oportunidades`
-- **Decisão:** sem data e **sem o nome da Avanade**. Texto: `Engenheiro de Software Jr. · Recife`. Você troca no mês que vem.
-- **Opções sem data:**
-  - `Engenheiro de Software Jr. · Avanade` (a partir de 03/11/2026, quando for verdade)
-  - `Chegando na Avanade` (para usar nas próximas semanas, até começar)
-  - `Engenheiro de Software Jr. · Recife` (neutra, vale antes e depois)
-- **Sugestão:** usar a terceira agora e trocar pela primeira no dia 3 de novembro.
+Antes: `Disponível para novas oportunidades`.
 
 ```html
 <div class="badge-status reveal">
@@ -271,126 +87,84 @@ Comparação entre o portfólio e os READMEs reais dos dois repositórios.
 </div>
 ```
 
-### 2.2 Título de cargo (`.role-title`)
+Sem data e sem o nome da Avanade. Você atualiza no mês que vem (ver 5.4).
 
-Atual: `Backend Developer · Java & Spring Ecosystem · Microservices`
+### 3.2 Título de cargo (`.role-title`)
 
-Sugestão (manter, ajustando só se quiser incluir o front): 
-`Software Engineer · Java & Spring · Microservices`
+```
+Backend Developer · Java & Spring Boot · Microsserviços
+```
 
-### 2.3 Subtítulo (`.subtitle`)
+### 3.3 Subtítulo (`.subtitle`)
 
-Atual: "Especialista no ecossistema Java/Spring…"
+> Foco no ecossistema Java e Spring Boot, com interesse em arquitetura de microsserviços, resiliência de sistemas e soluções escaláveis. Experiência como professor de programação e entusiasta de desenvolvimento orientado a alta performance.
 
-Pontos de atenção:
-- "Especialista" é uma palavra forte para um perfil júnior. Sugestão: **"Foco no ecossistema Java/Spring"**.
-- "Instrutor técnico" pode continuar, já que você é professor na Fuctura.
+(Troca "Especialista" por "Foco" e passa o ensino para o passado, já que você saiu da Fuctura.)
 
-Texto sugerido:
+### 3.4 Faixa de números (`.facts`)
 
-> Foco no ecossistema Java/Spring, com interesse em arquitetura de microsserviços, resiliência de sistemas e soluções escaláveis. Professor de programação e entusiasta de desenvolvimento orientado a alta performance.
+| Número | Rótulo |
+|---|---|
+| `1,5` | `ANO PROGRAMANDO` |
+| `200+` | `ALUNOS CAPACITADOS` |
+| `6` | `TURMAS LECIONADAS` |
+| `50+` | `USUÁRIOS EM PRODUÇÃO` |
 
-### 2.4 Faixa de números (`.facts`)
-
-| Número | Rótulo | Situação |
-|---|---|---|
-| ~~`4+`~~ → `1,5` | ~~ANOS PROGRAMANDO~~ → `ANO E MEIO PROGRAMANDO` | **Decidido.** Mantém a conta honesta (7 meses de estudo + ~1 ano de trabalho) |
-| `200+` | Alunos capacitados | OK |
-| `6` | Turmas lecionadas | OK |
-| `10K+` | Downloads em produção | OK, mas é o Bíblia 3D: ver nota abaixo |
-
-> **Decidido: `1,5 ANO PROGRAMANDO`.** Nota anterior, mantida para referência:
->
-> **Nota sobre o rótulo do número (decisão: 7 meses de estudo + 1 ano como programador):**
-> - Como **profissional** (F BD3 desde Set 2025), o tempo real é **cerca de 1 ano**; somando os 7 meses de estudo dá **cerca de 1 ano e 7 meses**. Chamar de "1,5 ano como profissional" mistura as duas contagens, e um entrevistador pode estranhar.
-> - Rótulos honestos, escolha um: `1,5 ANO PROGRAMANDO` (conta o estudo) ou `1+ ANO COMO PROFISSIONAL` (só o trabalho).
-> - Na Avanade esse número vai crescer sozinho; revise em 2027.
-
-> **Sugestão para o 4º número do hero:** como o Bíblia 3D continua com card (que cita os downloads), troque `10K+ DOWNLOADS EM PRODUÇÃO` por `50+ USUÁRIOS EM PRODUÇÃO` (sistema do órgão de segurança pública). Evita a repetição e não remete a jogos.
-
-> **Nota de repetição:** o 10K+ já aparece no hero e na experiência. Se quiser reduzir o Bíblia 3D, uma opção é trocar o 4º número por algo que seja só seu, por exemplo `7` microsserviços na Distribuidora ou `55` testes unitários. Decisão sua.
+O último número (era `10K+ DOWNLOADS`) agora vem do sistema do órgão de segurança pública, para não repetir o Bíblia 3D. Revise o `1,5` em 2027.
 
 ---
 
-## 3. Sobre mim
+## 4. Sobre mim
 
-Já reescrevi o primeiro parágrafo na branch. Texto final proposto para os dois parágrafos:
+### 4.1 Texto (versão para usar **agora**, sem Avanade)
 
-> Engenheiro de Software Júnior na **Avanade** (a partir de 03/11/2026) e graduando em Engenharia de Software pela Estácio. Atuei como professor de programação na **Fuctura Tecnologia**, capacitando desenvolvedores em Java e Python.
->
-> Minha especialidade reside na criação de **arquiteturas distribuídas em nuvem**, utilizando Spring Cloud, mensageria (RabbitMQ/Kafka), mensuração de resiliência e boas práticas de persistência relacional.
+> Engenheiro de Software em formação pela Estácio, com experiência como desenvolvedor e professor de programação. Venho de áreas diferentes, entre elas engenharia mecatrônica (UFPE) e gestão financeira; ao entrar na programação, gostei tanto que decidi seguir carreira e encontrei no backend o lugar onde mais gosto de resolver problemas.
 
-Pontos de atenção:
-- O segundo parágrafo diz "arquiteturas distribuídas **em nuvem**", mas a Distribuidora roda em Docker Compose local. Sugestão de ajuste honesto: **"arquiteturas distribuídas"** (sem "em nuvem") ou **"arquiteturas de microsserviços"**.
-- "Minha especialidade reside" soa pesado. Alternativa: **"Meu foco está em"**.
+> Meu foco está em backend com Java e Spring Boot: APIs REST, microsserviços, segurança, testes automatizados e arquitetura hexagonal. Meu objetivo é evoluir até sênior e contribuir com o mercado de tecnologia brasileiro.
 
-Cartão lateral (`.about-card`): Localização, Idiomas, Atuação. Conferir se "Remoto / Híbrido / Presencial" ainda é verdade agora que você está empregado.
+### 4.2 Primeiro parágrafo **ao ativar a Avanade** (ver 5.4)
+
+> Engenheiro de Software Júnior na **Avanade** e graduando em Engenharia de Software pela Estácio. Atuei como professor de programação na **Fuctura Tecnologia**, capacitando desenvolvedores em Java e Python. Venho de áreas diferentes, entre elas engenharia mecatrônica (UFPE) e gestão financeira; ao entrar na programação, gostei tanto que decidi seguir carreira e encontrei no backend o lugar onde mais gosto de resolver problemas.
+
+### 4.3 Cartão lateral (`.about-card`)
+
+Localização (Recife, PE), Idiomas (Português nativo, Inglês avançado), Atuação. Confirme se "Remoto / Híbrido / Presencial" continua válido. Como a Avanade é híbrida, considere `Híbrido / Remoto`.
 
 ---
 
-## 4. Experiência
+## 5. Experiência
 
-Ordem: do mais recente para o mais antigo. Cada empresa/CNPJ é um item separado.
+Ordem: do mais recente para o mais antigo. Cada empresa é um item separado.
 
 | # | Cargo | Empresa | Período |
 |---|---|---|---|
-| 1 | Engenheiro de Software Júnior | Avanade · Híbrido, Recife | Nov 2026 (início em 03/11) |
+| 1 | Engenheiro de Software Júnior | Avanade · Híbrido, Recife | Nov 2026 – Presente (**escondido**, ver 5.4) |
 | 2 | Professor de Programação | Fuctura Tecnologia · Recife, PE | Fev 2026 – Set 2026 |
 | 3 | Desenvolvedor de Software | F BD3 Ltda · Recife, PE | Set 2025 – Ago 2026 |
+| 4 | Gerente Financeiro (voluntário) | Bens Soluções Sustentáveis · Empresa Júnior UFPE | Jun 2022 – Jun 2023 |
 
-### Item 1 — Avanade (pendente de informação)
-
-Dados confirmados: início em 03/11/2026, híbrido em Recife, Java full stack com foco em Spring Boot, setor financeiro (sem citar o banco). **Não há tópicos de entrega ainda.** Se for descrever, sugiro 1–2 tópicos curtos, só do que você pode divulgar (muitas consultorias restringem detalhes de cliente).
-
-### Item 2 — Fuctura
+### 5.1 Fuctura
 
 - Conduzi **6 turmas de Java e Python (200+ alunos)**, criando conteúdo didático, exercícios práticos e acompanhando o desenvolvimento individual de cada aluno.
-- Conteúdos: POO, coleções, Spring Boot, SQL/PostgreSQL, Hibernate, JDBC, JPA, Git, Gitflow e arquitetura. Todo o material (apostilas, questionários e fichas de exercícios) foi produzido por mim.
+- Conteúdos: POO, coleções, Spring Boot, SQL e PostgreSQL, Hibernate, JDBC, JPA, Git, Gitflow e arquitetura.
+- Produzi todo o material: apostilas, questionários e fichas de exercícios.
 
-### Item 3 — F BD3 Ltda
+### 5.2 F BD3 Ltda
 
-- Responsável técnico, em time de 4 desenvolvedores, pela base de código do *Bíblia 3D*, jogo educativo em Realidade Aumentada publicado na Google Play. Defini padrões de código e arquitetura e refatorei a base inteira, que já não funcionava por ser muito antiga, para uma versão mais atual e acessível da Unity.
-- Contribuí no backend de um sistema de **órgão de segurança pública** (Java/Spring Boot e PostgreSQL), que substituiu a organização das escalas de ronda por WhatsApp. Em produção, com mais de 50 usuários.
+- Responsável técnico, em time de 4 desenvolvedores, pela base de código do *Bíblia 3D*, aplicativo educativo em Realidade Aumentada publicado na Google Play. Defini padrões de código e arquitetura e refatorei a base inteira, que já não funcionava por ser muito antiga, para uma versão atual e mais acessível da engine.
+- Contribuí no backend de um sistema de **órgão de segurança pública** (Java, Spring Boot e PostgreSQL), que substituiu a organização das escalas de ronda feita por WhatsApp. Em produção, com mais de 50 usuários.
 
-### HTML de referência (um item da timeline)
+> Observação: o texto fala "da engine" em vez de citar Unity, por causa da decisão de não associar o site a game dev. Se preferir nomear, é opcional.
 
-```html
-<div class="timeline-item reveal">
-  <div class="timeline-header">
-    <h3 class="timeline-role">Desenvolvedor de Software</h3>
-    <span class="timeline-date">Set 2025 – Ago 2026</span>
-  </div>
-  <div class="timeline-meta">F BD3 Ltda · Recife, PE</div>
-  <ul>
-    <li>Responsável técnico pela base de código do <em>Bíblia 3D</em>…</li>
-    <li>Contribuí no backend de um sistema de <strong>órgão de segurança pública</strong>…</li>
-  </ul>
-</div>
-```
+### 5.3 Bens Soluções Sustentáveis (opcional)
 
-Dica visual: se usar o `styles.css` novo, itens consecutivos já ganham espaçamento via `.timeline-item + .timeline-item`.
+- Gerente financeiro da empresa júnior da UFPE. Experiência voluntária, não remunerada.
 
-### Ideia opcional: tags de tecnologia por experiência
+Rotule como **"Experiência voluntária"** para ficar claro. Se quiser, acrescente 1 linha sobre o que fazia (orçamento, controle financeiro etc.); eu não inventei nada além do cargo.
 
-Dentro de cada item, depois da `<ul>`, usar o componente `.tags` que já existe:
+### 5.4 Bloco da Avanade escondido (ativar só após a carteira assinada)
 
-```html
-<div class="tags">
-  <span class="tag">Unity</span>
-  <span class="tag">C#</span>
-  <span class="tag">Java</span>
-  <span class="tag">Spring Boot</span>
-  <span class="tag">PostgreSQL</span>
-</div>
-```
-
----
-
-### 4.1 Bloco da Avanade escondido (ativar só após a carteira assinada)
-
-Plano: deixar tudo pronto no código, **invisível**, e só liberar quando o vínculo for real. Sugestão técnica: usar o atributo `hidden` do HTML, que remove o item da tela sem apagar nada (um `display: none` nativo).
-
-**1) Item da timeline (em `index.html`, no topo da `<div class="timeline">`, antes da Fuctura):**
+Deixe pronto agora, invisível. No topo da `<div class="timeline">`:
 
 ```html
 <!-- AVANADE: remova o atributo hidden quando a carteira for assinada -->
@@ -406,147 +180,166 @@ Plano: deixar tudo pronto no código, **invisível**, e só liberar quando o ví
 </div>
 ```
 
-> Se não quiser nenhum tópico, apague o `<ul>` inteiro (o texto acima é o único tópico seguro: sem nome de banco e sem detalhe de cliente).
+O `hidden` do HTML some com o item, mas o texto continua visível em "Ver código-fonte". Por isso o bloco não tem nome de banco nem de cliente. Se não quiser nenhum tópico, apague a `<ul>`.
 
-**2) Selo do hero (`.badge-status`):**
-- Agora: `Engenheiro de Software Jr. · Recife`
-- Ao ativar: `Engenheiro de Software Jr. · Avanade`
+**Checklist de ativação (quando a carteira for assinada):**
+- [ ] Remover `hidden` do `#exp-avanade`
+- [ ] Trocar o selo para `Engenheiro de Software Jr. · Avanade`
+- [ ] Trocar o 1º parágrafo do Sobre pelo texto 4.2
+- [ ] Atualizar o texto de contato se quiser
+- [ ] Conferir no celular
 
-**3) Primeiro parágrafo do "Sobre":**
-- Agora (sem Avanade): `Engenheiro de Software em formação pela Estácio, com experiência como desenvolvedor e professor de programação. Foco em Java e no ecossistema Spring.`
-- Ao ativar: `Engenheiro de Software Júnior na **Avanade** e graduando em Engenharia de Software pela Estácio. Atuei como professor de programação na **Fuctura Tecnologia**, capacitando desenvolvedores em Java e Python.`
+### 5.5 HTML de um item (referência)
 
-**4) Checklist de ativação (no dia em que a carteira for assinada):**
-- [ ] Remover `hidden` de `#exp-avanade`
-- [ ] Trocar o selo do hero
-- [ ] Trocar o primeiro parágrafo do Sobre
-- [ ] Rever o texto do Contato (item 8)
-- [ ] Conferir o visual no celular
+```html
+<div class="timeline-item reveal">
+  <div class="timeline-header">
+    <h3 class="timeline-role">Desenvolvedor de Software</h3>
+    <span class="timeline-date">Set 2025 – Ago 2026</span>
+  </div>
+  <div class="timeline-meta">F BD3 Ltda · Recife, PE</div>
+  <ul>
+    <li>…</li>
+  </ul>
+</div>
+```
 
-**Observação:** o conteúdo escondido continua legível no código-fonte da página (qualquer pessoa pode abrir "Ver código-fonte"). Como o texto proposto não tem nenhum dado sigiloso, não há risco. Evite colocar nome do banco ou de cliente nesse bloco, mesmo escondido.
+Como cada item agora é um cartão, dê espaço entre eles: `.timeline-item + .timeline-item { margin-top: 16px; }`.
 
 ---
 
-## 5. Formação
+## 6. Formação
 
-Cartões atuais:
-
-| Curso | Instituição | Período |
+| Curso | Instituição | Período / situação |
 |---|---|---|
-| Engenharia de Software | Estácio | 2025 – Cursando |
-| Dev Java Full Stack | Fuctura Tecnologia | 2025 |
+| Engenharia de Software | Estácio | Cursando · 3º módulo |
+| Dev Java Full Stack (certificado) | Fuctura Tecnologia | 2025 |
 | Gestão Financeira (Tecnólogo) | Unifateci | 2023 – 2025 |
+| Engenharia Mecatrônica | UFPE | **[PENDENTE: anos]** · cursado até o 5º período (de 8), não concluído |
 
-Sem mudanças obrigatórias. Se tiver certificações (Azure, Spring, Java), este é o lugar para um quarto cartão.
+- Destaque da Gestão Financeira: é um diferencial (finanças + software) e combina com o setor financeiro da Avanade.
+- Texto do cartão da Mecatrônica: `Engenharia Mecatrônica · UFPE · Cursado até o 5º período`, com os anos antes de "Cursado".
+- **Me diga os anos** de início e de saída da Mecatrônica (ver pendências).
 
 ---
 
-## 6. Stack
+## 7. Stack
 
-### 6.1 Adicionar
+**Sem níveis de domínio.** As pills ficam todas iguais; só mantém o destaque (`.highlight`) em **Java, Spring Boot e Spring Cloud**.
 
-| Tecnologia | Categoria sugerida | Justificativa |
-|---|---|---|
-| Angular | Core & linguagens (ou nova categoria "Frontend") | Frontend da Distribuidora |
-| Vue 3 | idem | Frontend do Tatanea Temple |
-| TypeScript | Core & linguagens | Usado nos dois frontends |
-| Pinia | Frontend | Estado no Tatanea |
-| Spring Cloud Gateway | Spring | API Gateway da Distribuidora |
-| JWT / BCrypt | Spring / segurança | Auth nos dois projetos |
-| Swagger / OpenAPI | já existe | — |
-| Render | Infra | Deploy do back do Tatanea |
-| Angular Material | Frontend | Opcional |
-
-### 6.2 Kafka
-
-**Manter** `Apache Kafka` na stack, pois você já o usa em projeto novo em criação. Dica de honestidade: se quiser, marque como "em uso/estudo" com um destaque visual diferente (ou deixe só sem o `highlight`). **Remover Kafka apenas das tags do card da Distribuidora.**
-
-### 6.3 Sugestão de nova organização das categorias
+### 7.1 Organização por categorias
 
 1. **Linguagens:** Java (highlight), Kotlin, Python, C#, JavaScript, TypeScript
 2. **Frontend:** Angular, Vue 3, Pinia, Node.js
 3. **Spring e sistemas distribuídos:** Spring Boot (highlight), Spring Cloud (highlight), Spring Security, Spring Data JPA, Spring Cloud Gateway, Eureka, OpenFeign, RabbitMQ, Apache Kafka, Resilience4j
-4. **Banco, infra e persistência:** PostgreSQL, Hibernate, Flyway, Docker, Testcontainers, Linux, Git/GitHub, Supabase, Vercel, Render
-5. **Testes, observabilidade e docs:** JUnit 5, Mockito, Vitest, Prometheus, Grafana, Spring Actuator, Swagger/OpenAPI
+4. **Banco, infra e persistência:** PostgreSQL, MongoDB, Redis, Hibernate, Flyway, Docker, Testcontainers, Linux, Git/GitHub, GitHub Actions, Supabase, Vercel, Render
+5. **Testes, observabilidade e docs:** JUnit 5, Mockito, Vitest, OpenTelemetry, Prometheus, Grafana, Spring Actuator, Swagger/OpenAPI
 
-> No novo CSS a grade da Stack é 2 colunas. Com 5 categorias, a última fica sozinha. Duas saídas: (a) manter 4 categorias juntando "Frontend" em "Linguagens", ou (b) fazer a última ocupar a linha toda com `.stack-group:last-child { grid-column: 1 / -1; }`.
+Acréscimos em relação ao site atual: Angular, Vue 3, TypeScript, Pinia, Spring Cloud Gateway, MongoDB, Redis, GitHub Actions, Render, Vitest, OpenTelemetry.
 
-### 6.4 Ícones (opcional)
+Saídas: **Unity e Godot** (decisão de não associar a game dev).
 
-A pasta `assets/` já tem SVGs de Java, Spring, Kotlin, Python, C#, JavaScript, TypeScript, Node.js, PostgreSQL, Git, Linux, Unity, Vercel, Firebase, Maven, Godot, HTML, CSS e AngularJS (**este é o AngularJS antigo, não o Angular atual**; se for usar, procure o logo do Angular moderno). Hoje nenhum está sendo usado no HTML.
+Opcional: uma linha "IA no fluxo de desenvolvimento: Claude Code, Gemini, NotebookLM". As ferramentas de uso casual não entram.
+
+### 7.2 Layout
+
+Com 5 categorias em 2 colunas, a última ficaria sozinha. Duas saídas: (a) deixar a última ocupar a linha toda:
+
+```css
+.stack-group:last-child { grid-column: 1 / -1; }
+```
+
+ou (b) juntar "Frontend" em "Linguagens" e ficar com 4 categorias.
+
+### 7.3 Ícones (opcional)
+
+`assets/` tem SVGs de Java, Spring, Kotlin, Python, C#, JavaScript, TypeScript, Node.js, PostgreSQL, Git, Linux, Vercel, Firebase, Maven, HTML e CSS. **Não use** `Unity.svg` nem `Godot Engine.svg`. `AngularJS.svg` é o logo do AngularJS antigo, não do Angular atual: procure o logo do Angular moderno se for usar.
 
 ---
 
-## 7. Projetos
+## 8. Projetos
 
-### 7.1 Distribuidora Atacadista (projeto principal)
+Ordem sugerida: **Distribuidora** (destaque), depois Bank-AtlasTT, Tatanea, CodeQuest, Escala de Turnos e Bíblia 3D.
 
-- **Rótulo (`.project-tag`):** `PROJETO DE ESTUDO · ARQUITETURA DE MICROSSERVIÇOS`
-- **Título:** `Distribuidora Atacadista (AtlasTT)`
-- **Descrição sugerida:**
+Os 5 cards da grade ficam em número ímpar com 2 colunas. Para o último não ficar sozinho:
 
-> Projeto de estudo de microsserviços em arquitetura em camadas: 7 serviços Spring Boot com Eureka e API Gateway, autenticação JWT por papéis, baixa de estoque atômica com compensação, chamadas resilientes (OpenFeign + Resilience4j), notificações via RabbitMQ e métricas com Prometheus/Grafana. Frontend em Angular e 55 testes unitários.
-
-- **Tags (máximo ~9):** `Java 17` `Spring Cloud` `Gateway` `Eureka` `RabbitMQ` `PostgreSQL` `Angular` `Docker` `Prometheus`
-- **Removida:** `Kafka` (o projeto não usa).
-- **Link:** `https://github.com/TonhoDevi/distribuidora-atacadista` (manter).
-
-```html
-<div class="tags">
-  <span class="tag">Java</span>
-  <span class="tag">Spring Cloud</span>
-  <span class="tag">Gateway</span>
-  <span class="tag">Eureka</span>
-  <span class="tag">RabbitMQ</span>
-  <span class="tag">PostgreSQL</span>
-  <span class="tag">Angular</span>
-  <span class="tag">Docker</span>
-  <span class="tag">Prometheus</span>
-</div>
+```css
+.grid .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
 ```
 
-Destaques do README que valem citar (escolha 2–3 para não poluir):
-- Um banco Postgres por serviço, sem FK entre serviços.
-- JWT validado centralmente no Gateway, com autorização por role.
-- Compensação de estoque e circuit breaker no `order-service`.
-- Limitações documentadas com honestidade (isso demonstra maturidade).
+### 8.1 Distribuidora Atacadista (destaque)
 
-### 7.2 Templo de Tatânea
+- **Rótulo:** `PROJETO DE ESTUDO · ARQUITETURA DE MICROSSERVIÇOS`
+- **Título:** `Distribuidora Atacadista (AtlasTT)`
+- **Descrição:**
 
-- **Rótulo (`.card-type`):** `FULL STACK · JAVA + VUE`
-- **Descrição sugerida:**
+> Projeto de estudo de microsserviços em arquitetura em camadas: 7 serviços Spring Boot com Eureka e API Gateway, autenticação JWT por papéis, baixa de estoque atômica com compensação, chamadas resilientes (OpenFeign + Resilience4j), notificações via RabbitMQ e métricas com Prometheus e Grafana. Frontend em Angular e 55 testes unitários.
+
+- **Tags:** `Java 17` `Spring Cloud` `Gateway` `Eureka` `RabbitMQ` `PostgreSQL` `Angular` `Docker` `Prometheus`
+- **Link:** https://github.com/TonhoDevi/distribuidora-atacadista
+- **Cuidados:** não escreva "hexagonal" (é em camadas); **sem Kafka** nas tags (usa RabbitMQ).
+
+### 8.2 Bank-AtlasTT
+
+- **Rótulo:** `PROJETO EDUCACIONAL · ARQUITETURA HEXAGONAL`
+- **Descrição:**
+
+> Mini banco digital educacional, com dados fictícios, em Java 21 e Spring Boot 4. Arquitetura hexagonal com domínio desenvolvido em TDD. Cada transferência publica um evento no Kafka; o extrato é montado em MongoDB, com idempotência e cache em Redis, e o fluxo é rastreado ponta a ponta com OpenTelemetry e Grafana. Autenticação com JWT e testes com Testcontainers.
+
+- **Tags:** `Java 21` `Spring Boot` `Hexagonal` `PostgreSQL` `Kafka` `MongoDB` `Redis` `OpenTelemetry` `Testcontainers`
+- **Link:** https://github.com/TonhoDevi/Bank-AtlasTT
+- **Sem marcador de fase.** Você termina amanhã e atualiza daqui a ~2 meses.
+
+**Antes de publicar (importante):** recrutadores abrem o repositório. O README do Bank-AtlasTT ainda lista as Fases 1 a 8 como pendentes (⏳). Se o card disser que tudo existe e o README disser o contrário, o contraste prejudica você. Faça uma destas duas coisas: (1) termine as fases que o card cita e atualize o roadmap do README com ✅, ou (2) deixe no card só o que já estiver pronto no dia da publicação.
+
+### 8.3 Templo de Tatânea
+
+- **Rótulo:** `FULL STACK · JAVA + VUE`
+- **Descrição:**
 
 > Compêndio homebrew e sistema de fichas para D&D 5e, em uso por cerca de 15 jogadores. API REST em Spring Boot com JWT e frontend em Vue 3. A consulta de fichas caiu de quase 3 minutos para cerca de 4 segundos com joins, banco na mesma região da API e cache no frontend (Pinia); campos, imagens e objetos por conta têm limites contra abuso.
 
 - **Tags:** `Java 21` `Spring Boot` `Vue 3` `PostgreSQL` `JWT` `Flyway`
-- **Links:** manter `GitHub` e `Acessar App`.
-- **Aviso:** o backend roda no free tier do Render e "dorme" após ~15 min; a primeira requisição leva 30–50 s. Vale uma nota curta no card (por exemplo, no `.card-note`: *"Primeiro acesso pode levar até 1 min"*), para o recrutador não achar que está quebrado.
+- **Links:** GitHub (https://github.com/TonhoDevi/Tatanea-Temple) e Acessar App (https://tatanea-temple.vercel.app/)
+- **Aviso (`.card-note`):** *"Primeiro acesso pode levar até 1 min"* (o backend dorme no plano gratuito do Render).
+- Não é game dev: é ferramenta de apoio a RPG de mesa.
 
-### 7.3 Escala de Turnos (órgão de segurança pública)
+### 8.4 CodeQuest (mantido)
 
-Sem mudança de conteúdo. Observação: agora o mesmo trabalho aparece na Experiência (F BD3) e neste card. Duas opções:
-- **Manter o card** e encurtar o tópico da experiência; ou
-- **Remover o card** e deixar só a experiência.
+Mantenha o texto atual e troque só o rótulo de `FULL STACK · GAMIFICAÇÃO` para `FULL STACK · EDUCAÇÃO`. Tags: `Kotlin` `Spring Boot` `PostgreSQL` `Thymeleaf`.
 
-### 7.4 Bíblia 3D (Realidade Aumentada)
+### 8.5 Escala de Turnos (mantido)
 
-É o item mais repetido do site. Opções:
-- **A (recomendada):** manter o card, pois tem link para a Google Play, e reduzir o hero a só o número `10K+`.
-- **B:** remover o card e manter o app só na Experiência.
+- **Rótulo:** `SISTEMA EM PRODUÇÃO`
+- **Título:** `Escala de Turnos`
+- **Descrição:**
 
-### 7.5 Seção de "Em desenvolvimento / Próximos projetos"
+> API REST para gerenciamento de escalas operacionais de um órgão de segurança pública, substituindo a organização por WhatsApp. Usada por mais de 50 membros.
 
-Espaço para o projeto novo com Kafka e os que você vai listar. Sugestão: um card com o rótulo `EM DESENVOLVIMENTO` e sem link de demo. Modelo:
+- **Tags:** `Java` `Spring Boot` `PostgreSQL`
+- **Nota:** `Privado (Institucional)`
+
+### 8.6 Bíblia 3D (mantido)
+
+- **Rótulo:** `PRODUTO PUBLICADO · 10K+ DOWNLOADS` (é o **único** lugar do site com esse número)
+- **Título:** `Bíblia 3D (Realidade Aumentada)`
+- **Descrição:**
+
+> Aplicativo educativo em Realidade Aumentada disponível na Google Play. Reestruturação completa da arquitetura e suporte técnico contínuo.
+
+- **Tags:** `C#` `AR` `Android` (**sem a tag Unity**)
+- **Link:** https://play.google.com/store/apps/details?id=com.Fuctura.Biblia3D
+
+### 8.7 Modelo de card para projetos futuros
 
 ```html
 <div class="card">
-  <span class="card-type">EM DESENVOLVIMENTO</span>
+  <span class="card-type">RÓTULO DO PROJETO</span>
   <h3>Nome do projeto</h3>
-  <p>Descrição curta do objetivo.</p>
+  <p>Descrição curta.</p>
   <div class="tags">
     <span class="tag">Java</span>
     <span class="tag">Spring Boot</span>
-    <span class="tag">Kafka</span>
   </div>
   <div class="card-links">
     <a href="https://github.com/TonhoDevi/REPO" target="_blank">GitHub</a>
@@ -554,60 +347,33 @@ Espaço para o projeto novo com Kafka e os que você vai listar. Sugestão: um c
 </div>
 ```
 
-> Com a grade de 2 colunas, **número par de cards** fica melhor visualmente (hoje são 4; com mais um, 5, o último fica sozinho; com dois, volta a ficar par).
+---
+
+## 9. Contato
+
+- **Texto:** troque "Aberto para oportunidades CLT, PJ, projetos de consultoria ou aulas técnicas." por: **"Aberto a conversas sobre projetos, colaborações e aulas técnicas."**
+- **E-mail (mantido):** antoniohenriquebn@hotmail.com
+- **Links finais:** E-mail, LinkedIn, GitHub. **Remover o itch.io.** Se quiser, adicionar o repositório do Bank-AtlasTT.
+- **Ícones:** trocar os emojis (✉ 🔗 💻 🎮) por ícones de linha em SVG.
+- **Formulário:** usa `mailto:`, que depende do cliente de e-mail do visitante. Alternativas futuras sem backend: Formspree ou Web3Forms.
+- **Correção fora do portfólio:** o link do LinkedIn no README do Tatanea está quebrado (`[Antonio Henrique]([www.linkedin.com/…](https://…))`).
 
 ---
 
-## 8. Contato
+## 10. Design: paleta, tema e idioma
 
-- Texto atual: "Aberto para oportunidades CLT, PJ, projetos de consultoria ou aulas técnicas." Agora que você está na Avanade, decida se mantém. Sugestão neutra: **"Aberto a conversas sobre projetos, colaborações e aulas técnicas."**
-- E-mail: **mantido** `antoniohenriquebn@hotmail.com` (profissional).
-- **Remover o link do itch.io** (decisão B8) e trocar os emojis por ícones SVG (ver 9.1).
-- Lista final sugerida: E-mail, LinkedIn, GitHub (e, se quiser, o repositório do Bank-AtlasTT).
-- **Bug de formatação do README do Tatanea:** o link do LinkedIn está quebrado (`[Antonio Henrique]([www.linkedin.com/…](https://…))`). Não afeta o portfólio, mas vale corrigir no repositório.
-- Formulário: usa `mailto:`. Funciona, mas depende do cliente de e-mail do visitante. Alternativas futuras: Formspree ou Web3Forms (sem backend).
+### 10.1 Direção visual
 
----
+**Objetivo:** produto premium, sóbrio e espaçoso, sem neon. A identidade atual (verde Spring + azul + fonte mono) tem cara de "dev"; a nova terá cara de "marca".
 
-## 9. Design (extras opcionais)
+1. Mais espaço em branco e menos caixas: linhas de 1 px em vez de cartões pesados.
+2. **Serifa nos títulos** (*Cormorant Garamond* ou *Playfair Display*) e sans moderna no texto (*Plus Jakarta Sans* ou *Inter*). A fonte mono fica só em detalhes (datas, tags).
+3. **Um só acento:** dourado champanhe. Sem gradiente verde-azul.
+4. Movimento sutil: surgir suavemente ao rolar.
+5. Foto com moldura fina dourada, sem sombra pesada.
+6. Ícones SVG de linha no lugar de emojis.
 
-Ideias além do que já está na branch:
-
-1. **Ícones de tecnologia** nas pills da Stack (SVGs de `assets/`).
-2. **Contagem animada** dos números do hero (0 → valor) ao entrar na tela.
-3. **Modo claro/escuro** com botão no menu.
-4. **Open Graph / Twitter Card** no `<head>` (`og:title`, `og:description`, `og:image`) para o link ficar bonito ao ser compartilhado no LinkedIn.
-
-   ```html
-   <meta property="og:type" content="website" />
-   <meta property="og:url" content="https://tonhodevi.github.io/MeuPortifolio/" />
-   <meta property="og:title" content="Antonio Henrique — Backend Developer" />
-   <meta property="og:description" content="Backend com Java e Spring Boot: APIs REST, microsserviços, segurança e arquitetura hexagonal." />
-   <meta property="og:image" content="https://tonhodevi.github.io/MeuPortifolio/assets/perfil.jpeg" />
-   <meta name="twitter:card" content="summary_large_image" />
-   ```
-
-   > O `og:image` ideal tem 1200×630 px. A foto atual é vertical; vale criar uma imagem de capa própria.
-5. **Favicon** (hoje não há).
-6. **Seção "Em desenvolvimento"** (ver 7.5).
-7. **Foto**: usar `loading="lazy"` não se aplica (está no topo), mas vale gerar uma versão `.webp` menor que os 138 KB atuais.
-8. **SEO:** adicionar `<meta property="og:*">` e um `sitemap` caso hospede no GitHub Pages ou Vercel.
-
----
-
-### 9.1 Direção visual: elegante e sofisticada (decidido em B11)
-
-**Objetivo:** passar sensação de produto premium: sóbrio, espaçoso, sem neon. A identidade atual (verde Spring + azul + fonte monoespaçada) tem cara de "dev"; a nova teria cara de "marca".
-
-**Princípios:**
-1. Mais **espaço em branco** e menos caixas. Linhas finas de 1 px em vez de cartões pesados.
-2. **Tipografia com serifa** nos títulos (opções: *Cormorant Garamond*, *Playfair Display*) e uma sans moderna no texto (manter *Plus Jakarta Sans* ou usar *Inter*). A fonte mono fica só em detalhes pequenos (datas, tags).
-3. **Um só acento**: dourado champanhe. Nada de gradiente verde-azul, nada de brilho neon.
-4. **Movimento sutil**: aparecer suavemente ao rolar, sem animação chamativa.
-5. **Trocar os emojis** do contato (✉ 🔗 💻 🎮) por ícones de linha em SVG. Emoji destoa de um site elegante.
-6. Foto com **moldura fina dourada**, sem sombra pesada.
-
-**Paleta proposta (variáveis de `:root`):**
+### 10.2 Paleta (já vista nas prévias)
 
 ```css
 /* Escuro (padrão) */
@@ -633,63 +399,122 @@ Ideias além do que já está na branch:
 }
 ```
 
-> Confira o contraste de texto (WCAG AA, 4,5:1) depois de aplicar, principalmente o dourado sobre o fundo claro.
+Depois de aplicar, confira o contraste de texto (WCAG AA, 4,5:1), principalmente o dourado sobre o fundo claro. O Tatanea já usa dourado e terracota, então a identidade combina; o verde Spring fica só nas pills de destaque.
 
-**Observação de identidade:** o Tatanea Temple já usa dourado e terracota, então a paleta nova combina com ele. O que se perde é a ligação visual com o verde do Spring; ele pode continuar só no logo do Spring, nas pills de destaque.
+### 10.3 Modo escuro/claro
 
-### 9.2 Modo escuro/claro e troca de idioma (PT/EN)
-
-**Modo escuro/claro**
-1. Mover todas as cores para variáveis em `:root` (já é o caso).
-2. Definir o tema claro em `:root[data-theme="light"]` (acima).
+1. Todas as cores em variáveis `:root` (já é assim).
+2. Tema claro em `:root[data-theme="light"]`.
 3. Botão no menu que alterna `document.documentElement.dataset.theme`.
-4. Respeitar `prefers-color-scheme` no primeiro acesso; guardar a escolha em `localStorage` (dentro de `try/catch`).
-5. Evitar o "piscar" no carregamento aplicando o tema com um pequeno script no `<head>`, antes do CSS.
+4. Respeitar `prefers-color-scheme` no primeiro acesso; guardar a escolha em `localStorage` dentro de `try/catch`.
+5. Aplicar o tema com um pequeno script no `<head>`, antes do CSS, para não "piscar".
 
-**Idioma PT/EN**
-1. Marcar cada texto traduzível com `data-i18n="chave"`.
-2. Criar um dicionário `{ pt: {...}, en: {...} }` em `i18n.js`.
-3. Botão `PT | EN` troca o texto de todos os elementos e o atributo `lang` do `<html>`.
+### 10.4 Idioma PT/EN
+
+1. Marcar textos traduzíveis com `data-i18n="chave"`.
+2. Dicionário `{ pt: {...}, en: {...} }` em `i18n.js`.
+3. Botão `PT | EN` troca os textos e o atributo `lang` do `<html>`.
 4. Guardar a escolha em `localStorage`; padrão: idioma do navegador, com fallback para PT.
 5. Traduzir também `<title>` e `<meta description>`.
-6. **Trabalho real:** escrever a versão em inglês de todos os textos. Faça depois que o conteúdo em português estiver fechado, para não traduzir duas vezes.
-7. Para o currículo: ter `Curriculo_..._PT.pdf` e `..._EN.pdf` e trocar o link conforme o idioma.
+6. Currículo: manter `Curriculo_..._PT.pdf` e `..._EN.pdf` e trocar o link conforme o idioma.
+7. **Faça por último**, depois que o conteúdo em português estiver fechado, para não traduzir duas vezes.
 
 ---
 
-## 10. Perguntas em aberto
+## 11. Extras opcionais
 
-| # | Pergunta | Onde impacta |
+1. **Open Graph** (prévia do link no LinkedIn), no `<head>`:
+
+   ```html
+   <meta property="og:type" content="website" />
+   <meta property="og:url" content="https://tonhodevi.github.io/MeuPortifolio/" />
+   <meta property="og:title" content="Antonio Henrique — Backend Developer" />
+   <meta property="og:description" content="Backend com Java e Spring Boot: APIs REST, microsserviços, segurança e arquitetura hexagonal." />
+   <meta property="og:image" content="https://tonhodevi.github.io/MeuPortifolio/assets/perfil.jpeg" />
+   <meta name="twitter:card" content="summary_large_image" />
+   ```
+
+   O `og:image` ideal tem 1200×630 px; a foto atual é vertical, então vale criar uma imagem de capa.
+2. **Favicon** (hoje não existe).
+3. **Foto em `.webp`**, menor que os 138 KB atuais.
+4. **Contagem animada** dos números do hero.
+5. **Seção "Guias de estudo"** com links para os guias que você escreveu na Distribuidora (`docs/JWT.md`, `TESTES.md`, `HTTP-STATUS.md`, `POO.md`, `ANOTACOES.md`). É uma alternativa leve a um blog (que você disse que talvez não queira agora).
+6. **Ícones de tecnologia** nas pills da Stack.
+
+---
+
+## 12. Material de apoio: estudos de caso
+
+Para usar em card, página própria ou entrevista. Tudo abaixo vem dos READMEs e das suas respostas.
+
+### 12.1 Distribuidora Atacadista
+
+Escolha 4 ou 5 destes pontos para citar (o resto fica para o README):
+
+1. **Baixa de estoque atômica:** `UPDATE ... WHERE stock_quantity >= :quantity`; sem estoque negativo em pedidos concorrentes e sem lock explícito.
+2. **Compensação de estoque** quando o pedido falha, assumindo a limitação de não haver transação distribuída.
+3. **Máquina de estados do pedido** (`CREATED → CONFIRMED → SHIPPED → DELIVERED`, `CANCELED`), com 409 em transição inválida.
+4. **Circuit Breaker + TimeLimiter:** abre com 50% de falha em janela de 5 chamadas, fica 10 s aberto, timeout de 3 s.
+5. **Segurança:** BCrypt, mensagem de login genérica contra *user enumeration*, admin por seed com senha em variável de ambiente, JWT validado no Gateway e segunda camada no `auth-service`.
+6. **Total e preço calculados no servidor**, nunca aceitos do cliente.
+7. **Contextos separados:** `User` (quem loga) e `Customer` (dado de negócio).
+8. **Sem FK entre bancos** de serviços diferentes; integridade garantida na aplicação.
+9. **Um Postgres por serviço**; JWT centralizado no Gateway.
+
+### 12.2 Tatanea Temple
+
+- **Desempenho:** a consulta de fichas (muitas tabelas relacionadas) exigia cerca de 12 idas ao banco por requisição. A primeira medição foi de **2 min 56 s**. A correção foi usar `INNER JOIN` e mover o banco do Brasil para **US West**, na mesma região da API; o resultado foi de cerca de **4 s**. Você mediu com a API sempre acordada, então não era o *cold start* do Render.
+- **Cache no frontend (verificado no código):**
+  - **Pinia** guarda o compêndio em memória com uma flag `carregado`: a API só é chamada na primeira vez; há `recarregar()` para limpar. O cache vive só na aba (F5 limpa).
+  - **`<keep-alive>`** (máx. 6 telas) nas telas de personagem: ao voltar, o Vue mantém o componente e o estado.
+  - **`localStorage`** guarda token, usuário e um rascunho da ficha, com gravação no backend por **versionamento otimista**.
+  - Ele **não** compara com o banco; ele evita chamadas repetidas. Não escreva "sincroniza só quando há diferença".
+- **Segurança:** limites de tamanho nos campos de texto, de peso nas imagens e de quantidade de objetos por conta, contra abuso e lotação do banco. Também: migração de banco via backup, melhoria da API e uso correto de JWT.
+- **GitHub Actions:** você criou um bot que fazia requisições ao app para o Render não "dormir". É uma boa história de solução criativa.
+- **Parte favorita:** a ficha de personagem (muitas regras de negócio, otimizada e visualmente cuidada).
+- **Uso real:** cerca de 15 usuários ativos.
+- **Para conferir no repositório:** o README diz que a ficha só salva ao clicar em "Salvar progresso", mas o código tem rascunho no `localStorage`. Deixe o README consistente: "rascunho local automático; gravação no servidor sob demanda".
+
+---
+
+## 13. Pendências
+
+| # | O que falta | Onde entra |
 |---|---|---|
-| 1 | ~~Mês de início e o que faz na Avanade?~~ Respondido: 03/11/2026, híbrido Recife, Java/Spring Boot | Experiência |
-| 2 | ~~"4+ anos programando"~~ Respondido: `1,5 ANO PROGRAMANDO` | Hero |
-| 3 | Manter "arquiteturas distribuídas em nuvem" ou tirar "em nuvem"? **(sugerido tirar: a Distribuidora roda em Docker Compose local)** | Sobre |
-| 4 | O texto de contato muda por você já estar empregado? | Contato |
-| 5 | Manter ou remover o card do órgão de segurança pública e do Bíblia 3D? **(ainda em aberto)** | Projetos |
-| 6 | Qual é o projeto novo com Kafka (nome, repo, descrição)? **(B7, próximo bloco)** | Projetos |
-| 7 | Quais são os outros projetos que vai listar? | Projetos |
-| 8 | Quer ícones nas tecnologias? | Stack / design |
-| 9 | Tem certificações (Azure, Java…)? | Formação |
+| 1 | **Anos da Engenharia Mecatrônica** (UFPE): início e saída | Formação (seção 6) |
+| 2 | Confirmar o texto de contato neutro da seção 9 | Contato |
+| 3 | Terminar o Bank-AtlasTT e atualizar o README (✅ no roadmap) antes de publicar o card | Projetos (8.2) |
+| 4 | Se quiser, 1 linha sobre o que fazia na Bens Soluções Sustentáveis | Experiência (5.3) |
 
 ---
 
-## 11. Checklist final
+## 14. Ordem sugerida de execução e checklist
 
-- [ ] Hero: selo `Engenheiro de Software Jr. · Recife`, subtítulo, número `1,5 ANO PROGRAMANDO`
-- [ ] Sobre: parágrafos revisados
-- [ ] Experiência: Avanade completa
-- [ ] Stack: Angular, Vue, TypeScript, Pinia, Gateway, JWT, Render adicionados; Kafka mantido
-- [ ] Distribuidora: reposicionada como projeto de estudo, sem Kafka nas tags
-- [ ] Tatanea: tags e descrição corrigidas, aviso do Render
-- [ ] Bíblia 3D / sistema de segurança pública: decisão sobre a repetição
-- [ ] Novos projetos adicionados (par de cards)
-- [ ] Contato revisado
-- [ ] Open Graph e favicon
-- [ ] Testar no celular (largura ~390 px)
-- [ ] Conferir links (GitHub, Play Store, Vercel, LinkedIn)
-- [ ] Remover itch.io, Unity e Godot (B8)
-- [ ] Card do Bank-AtlasTT completo (sem fases); README do repositório coerente com o card
-- [ ] Stack **sem** níveis (decidido)
-- [ ] Formação: Gestão Financeira em destaque e Bens Soluções Sustentáveis (voluntária)
-- [ ] Nova direção visual elegante (9.1)
-- [ ] Tema escuro/claro e idioma PT/EN (9.2), só depois de fechar o conteúdo em português
+Execute nesta ordem para evitar retrabalho (principalmente a tradução, que vem por último):
+
+**Fase A: conteúdo em português**
+- [ ] Hero: selo, subtítulo, números (`1,5`, `50+`)
+- [ ] Sobre: dois parágrafos novos (4.1)
+- [ ] Experiência: Fuctura, F BD3 e Bens (voluntária); bloco da Avanade escondido (5.4)
+- [ ] Formação: 4 cartões, com os anos da Mecatrônica
+- [ ] Stack: 5 categorias, sem níveis; sem Unity e Godot
+- [ ] Projetos: 6 cards revisados (8.1 a 8.6); CSS do último card
+- [ ] Contato: texto, itch.io removido, ícones SVG
+
+**Fase B: visual**
+- [ ] Nova paleta e tipografia (10.1 e 10.2)
+- [ ] Moldura dourada na foto
+- [ ] Testar no celular (~390 px)
+
+**Fase C: recursos**
+- [ ] Modo escuro/claro (10.3)
+- [ ] Open Graph e favicon (11)
+- [ ] Idioma PT/EN (10.4), por último
+
+**Fase D: qualidade**
+- [ ] Conferir contraste (WCAG AA)
+- [ ] Conferir todos os links (GitHub, Play Store, Vercel, LinkedIn, Bank-AtlasTT)
+- [ ] README do Bank-AtlasTT coerente com o card
+
+**Quando a carteira da Avanade for assinada**
+- [ ] Executar o checklist de ativação (5.4)
