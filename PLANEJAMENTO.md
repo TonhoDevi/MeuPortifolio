@@ -103,17 +103,23 @@ Fatos confirmados por você. Quando este bloco contradiz o resto do documento, *
   - Correção: consultas com `INNER JOIN`, e banco movido do Brasil para **US West**, mesma região da API.
   - Resultado: cerca de **4 s** por requisição.
   - Você mediu com testes repetidos mantendo a API acordada, então não era o *cold start* do Render.
-  - Cache local no navegador: carrega uma vez e só atualiza se detectar diferença entre o local e o banco.
+  - **Cache no frontend (verificado no código):**
+    - **Pinia** guarda o compêndio (classes, raças, talentos, alquimia) em memória, com uma flag `carregado`: a API só é chamada na primeira vez. Detalhes ficam em cache por id, e existe `recarregar()` para limpar e buscar de novo. O cache vive só na aba; F5 limpa.
+    - **`<keep-alive>`** (máx. 6 telas) nas telas de personagem: ao voltar, o Vue mantém o componente e o estado, sem refazer a busca.
+    - **`localStorage`** guarda token e usuário (login sobrevive ao F5) e um rascunho da ficha como rede de segurança antes de a gravação chegar ao backend, que usa **versionamento otimista**.
+  - **Atenção:** o cache **não** compara com o banco para decidir se atualiza. Ele evita chamadas repetidas. Não escreva "sincroniza só quando há diferença".
 - **Segurança:** limite de tamanho nos campos de texto, limite de peso de imagens, e cota máxima de objetos por conta, contra abuso e lotação do banco.
 - Outros: migração de banco via backup, melhoria da API, uso correto de JWT.
 - **Parte favorita:** a ficha de personagem (muitas regras de negócio, otimizada e visualmente cuidada).
 - **Aviso no card:** o backend dorme no Render; o primeiro acesso pode demorar cerca de 1 min.
-- **Ponto aberto:** como o cache descobre que mudou (data de atualização, versão, ETag)? Responder para eu descrever corretamente.
+- **Ponto verificado:** o cache do compêndio é em memória por flag, não por comparação com o banco (ver acima). Texto do card ajustado.
+- **Conferir:** o README do Tatanea diz que a ficha só salva ao clicar em "Salvar progresso", mas o código tem rascunho no `localStorage` (autosave local). Vale deixar o README consistente: "rascunho local automático; gravação no servidor sob demanda".
 
 ### Pendências desta rodada
 
-- Mecanismo exato do cache do Tatanea (explicação na conversa; falta a sua resposta).
-- Rótulo final do número do hero (`1,5 ANO PROGRAMANDO` ou `1+ ANO COMO PROFISSIONAL`).
+- ~~Mecanismo do cache~~: resolvido (ver Tatanea).
+- ~~Rótulo do hero~~: **`1,5 ANO PROGRAMANDO`** (decidido).
+- Bloco da Avanade escondido: ver seção 4.1.
 - ~~Prints do Grafana e do print dos 2 min 56 s~~: **não serão usados**.
 
 ---
@@ -142,7 +148,7 @@ Comparação entre o portfólio e os READMEs reais dos dois repositórios.
 ### 2.1 Selo de status
 
 - **Antes:** `Disponível para novas oportunidades`
-- **Decisão:** sem data no selo.
+- **Decisão:** sem data e **sem o nome da Avanade**. Texto: `Engenheiro de Software Jr. · Recife`. Você troca no mês que vem.
 - **Opções sem data:**
   - `Engenheiro de Software Jr. · Avanade` (a partir de 03/11/2026, quando for verdade)
   - `Chegando na Avanade` (para usar nas próximas semanas, até começar)
@@ -179,11 +185,13 @@ Texto sugerido:
 
 | Número | Rótulo | Situação |
 |---|---|---|
-| ~~`4+`~~ → `1,5` | ~~Anos programando~~ → Ano e meio de experiência | **Decidido:** trocar. Ver nota abaixo sobre o rótulo |
+| ~~`4+`~~ → `1,5` | ~~ANOS PROGRAMANDO~~ → `ANO E MEIO PROGRAMANDO` | **Decidido.** Mantém a conta honesta (7 meses de estudo + ~1 ano de trabalho) |
 | `200+` | Alunos capacitados | OK |
 | `6` | Turmas lecionadas | OK |
 | `10K+` | Downloads em produção | OK, mas é o Bíblia 3D: ver nota abaixo |
 
+> **Decidido: `1,5 ANO PROGRAMANDO`.** Nota anterior, mantida para referência:
+>
 > **Nota sobre o rótulo do número (decisão: 7 meses de estudo + 1 ano como programador):**
 > - Como **profissional** (F BD3 desde Set 2025), o tempo real é **cerca de 1 ano**; somando os 7 meses de estudo dá **cerca de 1 ano e 7 meses**. Chamar de "1,5 ano como profissional" mistura as duas contagens, e um entrevistador pode estranhar.
 > - Rótulos honestos, escolha um: `1,5 ANO PROGRAMANDO` (conta o estudo) ou `1+ ANO COMO PROFISSIONAL` (só o trabalho).
@@ -264,6 +272,47 @@ Dentro de cada item, depois da `<ul>`, usar o componente `.tags` que já existe:
   <span class="tag">PostgreSQL</span>
 </div>
 ```
+
+---
+
+### 4.1 Bloco da Avanade escondido (ativar só após a carteira assinada)
+
+Plano: deixar tudo pronto no código, **invisível**, e só liberar quando o vínculo for real. Sugestão técnica: usar o atributo `hidden` do HTML, que remove o item da tela sem apagar nada (um `display: none` nativo).
+
+**1) Item da timeline (em `index.html`, no topo da `<div class="timeline">`, antes da Fuctura):**
+
+```html
+<!-- AVANADE: remova o atributo hidden quando a carteira for assinada -->
+<div class="timeline-item reveal" id="exp-avanade" hidden>
+  <div class="timeline-header">
+    <h3 class="timeline-role">Engenheiro de Software Júnior</h3>
+    <span class="timeline-date">Nov 2026 – Presente</span>
+  </div>
+  <div class="timeline-meta">Avanade · Híbrido, Recife</div>
+  <ul>
+    <li>Atuação em Java full stack, com foco em Spring Boot, em projeto do setor financeiro.</li>
+  </ul>
+</div>
+```
+
+> Se não quiser nenhum tópico, apague o `<ul>` inteiro (o texto acima é o único tópico seguro: sem nome de banco e sem detalhe de cliente).
+
+**2) Selo do hero (`.badge-status`):**
+- Agora: `Engenheiro de Software Jr. · Recife`
+- Ao ativar: `Engenheiro de Software Jr. · Avanade`
+
+**3) Primeiro parágrafo do "Sobre":**
+- Agora (sem Avanade): `Engenheiro de Software em formação pela Estácio, com experiência como desenvolvedor e professor de programação. Foco em Java e no ecossistema Spring.`
+- Ao ativar: `Engenheiro de Software Júnior na **Avanade** e graduando em Engenharia de Software pela Estácio. Atuei como professor de programação na **Fuctura Tecnologia**, capacitando desenvolvedores em Java e Python.`
+
+**4) Checklist de ativação (no dia em que a carteira for assinada):**
+- [ ] Remover `hidden` de `#exp-avanade`
+- [ ] Trocar o selo do hero
+- [ ] Trocar o primeiro parágrafo do Sobre
+- [ ] Rever o texto do Contato (item 8)
+- [ ] Conferir o visual no celular
+
+**Observação:** o conteúdo escondido continua legível no código-fonte da página (qualquer pessoa pode abrir "Ver código-fonte"). Como o texto proposto não tem nenhum dado sigiloso, não há risco. Evite colocar nome do banco ou de cliente nesse bloco, mesmo escondido.
 
 ---
 
@@ -356,7 +405,7 @@ Destaques do README que valem citar (escolha 2–3 para não poluir):
 - **Rótulo (`.card-type`):** `FULL STACK · JAVA + VUE`
 - **Descrição sugerida:**
 
-> Compêndio homebrew e sistema de fichas para D&D 5e, em uso por cerca de 15 jogadores. API REST em Spring Boot com JWT e frontend em Vue 3. A consulta de fichas caiu de quase 3 minutos para cerca de 4 segundos com joins, banco na mesma região da API e cache local; campos, imagens e objetos por conta têm limites contra abuso.
+> Compêndio homebrew e sistema de fichas para D&D 5e, em uso por cerca de 15 jogadores. API REST em Spring Boot com JWT e frontend em Vue 3. A consulta de fichas caiu de quase 3 minutos para cerca de 4 segundos com joins, banco na mesma região da API e cache no frontend (Pinia); campos, imagens e objetos por conta têm limites contra abuso.
 
 - **Tags:** `Java 21` `Spring Boot` `Vue 3` `PostgreSQL` `JWT` `Flyway`
 - **Links:** manter `GitHub` e `Acessar App`.
@@ -427,7 +476,7 @@ Ideias além do que já está na branch:
 | # | Pergunta | Onde impacta |
 |---|---|---|
 | 1 | ~~Mês de início e o que faz na Avanade?~~ Respondido: 03/11/2026, híbrido Recife, Java/Spring Boot | Experiência |
-| 2 | ~~"4+ anos programando"~~ Respondido: trocar para ~1,5 ano (rótulo a decidir) | Hero |
+| 2 | ~~"4+ anos programando"~~ Respondido: `1,5 ANO PROGRAMANDO` | Hero |
 | 3 | Manter "arquiteturas distribuídas em nuvem" ou tirar "em nuvem"? **(sugerido tirar: a Distribuidora roda em Docker Compose local)** | Sobre |
 | 4 | O texto de contato muda por você já estar empregado? | Contato |
 | 5 | Manter ou remover o card do órgão de segurança pública e do Bíblia 3D? **(ainda em aberto)** | Projetos |
@@ -440,7 +489,7 @@ Ideias além do que já está na branch:
 
 ## 11. Checklist final
 
-- [ ] Hero: selo, subtítulo, número `4+` confirmado
+- [ ] Hero: selo `Engenheiro de Software Jr. · Recife`, subtítulo, número `1,5 ANO PROGRAMANDO`
 - [ ] Sobre: parágrafos revisados
 - [ ] Experiência: Avanade completa
 - [ ] Stack: Angular, Vue, TypeScript, Pinia, Gateway, JWT, Render adicionados; Kafka mantido
