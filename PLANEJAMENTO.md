@@ -10,6 +10,7 @@ Documento para você aplicar as mudanças **manualmente**. Cada seção traz: o 
 
 0. [Estado do código](#0-estado-do-código)
 0.1. [Decisões da entrevista (B1–B6)](#01-decisões-da-entrevista-b1b6)
+0.2. [Decisões da entrevista (B7–B12)](#02-decisões-da-entrevista-b7b12)
 1. [Resumo das divergências encontradas](#1-resumo-das-divergências-encontradas)
 2. [Hero](#2-hero)
 3. [Sobre mim](#3-sobre-mim)
@@ -18,7 +19,7 @@ Documento para você aplicar as mudanças **manualmente**. Cada seção traz: o 
 6. [Stack](#6-stack)
 7. [Projetos](#7-projetos)
 8. [Contato](#8-contato)
-9. [Design (extras opcionais)](#9-design-extras-opcionais)
+9. [Design (extras opcionais)](#9-design-extras-opcionais) · 9.1 [Direção visual elegante](#91-direção-visual-elegante-e-sofisticada-decidido-em-b11) · 9.2 [Tema e idioma](#92-modo-escuroclaro-e-troca-de-idioma-pten)
 10. [Perguntas em aberto](#10-perguntas-em-aberto)
 11. [Checklist final](#11-checklist-final)
 
@@ -121,6 +122,116 @@ Fatos confirmados por você. Quando este bloco contradiz o resto do documento, *
 - ~~Rótulo do hero~~: **`1,5 ANO PROGRAMANDO`** (decidido).
 - Bloco da Avanade escondido: ver seção 4.1.
 - ~~Prints do Grafana e do print dos 2 min 56 s~~: **não serão usados**.
+
+---
+
+## 0.2. Decisões da entrevista (B7–B12)
+
+Mesma regra do 0.1: quando contradiz o resto do documento, **vale este bloco**.
+
+### Projeto novo: Bank-AtlasTT (B7)
+
+| Item | Valor |
+|---|---|
+| Natureza | Mini banco digital **educacional**, dados fictícios, sem dinheiro real, sem Pix |
+| Base | Java 21, Spring Boot 4.1.1, **arquitetura hexagonal**, TDD no domínio |
+| Dados | PostgreSQL 16 + Flyway; MongoDB (extrato); Redis (cache e idempotência) |
+| Mensageria | Kafka em modo KRaft; evento `TransferenciaRealizada` versionado |
+| Observabilidade | Actuator, Micrometer, OpenTelemetry, Grafana LGTM |
+| Qualidade | JUnit, Mockito, Testcontainers, GitHub Actions |
+| Segurança (Fase 7) | Spring Security, JWT, BCrypt |
+| Status | Fase 0 concluída, Fase 1 em andamento. Você pretende terminar a Fase 1 esta semana |
+
+**Regra de honestidade para o card:** só afirmar o que já existe no dia em que você publicar. Hoje, Kafka, MongoDB, Redis e observabilidade são **planejados** (Fases 2 a 5). Atualize a frase de status quando avançar de fase.
+
+**Texto sugerido** (ajuste o status na hora de publicar):
+
+> Mini banco digital educacional, com dados fictícios, em Java 21 e Spring Boot 4. Arquitetura hexagonal com domínio desenvolvido em TDD. Transferências publicam eventos no Kafka; o extrato é montado em MongoDB, com idempotência e cache em Redis e rastreamento ponta a ponta com OpenTelemetry e Grafana. Em desenvolvimento (Fase 1 de 8).
+
+- **Rótulo:** `EM DESENVOLVIMENTO · ARQUITETURA HEXAGONAL`
+- **Tags:** `Java 21` `Spring Boot` `Hexagonal` `PostgreSQL` `Kafka` `MongoDB` `Redis` `OpenTelemetry` `Testcontainers` (se parecer demais, corte para 7)
+- **Link:** preciso da URL do repositório (ver pendências)
+- **Posição:** sugestão de manter a Distribuidora como destaque até o Bank-AtlasTT chegar na Fase 3 ou 4, e então trocar. Decisão sua.
+- **Diferencial para citar:** domínio sem framework, testado sem Spring, portas e adaptadores; fases documentadas com decisões ("o que foi decidido e por quê").
+
+### Game dev fora do portfólio (B8)
+
+Decisão: **remover qualquer associação com game dev**. Consequências no plano:
+
+| Onde | Ação |
+|---|---|
+| Contato | Remover o link do **itch.io** |
+| Stack | Não listar Unity nem Godot. **C#** pode ficar (ver B9), sem mencionar jogos |
+| Ícones em `assets/` | Não usar `Unity.svg` nem `Godot Engine.svg` |
+| História pessoal | Não usar a origem "queria ser gamedev" |
+| Texto do Bíblia 3D | Escrever **"aplicativo educativo em Realidade Aumentada"**, nunca "jogo". Seu currículo diz "jogo educativo"; vale alinhar |
+| Card do Bíblia 3D | **Recomendação: remover o card** e manter só a linha na Experiência (menos game dev, menos repetição). Falta sua confirmação |
+| Tatanea Temple | **Pode ficar**: é ferramenta de apoio a RPG de mesa (fichas e compêndio), não desenvolvimento de jogos |
+| CodeQuest | Pergunta aberta: é "plataforma de ensino com gamificação" (não é game dev), mas usa Kotlin (nível básico). Manter ou tirar? |
+
+### Níveis de domínio (B9)
+
+Em vez de pills todas iguais, **separar por nível**. Proposta de legenda:
+
+| Nível | Tecnologias |
+|---|---|
+| **Forte** (destaque verde/dourado) | Java, Spring Boot, JUnit 5, Autenticação (Spring Security, JWT, BCrypt) |
+| **Confortável** | Mensageria (RabbitMQ), Eureka / Spring Cloud, PostgreSQL, Docker, Git/GitHub, SQL, JPA/Hibernate, Flyway, Mockito, Gitflow |
+| **Estudando / em prática no projeto atual** | Arquitetura hexagonal, Kafka, observabilidade (OpenTelemetry, Grafana), resiliência (Resilience4j), MongoDB, Redis, Testcontainers |
+| **Básico** | Python, Kotlin, Node.js, JavaScript (projetos pequenos de estudo) |
+| **C#** | Uso real no app educativo em RA (mencionar junto da Experiência, não na Stack principal, se quiser reduzir a associação com games) |
+
+Observações:
+- **Angular e Vue** não foram classificados por você. Preciso do nível (provavelmente "Confortável" ou "Básico").
+- **GitHub Actions**: entra como ferramenta (CI do Bank-AtlasTT; e já criou um bot que mantinha o Tatanea Temple acordado no Render). A história do bot é boa para o estudo de caso, como solução criativa ao *cold start* do plano gratuito.
+- **Cloud (Azure, AWS, GCP):** nenhuma. **Não listar.** Como a Avanade é parceira Microsoft, uma meta de estudo (por exemplo AZ-900) seria um bom próximo passo, mas é só ideia para você, não para o site.
+- **Ferramentas de IA (opcional):** Claude, Claude Code, Gemini e NotebookLM no dia a dia. As de uso casual (Meta, ChatGPT, DeepSeek) **não entram**. Se quiser, uma linha em Stack: "IA no fluxo de desenvolvimento: Claude Code, Gemini, NotebookLM".
+- Isso muda o "Sobre": a frase "arquiteturas distribuídas em nuvem" está acima do que você pratica. Texto sugerido: *"Meu foco está em backend com Java e Spring Boot: APIs REST, microsserviços, segurança, testes automatizados e arquitetura hexagonal."*
+
+### Formação e outras experiências (B10)
+
+| Item | Detalhe | Decisão |
+|---|---|---|
+| Certificado Java Full Stack | Fuctura | Já existe no cartão "Dev Java Full Stack"; pode escrever "Certificado" |
+| Engenharia de Software | Estácio, **3º módulo** | Pode escrever "Cursando · 3º módulo" |
+| Gestão Financeira (Tecnólogo) | Unifateci, 2023–2025 | **Destacar**: diferencial (finanças + software), combina com a vaga no setor financeiro |
+| **Gerente Financeiro** | **Bens Soluções Sustentáveis** (empresa júnior da UFPE, não remunerada), jun/2022 – jun/2023 | Adicionar. Rotular **"Experiência voluntária"** e deixar claro que foi empresa júnior |
+| Engenharia Mecatrônica | Federal, **não concluída** (cancelada) | **Opcional.** Sugestão: uma linha discreta em Formação, "Cursado, não concluído", ou só mencionar na história pessoal. Mostra base técnica, mas precisa ser honesta. Decisão sua |
+
+Pendências desta parte: instituição exata e período da Mecatrônica (é a UFPE?).
+
+### Posicionamento e tom (B11)
+
+- **Quero ser lembrado como:** Backend.
+- **Frase sua:** "Um profissional confiável e competente..." Sugestão: **mostrar em vez de afirmar**. "Pleno das minhas capacidades" soa pretensioso para um júnior. Versão de posicionamento: *"Desenvolvedor backend focado em código confiável, testado e bem arquitetado."*
+- **História pessoal sem game dev (proposta, para você aprovar):**
+
+> Venho de áreas diferentes, entre elas gestão financeira e engenharia mecatrônica. Ao entrar na programação, gostei tanto que decidi seguir carreira, e encontrei no backend o lugar onde mais gosto de resolver problemas.
+
+- **Objetivo de 2 anos:** tornar-se sênior e contribuir para o mercado nacional. Sugestão de texto curto no Sobre: *"Meu objetivo é evoluir até sênior e contribuir com o mercado de tecnologia brasileiro."*
+- **Tom:** **elegante e com ar sofisticado** (ver seção 9.1, nova direção visual).
+
+### Contato, site e recursos (B12)
+
+| Item | Decisão |
+|---|---|
+| E-mail | Manter **antoniohenriquebn@hotmail.com** (profissional) |
+| Site | Você informou `https://tatanea-temple.vercel.app/`. **Esse endereço é o app do Tatanea Temple**, e já está no card. Falta a URL **do portfólio** (ver pendências) |
+| Botão de idioma PT/EN | **Sim.** Plano na seção 9.2 |
+| Modo escuro/claro | **Sim.** Plano na seção 9.2 |
+| Blog | Talvez. **Recomendação: não agora.** Alternativa leve: seção "Guias de estudo" com links para os guias que você já escreveu na Distribuidora (`docs/JWT.md`, `TESTES.md`, `HTTP-STATUS.md`, `POO.md`, `ANOTACOES.md`). Conteúdo pronto, sem manutenção de blog |
+
+### Pendências novas
+
+1. URL do **portfólio** (onde está hospedado).
+2. URL do repositório do **Bank-AtlasTT**.
+3. Manter ou **remover o card do Bíblia 3D** (recomendado remover).
+4. Manter ou tirar o **CodeQuest**?
+5. Nível de **Angular** e **Vue**.
+6. **Mecatrônica:** qual federal e em que período? Entra no site ou só na história?
+7. Aprova a **história pessoal** sem game dev?
+8. Aprova trocar o **verde Spring** por uma paleta elegante (dourado champanhe)? Ver 9.1.
+9. Na seção de contato, o botão do itch.io sai. Quer substituir por algo (por exemplo, um link para o repositório do Bank-AtlasTT)?
 
 ---
 
@@ -450,7 +561,9 @@ Espaço para o projeto novo com Kafka e os que você vai listar. Sugestão: um c
 ## 8. Contato
 
 - Texto atual: "Aberto para oportunidades CLT, PJ, projetos de consultoria ou aulas técnicas." Agora que você está na Avanade, decida se mantém. Sugestão neutra: **"Aberto a conversas sobre projetos, colaborações e aulas técnicas."**
-- E-mail: `antoniohenriquebn@hotmail.com` (conferir se continua sendo o principal).
+- E-mail: **mantido** `antoniohenriquebn@hotmail.com` (profissional).
+- **Remover o link do itch.io** (decisão B8) e trocar os emojis por ícones SVG (ver 9.1).
+- Lista final sugerida: E-mail, LinkedIn, GitHub (e, se quiser, o repositório do Bank-AtlasTT).
 - **Bug de formatação do README do Tatanea:** o link do LinkedIn está quebrado (`[Antonio Henrique]([www.linkedin.com/…](https://…))`). Não afeta o portfólio, mas vale corrigir no repositório.
 - Formulário: usa `mailto:`. Funciona, mas depende do cliente de e-mail do visitante. Alternativas futuras: Formspree ou Web3Forms (sem backend).
 
@@ -468,6 +581,68 @@ Ideias além do que já está na branch:
 6. **Seção "Em desenvolvimento"** (ver 7.5).
 7. **Foto**: usar `loading="lazy"` não se aplica (está no topo), mas vale gerar uma versão `.webp` menor que os 138 KB atuais.
 8. **SEO:** adicionar `<meta property="og:*">` e um `sitemap` caso hospede no GitHub Pages ou Vercel.
+
+---
+
+### 9.1 Direção visual: elegante e sofisticada (decidido em B11)
+
+**Objetivo:** passar sensação de produto premium: sóbrio, espaçoso, sem neon. A identidade atual (verde Spring + azul + fonte monoespaçada) tem cara de "dev"; a nova teria cara de "marca".
+
+**Princípios:**
+1. Mais **espaço em branco** e menos caixas. Linhas finas de 1 px em vez de cartões pesados.
+2. **Tipografia com serifa** nos títulos (opções: *Cormorant Garamond*, *Playfair Display*) e uma sans moderna no texto (manter *Plus Jakarta Sans* ou usar *Inter*). A fonte mono fica só em detalhes pequenos (datas, tags).
+3. **Um só acento**: dourado champanhe. Nada de gradiente verde-azul, nada de brilho neon.
+4. **Movimento sutil**: aparecer suavemente ao rolar, sem animação chamativa.
+5. **Trocar os emojis** do contato (✉ 🔗 💻 🎮) por ícones de linha em SVG. Emoji destoa de um site elegante.
+6. Foto com **moldura fina dourada**, sem sombra pesada.
+
+**Paleta proposta (variáveis de `:root`):**
+
+```css
+/* Escuro (padrão) */
+:root {
+  --bg: #0a0a0b;
+  --surface: #121214;
+  --surface-border: #26231f;
+  --text-main: #f4efe6;
+  --text-muted: #a39d92;
+  --accent: #c9a96e;        /* dourado champanhe */
+  --accent-bright: #e3c88f;
+}
+
+/* Claro */
+:root[data-theme="light"] {
+  --bg: #faf7f1;
+  --surface: #ffffff;
+  --surface-border: #e6dfd0;
+  --text-main: #1a1713;
+  --text-muted: #6b6458;
+  --accent: #8f6f2f;
+  --accent-bright: #a98443;
+}
+```
+
+> Confira o contraste de texto (WCAG AA, 4,5:1) depois de aplicar, principalmente o dourado sobre o fundo claro.
+
+**Observação de identidade:** o Tatanea Temple já usa dourado e terracota, então a paleta nova combina com ele. O que se perde é a ligação visual com o verde do Spring; ele pode continuar só no logo do Spring, nas pills de destaque.
+
+### 9.2 Modo escuro/claro e troca de idioma (PT/EN)
+
+**Modo escuro/claro**
+1. Mover todas as cores para variáveis em `:root` (já é o caso).
+2. Definir o tema claro em `:root[data-theme="light"]` (acima).
+3. Botão no menu que alterna `document.documentElement.dataset.theme`.
+4. Respeitar `prefers-color-scheme` no primeiro acesso; guardar a escolha em `localStorage` (dentro de `try/catch`).
+5. Evitar o "piscar" no carregamento aplicando o tema com um pequeno script no `<head>`, antes do CSS.
+
+**Idioma PT/EN**
+1. Marcar cada texto traduzível com `data-i18n="chave"`.
+2. Criar um dicionário `{ pt: {...}, en: {...} }` em `i18n.js`.
+3. Botão `PT | EN` troca o texto de todos os elementos e o atributo `lang` do `<html>`.
+4. Guardar a escolha em `localStorage`; padrão: idioma do navegador, com fallback para PT.
+5. Traduzir também `<title>` e `<meta description>`.
+6. **Trabalho real:** escrever a versão em inglês de todos os textos. Faça depois que o conteúdo em português estiver fechado, para não traduzir duas vezes.
+7. Para o currículo: ter `Curriculo_..._PT.pdf` e `..._EN.pdf` e trocar o link conforme o idioma.
 
 ---
 
@@ -500,4 +675,10 @@ Ideias além do que já está na branch:
 - [ ] Contato revisado
 - [ ] Open Graph e favicon
 - [ ] Testar no celular (largura ~390 px)
-- [ ] Conferir links (GitHub, Play Store, Vercel, LinkedIn, itch.io)
+- [ ] Conferir links (GitHub, Play Store, Vercel, LinkedIn)
+- [ ] Remover itch.io, Unity e Godot (B8)
+- [ ] Card do Bank-AtlasTT com status honesto da fase
+- [ ] Stack separada por nível (Forte, Confortável, Estudando, Básico)
+- [ ] Formação: Gestão Financeira em destaque e Bens Soluções Sustentáveis (voluntária)
+- [ ] Nova direção visual elegante (9.1)
+- [ ] Tema escuro/claro e idioma PT/EN (9.2), só depois de fechar o conteúdo em português
