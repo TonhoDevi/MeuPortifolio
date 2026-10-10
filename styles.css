@@ -500,10 +500,6 @@ h2::after {
   transition: border-color 0.2s;
 }
 
-.timeline-item + .timeline-item {
-  margin-top: 16px;
-}
-
 .timeline-item:hover {
   border-color: rgba(109, 179, 63, 0.35);
 }
