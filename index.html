@@ -3,17 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Antonio Henrique — Backend Developer & Spring Ecosystem</title>
+    <title>Antonio Henrique — Backend Developer · Java &amp; Spring Boot</title>
     <meta
       name="description"
-      content="Portfólio de Antonio Henrique Nascimento — Backend Developer especializado em Java, Spring Boot, Microserviços e Sistemas Distribuídos."
+      content="Portfólio de Antonio Henrique Nascimento — Backend Developer com foco em Java, Spring Boot, microsserviços e sistemas distribuídos."
     />
     <meta name="author" content="Antonio Henrique Nascimento" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Open Graph / prévia de link -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://tonhodevi.github.io/MeuPortifolio/" />
+    <meta property="og:title" content="Antonio Henrique — Backend Developer" />
+    <meta
+      property="og:description"
+      content="Backend com Java e Spring Boot: APIs REST, microsserviços, segurança e arquitetura hexagonal."
+    />
+    <meta
+      property="og:image"
+      content="https://tonhodevi.github.io/MeuPortifolio/assets/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- Aplica o tema antes do CSS para evitar "piscar" -->
+    <script>
+      (function () {
+        var theme = 'dark';
+        try {
+          theme = localStorage.getItem('theme');
+        } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -25,22 +62,45 @@
       <div class="logo">&lt;TonhoDevi <span>/&gt;</span></div>
 
       <div class="nav-links" id="navLinks">
-        <a href="#sobre">Sobre</a>
-        <a href="#experiencia">Experiência</a>
+        <a href="#sobre" data-i18n="nav.about">Sobre</a>
+        <a href="#experiencia" data-i18n="nav.experience">Experiência</a>
         <a href="#stack">Stack</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
+        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
       </div>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">☰</button>
+      <div class="nav-actions">
+        <button
+          class="icon-btn"
+          id="themeToggle"
+          type="button"
+          aria-label="Alternar tema claro/escuro"
+          data-i18n-aria-label="nav.theme"
+        >
+          <svg class="icon icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+
+        <button
+          class="lang-btn"
+          id="langToggle"
+          type="button"
+          aria-label="Mudar idioma"
+          data-i18n-aria-label="nav.lang"
+        >
+          <span data-lang="pt">PT</span><span class="lang-sep">|</span><span data-lang="en">EN</span>
+        </button>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu" data-i18n-aria-label="nav.menu">☰</button>
+      </div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#sobre">Sobre</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#stack">Stack</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
+      <a href="#sobre" data-i18n="nav.about">Sobre</a>
+        <a href="#experiencia" data-i18n="nav.experience">Experiência</a>
+        <a href="#stack">Stack</a>
+        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
     </div>
 
     <div class="wrap">
@@ -50,26 +110,28 @@
           <div class="hero-text">
             <div class="badge-status reveal">
               <span class="status-dot"></span>
-              Disponível para novas oportunidades
+              <span data-i18n="hero.badge">Engenheiro de Software Jr. · Recife</span>
             </div>
 
             <h1 class="reveal">Antonio Henrique</h1>
-            <p class="role-title reveal">Backend Developer · Java & Spring Ecosystem · Microservices</p>
-            <p class="subtitle reveal">
-              Especialista no ecossistema Java/Spring, focado em arquitetura de microserviços,
-              resiliência de sistemas e soluções escaláveis. Instrutor técnico e entusiasta do
-              desenvolvimento orientado a alta performance.
+            <p class="role-title reveal" data-i18n="hero.role">Backend Developer · Java & Spring Boot · Microsserviços</p>
+            <p class="subtitle reveal" data-i18n="hero.subtitle">
+              Foco no ecossistema Java e Spring Boot, com interesse em arquitetura de
+              microsserviços, resiliência de sistemas e soluções escaláveis. Experiência como
+              professor de programação e entusiasta de desenvolvimento orientado a alta
+              performance.
             </p>
 
             <div class="cta-row reveal">
-              <a class="btn btn-primary" href="#projetos">Explorar Projetos</a>
+              <a class="btn btn-primary" href="#projetos" data-i18n="hero.cta.projects">Explorar Projetos</a>
               <a
                 class="btn btn-secondary"
-                href="./Curriculo_Antonio_Henrique_Backend_Java.pdf"
+                id="cvLink"
+                href="./ct/Curriculo_Antonio_Henrique_Backend_Java.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
-                >Baixar Currículo</a
+                 data-i18n="hero.cta.cv">Baixar Currículo</a
               >
               <a
                 class="btn btn-secondary"
@@ -78,25 +140,25 @@
                 rel="noopener noreferrer"
                 >LinkedIn</a
               >
-              <a class="btn btn-outline" href="mailto:antoniohenriquebn@hotmail.com">Falar Comigo</a>
+              <a class="btn btn-outline" href="mailto:antoniohenriquebn@hotmail.com" data-i18n="hero.cta.contact">Falar Comigo</a>
             </div>
 
             <div class="facts reveal-stagger">
               <div class="fact">
-                <span class="fact-num">4+</span>
-                <span class="fact-label">ANOS PROGRAMANDO</span>
+                <span class="fact-num" data-i18n="facts.years.num">1,5</span>
+                <span class="fact-label" data-i18n="facts.years">ANO PROGRAMANDO</span>
               </div>
               <div class="fact">
                 <span class="fact-num">200+</span>
-                <span class="fact-label">ALUNOS CAPACITADOS</span>
+                <span class="fact-label" data-i18n="facts.students">ALUNOS CAPACITADOS</span>
               </div>
               <div class="fact">
                 <span class="fact-num">6</span>
-                <span class="fact-label">TURMAS LECIONADAS</span>
+                <span class="fact-label" data-i18n="facts.classes">TURMAS LECIONADAS</span>
               </div>
               <div class="fact">
-                <span class="fact-num">10K+</span>
-                <span class="fact-label">DOWNLOADS EM PRODUÇÃO</span>
+                <span class="fact-num">50+</span>
+                <span class="fact-label" data-i18n="facts.users">USUÁRIOS EM PRODUÇÃO</span>
               </div>
             </div>
           </div>
@@ -109,39 +171,38 @@
       <!-- SOBRE -->
       <section id="sobre">
         <div class="section-head reveal">
-          <span class="section-tag">// 01. TRAJETÓRIA</span>
-          <h2>Sobre mim</h2>
+          <span class="section-tag" data-i18n="about.tag">// 01. TRAJETÓRIA</span>
+          <h2 data-i18n="about.title">Sobre mim</h2>
         </div>
 
         <div class="about-grid reveal">
           <div class="about-text">
-            <p>
-              Engenheiro de Software em formação na Estácio e instrutor na
-              <strong>Fuctura Tecnologia</strong>, onde atuo capacitando desenvolvedores em Java
-              e Python. Possuo histórico comprovado na entrega de sistemas críticos em produção,
-              incluindo o ecossistema de agendamento de turnos para o
-              <strong>BOPE Recife</strong>.
+            <p data-i18n="about.p1">
+              Engenheiro de Software em formação pela Estácio, com experiência como desenvolvedor
+              e professor de programação. Venho de áreas diferentes, entre elas engenharia
+              mecatrônica (UFPE) e gestão financeira; ao entrar na programação, gostei tanto que
+              decidi seguir carreira e encontrei no backend o lugar onde mais gosto de resolver
+              problemas.
             </p>
-            <p>
-              Minha especialidade reside na criação de
-              <strong>arquiteturas distribuídas em nuvem</strong>, utilizando Spring Cloud,
-              mensageria (RabbitMQ/Kafka), mensuração de resiliência e boas práticas de
-              persistência relacional.
+            <p data-i18n="about.p2">
+              Meu foco está em backend com <strong>Java e Spring Boot</strong>: APIs REST,
+              microsserviços, segurança, testes automatizados e arquitetura hexagonal. Meu
+              objetivo é evoluir até sênior e contribuir com o mercado de tecnologia brasileiro.
             </p>
           </div>
 
           <div class="about-card">
             <div class="info-row">
-              <span class="info-label">Localização</span>
-              <span class="info-val">Recife, PE — Brasil</span>
+              <span class="info-label" data-i18n="info.location">Localização</span>
+              <span class="info-val" data-i18n="info.location.val">Recife, PE — Brasil</span>
             </div>
             <div class="info-row">
-              <span class="info-label">Idiomas</span>
-              <span class="info-val">Português (Nativo) · Inglês (Avançado)</span>
+              <span class="info-label" data-i18n="info.languages">Idiomas</span>
+              <span class="info-val" data-i18n="info.languages.val">Português (Nativo) · Inglês (Avançado)</span>
             </div>
             <div class="info-row">
-              <span class="info-label">Atuação</span>
-              <span class="info-val">Remoto / Híbrido / Presencial</span>
+              <span class="info-label" data-i18n="info.work">Atuação</span>
+              <span class="info-val" data-i18n="info.work.val">Híbrido / Remoto</span>
             </div>
           </div>
         </div>
@@ -150,51 +211,109 @@
       <!-- EXPERIÊNCIA -->
       <section id="experiencia">
         <div class="section-head reveal">
-          <span class="section-tag">// 02. CARREIRA</span>
-          <h2>Experiência Profissional</h2>
+          <span class="section-tag" data-i18n="exp.tag">// 02. CARREIRA</span>
+          <h2 data-i18n="exp.title">Experiência Profissional</h2>
         </div>
 
         <div class="timeline">
+          <!-- AVANADE: remova o atributo hidden quando a carteira for assinada -->
+          <div class="timeline-item reveal" id="exp-avanade" hidden>
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.av.role">Engenheiro de Software Júnior</h3>
+              <span class="timeline-date" data-i18n="exp.av.date">Nov 2026 – Presente</span>
+            </div>
+
+            <div class="timeline-meta" data-i18n="exp.av.meta">Avanade · Híbrido, Recife</div>
+
+            <ul>
+              <li data-i18n="exp.av.li1">
+                Atuação em Java full stack, com foco em Spring Boot, em projeto do setor
+                financeiro.
+              </li>
+            </ul>
+          </div>
+
           <div class="timeline-item reveal">
             <div class="timeline-header">
-              <h3 class="timeline-role">Professor de Programação & Dev Backend</h3>
-              <span class="timeline-date">Set 2025 – Presente</span>
+              <h3 class="timeline-role" data-i18n="exp.fu.role">Professor de Programação</h3>
+              <span class="timeline-date" data-i18n="exp.fu.date">Fev 2026 – Set 2026</span>
             </div>
 
             <div class="timeline-meta">Fuctura Tecnologia · Recife, PE</div>
 
             <ul>
-              <li>
-                Lecionei para mais de <strong>200 alunos em 6 turmas</strong> com foco em Java,
-                Python, estruturas de dados e desenvolvimento RESTful.
+              <li data-i18n="exp.fu.li1">
+                Conduzi <strong>6 turmas de Java e Python (200+ alunos)</strong>, criando
+                conteúdo didático, exercícios práticos e acompanhando o desenvolvimento
+                individual de cada aluno.
               </li>
-              <li>
-                Desenvolvi os endpoints e regras de negócio da API REST em Spring Boot com
-                PostgreSQL para a escala de turnos do <strong>BOPE Recife</strong>.
+              <li data-i18n="exp.fu.li2">
+                Conteúdos: POO, coleções, Spring Boot, SQL e PostgreSQL, Hibernate, JDBC, JPA,
+                Git, Gitflow e arquitetura.
               </li>
-              <li>
-                Atuo como <strong>Tech Lead</strong> no app educativo <em>Bíblia 3D</em>
-                (Unity/C#), assumindo a liderança técnica do produto que hoje acumula mais de
-                10.000 downloads na Google Play.
+              <li data-i18n="exp.fu.li3">Produzi todo o material: apostilas, questionários e fichas de exercícios.</li>
+            </ul>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.bd.role">Desenvolvedor de Software</h3>
+              <span class="timeline-date" data-i18n="exp.bd.date">Set 2025 – Ago 2026</span>
+            </div>
+
+            <div class="timeline-meta">F BD3 Ltda · Recife, PE</div>
+
+            <ul>
+              <li data-i18n="exp.bd.li1">
+                Responsável técnico, em time de 4 desenvolvedores, pela base de código do
+                <em>Bíblia 3D</em>, aplicativo educativo em Realidade Aumentada publicado na
+                Google Play. Defini padrões de código e arquitetura e refatorei a base inteira,
+                que já não funcionava por ser muito antiga, para uma versão atual e mais
+                acessível da engine.
               </li>
+              <li data-i18n="exp.bd.li2">
+                Contribuí no backend de um sistema de
+                <strong>órgão de segurança pública</strong> (Java, Spring Boot e PostgreSQL),
+                que substituiu a organização das escalas de ronda feita por WhatsApp. Em
+                produção, com mais de 50 usuários.
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-header">
+              <h3 class="timeline-role" data-i18n="exp.bens.role">Gerente Financeiro</h3>
+              <span class="timeline-date">Jun 2021 – Jun 2023</span>
+            </div>
+
+            <div class="timeline-meta" data-i18n="exp.bens.meta">
+              Bens Soluções Sustentáveis · Empresa Júnior UFPE · Experiência voluntária
+            </div>
+
+            <ul>
+              <li data-i18n="exp.bens.li1">Gerente financeiro da empresa júnior da UFPE, em atuação voluntária.</li>
             </ul>
           </div>
         </div>
 
         <div class="edu-box reveal">
-          <h3>Formação Acadêmica</h3>
+          <h3 data-i18n="edu.title">Formação Acadêmica</h3>
           <div class="edu-grid">
             <div class="edu-card">
-              <h4>Engenharia de Software</h4>
-              <p>Estácio · 2025 – Cursando</p>
+              <h4 data-i18n="edu.se.title">Engenharia de Software</h4>
+              <p data-i18n="edu.se.meta">Estácio · Cursando · 3º módulo</p>
             </div>
             <div class="edu-card">
-              <h4>Dev Java Full Stack</h4>
+              <h4 data-i18n="edu.java.title">Academia Java (certificado)</h4>
               <p>Fuctura Tecnologia · 2025</p>
             </div>
             <div class="edu-card">
-              <h4>Gestão Financeira (Tecnólogo)</h4>
-              <p>Unifateci · 2023 – 2025</p>
+              <h4 data-i18n="edu.fin.title">Gestão Financeira (Tecnólogo)</h4>
+              <p>Unifatecie · 2023 – 2025</p>
+            </div>
+            <div class="edu-card">
+              <h4 data-i18n="edu.mec.title">Engenharia Mecatrônica</h4>
+              <p data-i18n="edu.mec.meta">UFPE · 2020 – 2023 · Cursado até o 5º período</p>
             </div>
           </div>
         </div>
@@ -203,33 +322,45 @@
       <!-- STACK -->
       <section id="stack">
         <div class="section-head reveal">
-          <span class="section-tag">// 03. ECOSSISTEMA</span>
-          <h2>Tech Stack & Ferramentas</h2>
+          <span class="section-tag" data-i18n="stack.tag">// 03. ECOSSISTEMA</span>
+          <h2 data-i18n="stack.title">Tech Stack & Ferramentas</h2>
         </div>
 
         <div class="stack-categories reveal-stagger">
           <!-- Categoria 1 -->
           <div class="stack-group">
-            <span class="stack-group-title">CORE & LINGUAGENS</span>
+            <span class="stack-group-title" data-i18n="stack.g1">LINGUAGENS</span>
             <div class="pill-container">
               <span class="tech-pill highlight">Java</span>
               <span class="tech-pill">Kotlin</span>
               <span class="tech-pill">Python</span>
               <span class="tech-pill">C#</span>
               <span class="tech-pill">JavaScript</span>
-              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">TypeScript</span>
             </div>
           </div>
 
           <!-- Categoria 2 -->
           <div class="stack-group">
-            <span class="stack-group-title">SISTEMAS DISTRIBUÍDOS & ECOSSISTEMA SPRING</span>
+            <span class="stack-group-title">FRONTEND</span>
+            <div class="pill-container">
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">Vue 3</span>
+              <span class="tech-pill">Pinia</span>
+              <span class="tech-pill">Node.js</span>
+            </div>
+          </div>
+
+          <!-- Categoria 3 -->
+          <div class="stack-group">
+            <span class="stack-group-title" data-i18n="stack.g3">SPRING & SISTEMAS DISTRIBUÍDOS</span>
             <div class="pill-container">
               <span class="tech-pill highlight">Spring Boot</span>
               <span class="tech-pill highlight">Spring Cloud</span>
               <span class="tech-pill">Spring Security</span>
               <span class="tech-pill">Spring Data JPA</span>
-              <span class="tech-pill">Netflix Eureka</span>
+              <span class="tech-pill">Spring Cloud Gateway</span>
+              <span class="tech-pill">Eureka</span>
               <span class="tech-pill">OpenFeign</span>
               <span class="tech-pill">RabbitMQ</span>
               <span class="tech-pill">Apache Kafka</span>
@@ -237,28 +368,34 @@
             </div>
           </div>
 
-          <!-- Categoria 3 -->
+          <!-- Categoria 4 -->
           <div class="stack-group">
-            <span class="stack-group-title">BANCO DE DADOS, INFRA & PERSISTÊNCIA</span>
+            <span class="stack-group-title" data-i18n="stack.g4">BANCO, INFRA & PERSISTÊNCIA</span>
             <div class="pill-container">
               <span class="tech-pill">PostgreSQL</span>
+              <span class="tech-pill">MongoDB</span>
+              <span class="tech-pill">Redis</span>
               <span class="tech-pill">Hibernate</span>
               <span class="tech-pill">Flyway</span>
               <span class="tech-pill">Docker</span>
               <span class="tech-pill">Testcontainers</span>
               <span class="tech-pill">Linux</span>
               <span class="tech-pill">Git / GitHub</span>
+              <span class="tech-pill">GitHub Actions</span>
               <span class="tech-pill">Supabase</span>
               <span class="tech-pill">Vercel</span>
+              <span class="tech-pill">Render</span>
             </div>
           </div>
 
-          <!-- Categoria 4 -->
+          <!-- Categoria 5 -->
           <div class="stack-group">
-            <span class="stack-group-title">TESTES, OBSERVABILIDADE & DOCS</span>
+            <span class="stack-group-title" data-i18n="stack.g5">TESTES, OBSERVABILIDADE & DOCS</span>
             <div class="pill-container">
               <span class="tech-pill">JUnit 5</span>
               <span class="tech-pill">Mockito</span>
+              <span class="tech-pill">Vitest</span>
+              <span class="tech-pill">OpenTelemetry</span>
               <span class="tech-pill">Prometheus</span>
               <span class="tech-pill">Grafana</span>
               <span class="tech-pill">Spring Actuator</span>
@@ -271,26 +408,28 @@
       <!-- PROJETOS -->
       <section id="projetos">
         <div class="section-head reveal">
-          <span class="section-tag">// 04. PORTFÓLIO</span>
-          <h2>Projetos em Destaque</h2>
+          <span class="section-tag" data-i18n="proj.tag">// 04. PORTFÓLIO</span>
+          <h2 data-i18n="proj.title">Projetos em Destaque</h2>
         </div>
 
         <div class="featured-project card-glow reveal">
-          <div class="project-tag">PROJETO PRINCIPAL · ARQUITETURA DE MICROSERVIÇOS</div>
-          <h3>Distribuidora Atacadista</h3>
-          <p>
-            Ecossistema B2B para gerenciamento de pedidos construído em arquitetura de
-            microserviços com Spring Cloud. Conta com Discovery Server (Eureka), API Gateway,
-            autenticação distribuída via JWT (`auth-service`), mensageria assíncrona,
-            resiliência com Resilience4j e observabilidade centralizada.
+          <div class="project-tag" data-i18n="proj.dist.type">PROJETO DE ESTUDO · ARQUITETURA DE MICROSSERVIÇOS</div>
+          <h3 data-i18n="proj.dist.title">Distribuidora Atacadista (AtlasTT)</h3>
+          <p data-i18n="proj.dist.desc">
+            Projeto de estudo de microsserviços em arquitetura em camadas: 7 serviços Spring Boot
+            com Eureka e API Gateway, autenticação JWT por papéis, baixa de estoque atômica com
+            compensação, chamadas resilientes (OpenFeign + Resilience4j), notificações via
+            RabbitMQ e métricas com Prometheus e Grafana. Frontend em Angular e 55 testes
+            unitários.
           </p>
           <div class="tags">
-            <span class="tag">Java</span>
+            <span class="tag">Java 17</span>
             <span class="tag">Spring Cloud</span>
+            <span class="tag">Gateway</span>
             <span class="tag">Eureka</span>
             <span class="tag">RabbitMQ</span>
-            <span class="tag">Kafka</span>
             <span class="tag">PostgreSQL</span>
+            <span class="tag">Angular</span>
             <span class="tag">Docker</span>
             <span class="tag">Prometheus</span>
           </div>
@@ -299,17 +438,68 @@
             <a
               class="btn-link"
               href="https://github.com/TonhoDevi/distribuidora-atacadista"
-              target="_blank"
-              >Ver Repositório no GitHub →</a
+              target="_blank" rel="noopener noreferrer"
+               data-i18n="proj.dist.link">Ver Repositório no GitHub →</a
             >
           </div>
         </div>
 
         <div class="grid reveal-stagger">
           <div class="card">
-            <span class="card-type">FULL STACK · GAMIFICAÇÃO</span>
+            <span class="card-type" data-i18n="proj.bank.type">PROJETO EDUCACIONAL · ARQUITETURA HEXAGONAL</span>
+            <h3>Bank-AtlasTT</h3>
+            <p data-i18n="proj.bank.desc">
+              Mini banco digital educacional, com dados fictícios, em Java 21 e Spring Boot 4.
+              Arquitetura hexagonal com domínio desenvolvido em TDD. Cada transferência publica
+              um evento no Kafka; o extrato é montado em MongoDB, com idempotência e cache em
+              Redis, e o fluxo é rastreado ponta a ponta com OpenTelemetry e Grafana.
+              Autenticação com JWT e testes com Testcontainers.
+            </p>
+            <div class="tags">
+              <span class="tag">Java 21</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Hexagonal</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Redis</span>
+              <span class="tag">OpenTelemetry</span>
+              <span class="tag">Testcontainers</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/TonhoDevi/Bank-AtlasTT" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <span class="card-type">FULL STACK · JAVA + VUE</span>
+            <h3 data-i18n="proj.tat.title">Templo de Tatânea</h3>
+            <p data-i18n="proj.tat.desc">
+              Compêndio homebrew e sistema de fichas para D&amp;D 5e, em uso por cerca de 15
+              jogadores. API REST em Spring Boot com JWT e frontend em Vue 3. A consulta de
+              fichas caiu de quase 3 minutos para cerca de 4 segundos com joins, banco na mesma
+              região da API e cache no frontend (Pinia); campos, imagens e objetos por conta têm
+              limites contra abuso.
+            </p>
+            <div class="tags">
+              <span class="tag">Java 21</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Vue 3</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">JWT</span>
+              <span class="tag">Flyway</span>
+            </div>
+            <div class="card-links">
+              <a href="https://tatanea-temple.vercel.app/" target="_blank" rel="noopener noreferrer" data-i18n="proj.tat.link">Acessar App</a>
+              <span class="card-note" data-i18n="proj.tat.private">Código privado</span>
+            </div>
+            <span class="card-note" data-i18n="proj.tat.note">Primeiro acesso pode levar até 1 min</span>
+          </div>
+
+          <div class="card">
+            <span class="card-type" data-i18n="proj.cq.type">FULL STACK · EDUCAÇÃO</span>
             <h3>CodeQuest</h3>
-            <p>
+            <p data-i18n="proj.cq.desc">
               Plataforma interativa para ensino de programação com trilhas, autograders e
               sistema de evolução com XP e conquistas.
             </p>
@@ -320,35 +510,35 @@
               <span class="tag">Thymeleaf</span>
             </div>
             <div class="card-links">
-              <a href="https://github.com/TonhoDevi/codequest" target="_blank">GitHub</a>
+              <a href="https://github.com/TonhoDevi/codequest" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
 
           <div class="card">
-            <span class="card-type">FULL STACK WEB</span>
-            <h3>Templo de Tatânea</h3>
-            <p>
-              Suíte web completa para jogadores de RPG com gerador de fichas, compêndio
-              dinâmico e banco de dados em nuvem.
+            <span class="card-type" data-i18n="proj.rent.type">BACKEND · API REST</span>
+            <h3>Rental Management API</h3>
+            <p data-i18n="proj.rent.desc">
+              API REST para gestão de imóveis, inquilinos e contratos de aluguel, com controle de
+              inadimplência e histórico de pagamentos. Documentada com Swagger/OpenAPI.
             </p>
             <div class="tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Supabase</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Vercel</span>
+              <span class="tag">Java 17</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">Spring Data JPA</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Swagger</span>
             </div>
             <div class="card-links">
-              <a href="https://github.com/TonhoDevi/Tatanea-Temple" target="_blank">GitHub</a>
-              <a href="https://tatanea-temple.vercel.app/" target="_blank">Acessar App</a>
+              <a href="https://github.com/TonhoDevi/Rent_Manager" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
           </div>
 
           <div class="card">
-            <span class="card-type">SISTEMA EM PRODUÇÃO</span>
-            <h3>Escala de Turnos — BOPE</h3>
-            <p>
-              API REST para gerenciamento de escalas operacionais do Batalhão de Operações
-              Policiais Especiais de Recife.
+            <span class="card-type" data-i18n="proj.escala.type">SISTEMA EM PRODUÇÃO</span>
+            <h3 data-i18n="proj.escala.title">Escala de Turnos</h3>
+            <p data-i18n="proj.escala.desc">
+              API REST para gerenciamento de escalas operacionais de um órgão de segurança
+              pública, substituindo a organização por WhatsApp. Usada por mais de 50 membros.
             </p>
             <div class="tags">
               <span class="tag">Java</span>
@@ -356,19 +546,18 @@
               <span class="tag">PostgreSQL</span>
             </div>
             <div class="card-links">
-              <span class="card-note">Privado (Institucional)</span>
+              <span class="card-note" data-i18n="proj.escala.note">Privado (Institucional)</span>
             </div>
           </div>
 
           <div class="card">
-            <span class="card-type">PRODUTO PUBLICADO · 10K+ DOWNLOADS</span>
-            <h3>Bíblia 3D (Realidade Aumentada)</h3>
-            <p>
-              App educativo em RA disponível na Google Play Store. Reestruturação completa de
-              arquitetura e suporte técnico contínuo.
+            <span class="card-type" data-i18n="proj.bib.type">PRODUTO PUBLICADO · 10K+ DOWNLOADS</span>
+            <h3 data-i18n="proj.bib.title">Bíblia 3D (Realidade Aumentada)</h3>
+            <p data-i18n="proj.bib.desc">
+              Aplicativo educativo em Realidade Aumentada disponível na Google Play.
+              Reestruturação completa da arquitetura e suporte técnico contínuo.
             </p>
             <div class="tags">
-              <span class="tag">Unity</span>
               <span class="tag">C#</span>
               <span class="tag">AR</span>
               <span class="tag">Android</span>
@@ -376,7 +565,7 @@
             <div class="card-links">
               <a
                 href="https://play.google.com/store/apps/details?id=com.Fuctura.Biblia3D"
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 >Google Play Store</a
               >
             </div>
@@ -387,58 +576,62 @@
       <!-- CONTATO -->
       <section id="contato">
         <div class="section-head reveal">
-          <span class="section-tag">// 05. CONEXÃO</span>
-          <h2>Vamos trabalhar juntos?</h2>
+          <span class="section-tag" data-i18n="contact.tag">// 05. CONEXÃO</span>
+          <h2 data-i18n="contact.title">Vamos trabalhar juntos?</h2>
         </div>
 
         <div class="contact-grid reveal">
           <form class="contact-form" id="contactForm" novalidate>
             <div class="form-group">
-              <label for="name">SEU NOME</label>
-              <input type="text" id="name" name="name" placeholder="Ex: Maria Silva" required />
+              <label for="name" data-i18n="form.name">SEU NOME</label>
+              <input type="text" id="name" name="name" placeholder="Ex: Maria Silva" data-i18n-placeholder="form.name.ph" required />
               <span class="error-msg"></span>
             </div>
 
             <div class="form-group">
-              <label for="email">SEU E-MAIL</label>
+              <label for="email" data-i18n="form.email">SEU E-MAIL</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="seuemail@dominio.com"
+                data-i18n-placeholder="form.email.ph"
                 required
               />
               <span class="error-msg"></span>
             </div>
 
             <div class="form-group">
-              <label for="message">MENSAGEM</label>
+              <label for="message" data-i18n="form.message">MENSAGEM</label>
               <textarea
                 id="message"
                 name="message"
                 rows="4"
                 placeholder="Descreva a proposta ou projeto..."
+                data-i18n-placeholder="form.message.ph"
                 required
               ></textarea>
               <span class="error-msg"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            <button type="submit" class="btn btn-primary" data-i18n="form.send">Enviar Mensagem</button>
           </form>
 
           <div class="contact-side">
-            <h3>Canais de Acesso Direto</h3>
-            <p>Aberto para oportunidades CLT, PJ, projetos de consultoria ou aulas técnicas.</p>
+            <h3 data-i18n="contact.side.title">Canais de Acesso Direto</h3>
+            <p data-i18n="contact.side.desc">Aberto a conversas sobre projetos, colaborações e aulas técnicas.</p>
 
             <div class="contact-links-list">
-              <a href="mailto:antoniohenriquebn@hotmail.com"><span>✉</span> antoniohenriquebn@hotmail.com</a>
+              <a href="mailto:antoniohenriquebn@hotmail.com"><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> antoniohenriquebn@hotmail.com</a>
               <a
                 href="https://www.linkedin.com/in/antonio-henrique-batista-do-nascimento-4025ab37a"
                 target="_blank"
-                ><span>🔗</span> LinkedIn Profile</a
+                rel="noopener noreferrer"
+                ><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-5M12 13a2.5 2.5 0 0 1 5 0v3"/></svg> LinkedIn</a
               >
-              <a href="https://github.com/TonhoDevi" target="_blank"><span>💻</span> GitHub / TonhoDevi</a>
-              <a href="https://tonhodevi.itch.io" target="_blank"><span>🎮</span> itch.io / Jogos</a>
+              <a href="https://github.com/TonhoDevi" target="_blank" rel="noopener noreferrer"
+                ><svg class="icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg> GitHub / TonhoDevi</a
+              >
             </div>
           </div>
         </div>
@@ -446,12 +639,13 @@
 
       <!-- FOOTER -->
       <footer>
-        <p>&copy; 2026 Antonio Henrique Nascimento. Recife, PE — Brasil.</p>
+        <p data-i18n="footer">&copy; 2026 Antonio Henrique Nascimento. Recife, PE — Brasil.</p>
       </footer>
     </div>
 
-    <button id="backToTop" aria-label="Voltar ao topo">↑</button>
+    <button id="backToTop" aria-label="Voltar ao topo" data-i18n-aria-label="a11y.top">↑</button>
 
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -36,16 +36,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const navToggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('mobileMenu');
 
-  navToggle.addEventListener('click', () => {
-    const open = mobileMenu.classList.toggle('open');
+  function setMenu(open) {
+    mobileMenu.classList.toggle('open', open);
     navToggle.textContent = open ? '✕' : '☰';
-  });
+    navToggle.setAttribute('aria-expanded', String(open));
+  }
+
+  navToggle.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
 
   mobileMenu.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      navToggle.textContent = '☰';
-    });
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  // =============================================================
+  // TEMA CLARO / ESCURO
+  // (o tema inicial já foi aplicado por um script no <head>)
+  // =============================================================
+  const themeToggle = document.getElementById('themeToggle');
+
+  themeToggle.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem('theme', next);
+    } catch (e) {}
   });
 
   // =============================================================
@@ -63,13 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
     return !err;
   }
 
+  const { t } = window.i18n;
+
   const validators = {
-    name: (value) => (value.trim().length >= 2 ? '' : 'Nome muito curto.'),
+    name: (value) => (value.trim().length >= 2 ? '' : t('err.name')),
     email: (value) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? '' : 'E-mail inválido.',
-    message: (value) =>
-      value.trim().length >= 10 ? '' : 'Mensagem precisa de ao menos 10 caracteres.',
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ? '' : t('err.email'),
+    message: (value) => (value.trim().length >= 10 ? '' : t('err.message')),
   };
+
+  // As mensagens de erro já exibidas ficariam no idioma anterior.
+  document.addEventListener('languagechange', () => {
+    form.querySelectorAll('.error-msg').forEach((span) => {
+      span.textContent = '';
+    });
+  });
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -84,9 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const subject = encodeURIComponent(`Contato via Portfólio — ${nameInput.value.trim()}`);
+    const subject = encodeURIComponent(`${t('mail.subject')}${nameInput.value.trim()}`);
     const body = encodeURIComponent(
-      `Nome: ${nameInput.value.trim()}\nE-mail: ${emailInput.value.trim()}\n\nMensagem:\n${messageInput.value.trim()}`
+      `${t('mail.name')}: ${nameInput.value.trim()}\n${t('mail.email')}: ${emailInput.value.trim()}\n\n${t('mail.message')}:\n${messageInput.value.trim()}`
     );
 
     window.location.href = `mailto:antoniohenriquebn@hotmail.com?subject=${subject}&body=${body}`;
